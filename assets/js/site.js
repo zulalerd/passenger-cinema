@@ -180,7 +180,7 @@
     return '<a class="card" href="event.html?e=' + encodeURIComponent(ev.slug) + '">' +
       '<span class="card__fig' + (cover ? "" : " card__fig--empty") + '">' +
         (index != null ? '<span class="card__no">' + (index < 9 ? "0" : "") + (index + 1) + "</span>" : "") +
-        '<span class="card__code">' + esc(ev.code || "") + "</span>" +
+        (ev.code ? '<span class="card__code">' + esc(ev.code) + "</span>" : "") +
         fig +
       "</span>" +
       '<span class="card__body">' +
@@ -380,7 +380,7 @@
       root.innerHTML = '<section class="section"><div class="wrap wrap--narrow">' +
         '<p class="label label--stamp">404</p><h1 class="display d2" style="margin:1rem 0">' +
         "We cannot find that screening.</h1>" +
-        '<p><a class="link" href="archive.html">Back to the archive <span class="arw" aria-hidden="true">&rarr;</span></a></p>' +
+        '<p><a class="link" href="archive.html">Back to past events <span class="arw" aria-hidden="true">&rarr;</span></a></p>' +
         "</div></section>";
       return;
     }
@@ -488,7 +488,7 @@
       (next ? '<a class="link" style="justify-self:end" href="event.html?e=' + encodeURIComponent(next.slug) + '">' +
         esc(next.film) + ' <span class="arw" aria-hidden="true">&rarr;</span></a>' : "<span></span>") +
       "</div>" +
-      '<p style="margin:2.5rem 0 0"><a class="link" href="archive.html">All past screenings <span class="arw" aria-hidden="true">&rarr;</span></a></p>' +
+      '<p style="margin:2.5rem 0 0"><a class="link" href="archive.html">All past events <span class="arw" aria-hidden="true">&rarr;</span></a></p>' +
       "</div></nav>";
 
     root.innerHTML = hero + meta + story + beyond + impact + gallery + credits + nav;
