@@ -366,7 +366,7 @@ window.PC = {
       country: "Brazil",
       year: 1959,
       date: "2025-03-01",
-      dateNote: "March 2025",
+      dateNote: "Early 2025",
       venue: "The Scala",
       city: "King's Cross, London",
       attendance: 70,
@@ -387,7 +387,10 @@ window.PC = {
       beyond: "Carnaval party with VaiBrasil",
       credits: ["The Scala, King's Cross, venue", "VaiBrasil, post-screening Carnaval party"],
       photos: [],
-      confirm: "Exact date needs confirming, and the photos are still zipped in the Drive folder."
+      confirm: "Narrowed to between 19 Feb and 4 Mar 2025. The Janus Films licence " +
+        "invoice (no. 36453, $150) is dated 19 Feb 2025 and the photo archive was zipped " +
+        "on 4 Mar 2025, so it was almost certainly a weekend in that window: 22/23 Feb or " +
+        "1/2 Mar. Photos are still zipped in the Drive folder."
     },
     {
       slug: "tampopo",

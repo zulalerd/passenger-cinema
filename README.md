@@ -76,7 +76,7 @@ Entries with a `confirm:` note still need checking. They currently are:
 | The Cook, the Thief… | Exact date (7 June 2026 came from your Barcelona planning sheet), plus photos |
 | Vengo | Exact date. We only have "April 2026". Plus photos |
 | In the Mood for Love | Date, venue, your own copy, photos |
-| Black Orpheus | Exact date (early March 2025), photos still zipped in Drive |
+| Black Orpheus | Narrowed to 19 Feb – 4 Mar 2025 (Janus licence invoice, then the photo archive date), so likely 22/23 Feb or 1/2 Mar. Photos still zipped in Drive |
 | Tampopo | Exact date, photos |
 
 Everything else is dated from the EXIF timestamps on your own photographs, so
