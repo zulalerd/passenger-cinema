@@ -1,10 +1,7 @@
 {
   "contactEmail": "hello@passengercinema.com",
   "instagram": "https://www.instagram.com/passenger.cinema/",
-  "formEndpoint": "",
   "footerTagline": "A volunteer-led community cinema, travelling through film.",
-  "footerAward": "Cinema For All: Emerging Community Cinema Award",
-
   "home": {
     "heroKicker": "London · est. 2024",
     "heroHeading": "All we’re doing is travelling without moving.",
@@ -37,7 +34,6 @@
     "involvedRecommend": "Our programme comes from our audience as much as from us. Tell us about a film you think London should see, or a room you think would make a beautiful cinema for a day.",
     "involvedVolunteer": "We are entirely volunteer-led. Programmers, photographers, writers, illustrators, front-of-house, people who are good at carrying things: we want all of you, and we want your own creative work in our events too."
   },
-
   "screenings": {
     "heading": "What’s on",
     "standfirst": "We programme one journey at a time, and we build the whole event around it: the room, the food, the music, the people who know the film best.",
@@ -65,21 +61,13 @@
       }
     ]
   },
-
   "archive": {
     "heading": "Where we’ve been",
     "standfirst": "Every screening we have ever put on, in reverse order. Each one had a different room, a different set of collaborators and a different reason for existing."
   },
-
   "recommend": {
     "heading": "Where should we go next?",
     "standfirst": "Some of our best events have started with someone telling us about a film we’d never heard of, or offering a room nobody had thought of using as a cinema. Both are below.",
-    "marquee": [
-      "A film we should see",
-      "A room we should fill",
-      "A country we haven’t visited",
-      "We read everything"
-    ],
     "filmIntro": [
       "It doesn’t need to be obscure and it doesn’t need to be worthy. It needs to be worth building an event around. Tell us why it matters to you.",
       "If it’s a film from a culture you belong to, say so, because we would love to make it with you rather than about you."
@@ -89,11 +77,9 @@
       "You don’t need a projector, a screen or blackout blinds. We have brought all three before, along with a bedsheet and a lot of volunteers."
     ]
   },
-
   "volunteer": {
     "heading": "Come and organise with us.",
     "standfirst": "Passenger Cinema is a volunteer-led community, and we want everyone who contributes to feel that they are genuinely part of what we are building.",
-    "offerIntro": "Most importantly, we hope Passenger Cinema can be a space where you can experiment, meet like-minded people and become part of a growing community built around cinema, culture and storytelling.",
     "offer": [
       "<strong>Shape Passenger Cinema with us.</strong> Contribute to our projects, screenings and events, and have a real voice in how the community develops.",
       "<strong>Hands-on experience</strong> working inside an independent cultural organisation, involved in the creative process behind our events.",
@@ -105,7 +91,6 @@
       "<strong>An annual membership to The Prince Charles Cinema</strong>, so you have another space to keep watching and discovering all year."
     ]
   },
-
   "about": {
     "heading": "We go wherever the film belongs.",
     "standfirst": "Passenger Cinema was founded in London in 2024 on a simple idea: cinema can help us travel, not only to different places but towards one another.",
@@ -116,8 +101,14 @@
       "We have travelled through cinema to Turkey, Japan, Brazil, Mexico, Jamaica, Italy, Hong Kong, Spain and Iran, celebrating stories that are rarely given the spotlight in mainstream cinemas. We believe audiences are curious and adventurous, and our programming reflects that. We have been proud to welcome people from the cultures represented on screen alongside those discovering them for the first time, creating conversations that continue long after the credits roll."
     ],
     "team": [
-      { "name": "Zulal Erdogan", "role": "Founder" },
-      { "name": "Nilufer Kir", "role": "Founder" }
+      {
+        "name": "Zulal Erdogan",
+        "role": "Founder"
+      },
+      {
+        "name": "Nilufer Kir",
+        "role": "Founder"
+      }
     ],
     "teamNote": "Beyond the two of us, Passenger Cinema is a rotating crew of volunteers: programmers, photographers, designers, writers, front-of-house, and friends who turn up with projectors, sound systems and, on one occasion, weaving looms carried over from Turkey."
   }
