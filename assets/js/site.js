@@ -172,7 +172,6 @@
     var fig = cover
       ? '<img src="' + imgPath(cover) + '" alt="" loading="lazy" decoding="async">'
       : '<span class="poster" aria-hidden="true">' +
-          '<span class="poster__code">' + esc(ev.code || "PC") + "</span>" +
           '<span class="poster__t">' + esc(ev.film) + "</span>" +
           '<span class="poster__n">' + esc(ev.country || "") + "</span>" +
         "</span>";
@@ -180,7 +179,6 @@
     return '<a class="card" href="event.html?e=' + encodeURIComponent(ev.slug) + '">' +
       '<span class="card__fig' + (cover ? "" : " card__fig--empty") + '">' +
         (index != null ? '<span class="card__no">' + (index < 9 ? "0" : "") + (index + 1) + "</span>" : "") +
-        (ev.code ? '<span class="card__code">' + esc(ev.code) + "</span>" : "") +
         fig +
       "</span>" +
       '<span class="card__body">' +
@@ -230,7 +228,7 @@
         (full ? "" : '<a class="btn" href="screenings.html">Full details <span aria-hidden="true">&rarr;</span></a>') +
       "</div>" +
       '<aside class="ticket__stub">' +
-        '<span class="stamp">' + esc(ev.destinationCode || ev.code || "") + " &middot; " +
+        '<span class="stamp">' +
           esc(ev.destinationCountry || ev.country || "") + "</span>" +
         '<div class="ticket__row"><dt>Boarding</dt><dd>' + esc(fmtStamp(ev)) + "</dd></div>" +
         '<div class="ticket__row"><dt>Destination</dt><dd>' + esc(ev.city) + "</dd></div>" +
@@ -268,12 +266,10 @@
         if (!e.country || done[e.country]) return;
         done[e.country] = 1;
         out.push('<a class="pstamp" href="archive.html#' + encodeURIComponent(e.country) + '">' +
-          "<b>" + esc(e.code || "") + "</b>" +
           '<span class="pstamp__n">' + esc(e.country) + "</span></a>");
       });
       PC.upcoming.forEach(function (e) {
         out.push('<span class="pstamp" data-next="true">' +
-          "<b>" + esc(e.destinationCode || "") + "</b>" +
           '<span class="pstamp__n">' + esc(e.destinationCountry || e.city) +
           " <em>next</em></span></span>");
       });
@@ -343,9 +339,7 @@
       countries.sort();
       bar.innerHTML = '<button type="button" aria-pressed="true" data-f="">All · ' + total + "</button>" +
         countries.map(function (c) {
-          var f = (events.filter(function (e) { return e.country === c; })[0] || {}).code || "";
-          return '<button type="button" aria-pressed="false" data-f="' + esc(c) + '"><b>' +
-            esc(f) + "</b>" + esc(c) + "</button>";
+          return '<button type="button" aria-pressed="false" data-f="' + esc(c) + '">' + esc(c) + "</button>";
         }).join("");
 
       bar.addEventListener("click", function (e) {
@@ -399,7 +393,7 @@
       (cover ? '<div class="ehero__media"><img src="' + imgPath(cover) + '" alt=""></div>' : "") +
       '<div class="wrap ehero__in">' +
         '<p class="label label--muted">' +
-          esc(ev.code) + (ev.year ? " &middot; " + ev.year : "") + "</p>" +
+          esc(ev.country || "") + (ev.year ? " &middot; " + ev.year : "") + "</p>" +
         '<h1 class="display d1">' + esc(ev.film) + "</h1>" +
         '<p class="lede" style="max-width:44ch;opacity:.9">' + esc(ev.standfirst || "") + "</p>" +
         (ev.soldOut ? '<p style="margin-top:1.5rem"><span class="stamp stamp--ochre">Sold out</span></p>' : "") +

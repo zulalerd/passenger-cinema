@@ -375,26 +375,15 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
           mask-size: 240px 120px;
 }
 
-/* the country code, the big line of the stamp */
-.pstamp b {
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  font-weight: 700;
-  letter-spacing: .22em;
-  line-height: 1;
-  padding-left: .22em;      /* optical: letterspacing adds a trailing gap */
-}
-/* the country name, under a hairline, the way a stamp carries its port name */
+/* the country name is the whole stamp now, so it carries the weight */
 .pstamp {
-  font-size: .58rem;
+  font-size: .72rem;
   letter-spacing: .2em;
   text-transform: uppercase;
   line-height: 1.3;
 }
 .pstamp__n {
-  border-top: 1px solid currentColor;
-  padding-top: .3rem;
-  margin-top: .12rem;
-  min-width: 100%;
+  font-weight: 700;
   max-width: 22ch;          /* a long co-production list must not stretch the stamp */
   text-align: center;
   overflow-wrap: anywhere;
@@ -437,24 +426,47 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 @media (min-width: 720px)  { .cards--3 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1040px) { .cards--3 { grid-template-columns: repeat(3, 1fr); } }
 
+/* Cards are postcards: a photographic print with a white margin, dropped on
+   the page at a slight angle. The tilt alternates so a grid of them looks
+   placed by hand rather than mechanically rotated. */
 .card { display: flex; flex-direction: column; text-decoration: none; }
-.card__fig { position: relative; overflow: hidden; background: var(--midnight-2); aspect-ratio: 4 / 3; }
-.card__fig img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease), filter .4s; }
-.card:hover .card__fig img { transform: scale(1.035); }
-.card__fig--empty { display: grid; place-items: center; }
+
+.card__fig {
+  position: relative;
+  background: var(--ivory);
+  padding: 11px 11px 13px;
+  box-shadow:
+    0 1px 1px rgba(6,32,42,.10),
+    0 10px 26px -12px rgba(6,32,42,.40);
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+  transform: rotate(-.7deg);
+}
+.card:nth-child(even) .card__fig { transform: rotate(.8deg); }
+.card:nth-child(3n)   .card__fig { transform: rotate(-.35deg); }
+
+.card:hover .card__fig,
+.card:focus-visible .card__fig {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow:
+    0 2px 2px rgba(6,32,42,.10),
+    0 20px 40px -14px rgba(6,32,42,.45);
+}
+
+.card__fig img,
+.card__fig .poster {
+  display: block; width: 100%; aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--midnight-2);
+}
+
+/* the index number sits on the white margin, like a pencilled note */
 .card__no {
-  position: absolute; top: 0; left: 0; z-index: 2;
-  font-family: var(--mono); font-size: .68rem; letter-spacing: .14em;
-  background: var(--ivory); color: var(--midnight);
-  padding: .4rem .65rem;
+  position: absolute; right: 14px; bottom: 16px; z-index: 2;
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .16em;
+  color: var(--midnight); opacity: .45;
 }
-.card__code {
-  position: absolute; top: 0; right: 0; z-index: 2;
-  font-family: var(--mono); font-size: .68rem; letter-spacing: .14em; font-weight: 700;
-  background: var(--stamp); color: var(--ivory); padding: .4rem .65rem;
-  max-width: 60%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.card__body { padding-top: 1rem; display: grid; gap: .45rem; }
+
+.card__body { padding-top: 1.15rem; display: grid; gap: .45rem; }
 .card__meta { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
 .card h3 { font-family: var(--display); font-size: clamp(1.2rem, 1.6vw, 1.5rem); line-height: 1.12; letter-spacing: -.012em; }
 .card__dir { font-size: .9rem; opacity: .7; margin: 0; }
@@ -462,18 +474,12 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 
 /* placeholder poster when an event has no photos yet */
 .poster {
-  position: absolute; inset: 0;
-  display: grid; place-content: center; gap: .8rem; text-align: center;
+  display: grid; place-content: center; gap: .6rem; text-align: center;
   padding: 1.5rem;
   background:
     repeating-linear-gradient(135deg, rgba(251,250,237,.045) 0 2px, transparent 2px 9px),
     linear-gradient(155deg, var(--midnight) 0%, var(--ink) 100%);
   color: var(--ivory);
-}
-.poster__code {
-  font-family: var(--mono); font-weight: 700; font-size: 1.15rem; letter-spacing: .26em;
-  border: 1.5px solid rgba(251,250,237,.5); padding: .4rem .55rem .4rem .8rem;
-  justify-self: center; margin-bottom: .35rem;
 }
 .poster__t { font-family: var(--display); font-size: 1.15rem; line-height: 1.15; max-width: 16ch; margin-inline: auto; }
 .poster__n { font-family: var(--mono); font-size: .62rem; letter-spacing: .2em; opacity: .55; text-transform: uppercase; }
@@ -486,10 +492,6 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   display: inline-flex; align-items: center; gap: .5rem;
   font-family: var(--mono); font-size: .68rem; letter-spacing: .13em; text-transform: uppercase;
   transition: background .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease);
-}
-.filters button b {
-  font-weight: 700; font-size: .62rem; letter-spacing: .1em;
-  border: 1px solid currentColor; padding: .12rem .28rem .12rem .34rem; opacity: .7;
 }
 .filters button:hover { border-color: var(--midnight); }
 .filters button[aria-pressed="true"] { background: var(--midnight); border-color: var(--midnight); color: var(--ivory); }
