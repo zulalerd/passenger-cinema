@@ -36,7 +36,10 @@
                                                   "what":  "Live performance by Mavi Duo"
                                               }
                                           ],
-                         "beyond":  "Live performance by Mavi Duo (Ceren and Mert)"
+                         "beyond":  "Live performance by Mavi Duo (Ceren and Mert)",
+                         "photos":  [
+                                        "saz-01.jpg"
+                                    ]
                      }
                  ],
     "past":  [
@@ -61,7 +64,9 @@
                      "credits":  [
                                      "Barcelona community builders and food creatives"
                                  ],
-                     "confirm":  "Date confirmed. Photographs still to add."
+                     "photos":  [
+                                    "the-cook-the-thief-01.jpg"
+                                ]
                  },
                  {
                      "film":  "Gabbeh",
@@ -155,7 +160,11 @@
                                        "label":  "Maika's reflection on the event",
                                        "url":  "https://www.linkedin.com/feed/update/urn:li:activity:7452031060575461377/"
                                    }
-                               ]
+                               ],
+                     "photos":  [
+                                    "vengo-01.jpg",
+                                    "vengo-02.jpg"
+                                ]
                  },
                  {
                      "film":  "The Red Shoes",
@@ -181,6 +190,7 @@
                                      "Postane, Istanbul, venue"
                                  ],
                      "photos":  [
+                                    "red-shoes-00.jpg",
                                     "red-shoes-01.jpg",
                                     "red-shoes-02.jpg",
                                     "red-shoes-03.jpg",
@@ -203,12 +213,20 @@
                      "city":  "Soho, London",
                      "soldOut":  false,
                      "first":  false,
-                     "standfirst":  "Wong Kar-wai's slow-burning Hong Kong, screened in London.",
+                     "standfirst":  "Our Valentine's special at The Prince Charles Cinema, followed by dinner together in Chinatown.",
                      "story":  [
-                                   "A film of corridors, cigarette smoke and things left unsaid, and one of the most requested titles by our own audience."
+                                   "A film of corridors, cigarette smoke and things left unsaid. Wong Kar-wai's two neighbours spend the whole film not saying the thing, and somehow it is the most romantic picture ever made about restraint.",
+                                   "We took it to The Prince Charles Cinema as our Valentine's special, which felt right for a film about longing rather than happy endings. Afterwards the whole room walked round the corner to Gold Mine in Chinatown and carried on talking over dinner."
                                ],
-                     "confirm":  "Date and venue confirmed. Still needs your own copy and photographs.",
-                     "venue":  "The Prince Charles Cinema"
+                     "venue":  "The Prince Charles Cinema",
+                     "photos":  [
+                                    "in-the-mood-for-love-01.jpg"
+                                ],
+                     "beyond":  "Dinner together at Gold Mine, Chinatown",
+                     "credits":  [
+                                     "The Prince Charles Cinema, Soho, venue",
+                                     "Gold Mine, Chinatown, post-screening dinner"
+                                 ]
                  },
                  {
                      "film":  "Cinema Paradiso",
@@ -297,6 +315,7 @@
                                      "Manuela Irene, director"
                                  ],
                      "photos":  [
+                                    "xibalba-monster-00.jpg",
                                     "xibalba-monster-01.jpg",
                                     "xibalba-monster-02.jpg",
                                     "xibalba-monster-03.jpg",
@@ -389,6 +408,7 @@
                                      "Kerem Advan, live performance"
                                  ],
                      "photos":  [
+                                    "crossing-the-bridge-00.jpg",
                                     "crossing-the-bridge-01.jpg",
                                     "crossing-the-bridge-02.jpg",
                                     "crossing-the-bridge-03.jpg",
