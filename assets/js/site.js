@@ -713,13 +713,25 @@
   }
 
   function failed(err) {
+    var onDisk = location.protocol === "file:";
     var m = document.createElement("div");
-    m.style.cssText = "padding:2rem;font-family:monospace;font-size:.85rem;line-height:1.6";
-    m.innerHTML = "<strong>Could not load the site content.</strong><br><br>" +
-      "If you opened this file straight from your computer, the browser blocks it " +
-      "from reading the JSON files in <code>data/</code>. Run <code>preview.cmd</code> " +
-      "in the project folder and use the address it prints instead.<br><br>" +
-      "<em>" + esc(err && err.message ? err.message : String(err)) + "</em>";
+    m.style.cssText =
+      "position:relative;z-index:99;background:#B8402C;color:#FBFAED;" +
+      "padding:1.5rem clamp(1.25rem,4vw,3.5rem);font-family:system-ui,sans-serif;" +
+      "font-size:1rem;line-height:1.6";
+    m.innerHTML = onDisk
+      ? "<strong>You are looking at this file straight off your computer, " +
+        "so the screenings cannot load.</strong><br>" +
+        "This is not a problem with the site. Browsers block a page opened from " +
+        "disk from reading the content files.<br><br>" +
+        "See the real site at " +
+        '<a style="color:#FBFAED" href="https://zulalerd.github.io/passenger-cinema/">' +
+        "zulalerd.github.io/passenger-cinema</a>, or double-click " +
+        "<code>preview.cmd</code> in this folder to preview it properly."
+      : "<strong>The screenings could not load.</strong><br>" +
+        "Try reloading. If it keeps happening, the content files may have a " +
+        "syntax error.<br><br><em>" +
+        esc(err && err.message ? err.message : String(err)) + "</em>";
     var main = $("#main") || document.body;
     main.prepend(m);
   }
