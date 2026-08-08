@@ -580,7 +580,7 @@
       var role = PC.roles.filter(function (r) { return r.id === id; })[0];
       if (!role) { qslot.innerHTML = ""; return; }
       qslot.innerHTML =
-        '<p class="label" style="margin-bottom:1.25rem">' + esc(role.title) + ": a few questions</p>" +
+        '<p class="label">' + esc(role.title) + ": a few questions</p>" +
         role.questions.map(function (q) {
           var id2 = "q-" + role.id + "-" + q.id;
           return '<div class="field">' +

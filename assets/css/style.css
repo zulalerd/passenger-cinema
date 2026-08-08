@@ -554,6 +554,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 /* ------------------------------------------------------------------ forms */
 .form { display: grid; gap: 1.6rem; }
 .field { display: grid; gap: .5rem; }
+/* The role questions are injected into a plain wrapper, so they would
+   otherwise stack with no gap at all while the rest of the form breathes.
+   Long answer boxes need more air than the short fields above them. */
+[data-role-questions] { display: grid; gap: 2.4rem; }
 .field > label { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
 .field .hint { font-size: .85rem; opacity: .68; line-height: 1.5; margin: 0; }
 .field .req { color: var(--stamp); }
