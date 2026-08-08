@@ -335,7 +335,10 @@
                      "credits":  [
                                      "The Scala, King's Cross, venue",
                                      "VaiBrasil, post-screening Carnaval party"
-                                 ]
+                                 ],
+                     "photos":  [
+                                    "black-orpheus-01.jpg"
+                                ]
                  },
                  {
                      "film":  "Tampopo",
@@ -359,7 +362,10 @@
                      "credits":  [
                                      "Picturehouse Finsbury Park, venue",
                                      "Tenmaru Ramen, post-screening"
-                                 ]
+                                 ],
+                     "photos":  [
+                                    "tampopo-01.jpg"
+                                ]
                  },
                  {
                      "film":  "Crossing the Bridge: The Sound of Istanbul",
