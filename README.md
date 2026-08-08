@@ -109,18 +109,38 @@ an email client set up, and nothing is stored.
 
 ---
 
-## 5. Putting it online
+## 5. How it gets online
 
-The site is static files, so any of these work, all free.
+The site is live at **https://passengercinema.com**, hosted on **Vercel**.
 
-**GitHub Pages:** Settings → Pages → deploy from `main` / root. The site appears
-at `https://zulalerd.github.io/passenger-cinema/`. Every push redeploys it.
+The chain is:
 
-**Netlify:** drag the folder onto https://app.netlify.com/drop, or connect the
-repo for automatic deploys.
+```
+you save in the CMS  →  commit to GitHub  →  Vercel redeploys  →  Cloudflare  →  visitor
+```
 
-For `passengercinema.com`, buy the domain and add it as a custom domain in
-whichever host you picked.
+Cloudflare holds the DNS and proxies to Vercel. You don't need to touch either
+of them day to day: pushing to `main`, whether from the CMS or by hand, is all
+it takes. A deploy lands in about a minute.
+
+GitHub Pages is **not** used. There is deliberately no `CNAME` file in the repo,
+because that file is how Pages claims a domain and having both configured for
+`passengercinema.com` caused confusion.
+
+### `vercel.json`
+
+This sets cache headers, and it matters. The files in `data/` are rewritten on
+every CMS save, so they are marked `must-revalidate` — without that, Vercel's
+CDN can serve yesterday's events for hours and it looks like the site is broken.
+Photographs cache for a week, since they never change once uploaded.
+
+### When something looks wrong
+
+Open **https://passengercinema.com/data/events.json** in your browser.
+
+- Films listed there → the content is fine, so it is a deploy or cache issue.
+  Hard-reload with Ctrl+Shift+R, and check the Vercel dashboard for a failed build.
+- That URL errors → something is genuinely broken. Check the most recent commit.
 
 ---
 
