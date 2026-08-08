@@ -113,5 +113,9 @@
                                }
                            ],
                   "teamNote":  "Beyond the two of us, Passenger Cinema is a rotating crew of volunteers: programmers, photographers, designers, writers, front-of-house, and friends who turn up with projectors, sound systems and, on one occasion, weaving looms carried over from Turkey."
-              }
+              },
+    "analytics":  {
+                      "posthogKey":  "",
+                      "posthogHost":  "https://eu.i.posthog.com"
+                  }
 }
