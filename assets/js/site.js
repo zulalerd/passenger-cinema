@@ -654,18 +654,26 @@
 
         if (FORM_ENDPOINT) {
           if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
-          var payload = { _form: subject };
+          var payload = { _form: subject, _subject: "Passenger Cinema: " + subject };
           data.forEach(function (r) { payload[r[0]] = r[1]; });
-          /* text/plain keeps this a "simple request", so the browser skips the
-             CORS preflight that Google Apps Script cannot answer. The script
-             still receives it as JSON. */
+
+          /* Works with either service, so you can use whichever you can get set up.
+             Google Apps Script cannot answer a CORS preflight, so it needs
+             text/plain to stay a "simple request". Formspree and friends want
+             proper JSON. */
+          var isAppsScript = /script\.google\.com/.test(FORM_ENDPOINT);
+          var headers = isAppsScript
+            ? { "Content-Type": "text/plain;charset=utf-8" }
+            : { "Content-Type": "application/json", "Accept": "application/json" };
+
           fetch(FORM_ENDPOINT, {
             method: "POST",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            headers: headers,
             body: JSON.stringify(payload)
           }).then(function (r) {
             if (!r.ok) throw new Error("bad status");
-            return r.json();
+            /* not every service returns JSON, and that is fine */
+            return r.json().catch(function () { return null; });
           }).then(function (res) {
             if (res && res.ok === false) throw new Error(res.error || "rejected");
             form.reset();
