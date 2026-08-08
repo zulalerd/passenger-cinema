@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volunteer | Passenger Cinema</title>
+<meta name="description" content="Passenger Cinema is volunteer-led. Join the crew as a film programmer, social media and communications manager, videographer, or general volunteer.">
+<link rel="icon" href="assets/img/brand/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__in">
+    <a class="brand" href="index.html" aria-label="Passenger Cinema home">
+      <img src="assets/img/brand/logo-midnight.svg" alt="Passenger Cinema">
+      <span class="brand__tag">Travelling through film</span>
+    </a>
+    <button class="navToggle" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="navToggle__t">Menu</span>
+    </button>
+    <nav class="nav" id="nav" data-open="false" aria-label="Main">
+      <a href="screenings.html">Screenings</a>
+      <a href="archive.html">Archive</a>
+      <a href="recommend.html">Recommend</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section section--tight" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+    <div class="wrap">
+      <p class="label label--stamp">Join the crew</p>
+      <h1 class="display d1" style="max-width:15ch;margin:1rem 0 1.5rem">Come and make it with us.</h1>
+      <p class="lede" style="max-width:48ch">
+        Passenger Cinema is a volunteer-led community, and we want everyone who contributes to feel
+        that they are genuinely part of what we are building.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================== WHAT WE OFFER -->
+  <section class="section ivory">
+    <div class="wrap">
+      <div class="two-col">
+        <div>
+          <p class="label">What we offer</p>
+          <p style="opacity:.75;font-size:.95rem;margin-top:1rem;max-width:32ch">
+            In return for your time and creativity, you become part of the Passenger Cinema team.
+          </p>
+        </div>
+        <div>
+          <ul class="offer">
+            <li><span class="n">01</span><span><strong>Shape Passenger Cinema with us.</strong>
+              Contribute to our projects, screenings and events, and have a real voice in how the
+              community develops.</span></li>
+            <li><span class="n">02</span><span><strong>Hands-on experience</strong> working inside an
+              independent cultural organisation, involved in the creative process behind our events.</span></li>
+            <li><span class="n">03</span><span><strong>Meet and collaborate</strong> with filmmakers,
+              artists and creatives working across cinema, culture and the arts.</span></li>
+            <li><span class="n">04</span><span><strong>Attend our screenings and events</strong> as
+              part of the team.</span></li>
+            <li><span class="n">05</span><span><strong>Build your portfolio.</strong> Use the
+              work you make with Passenger Cinema in your own professional or creative practice.</span></li>
+            <li><span class="n">06</span><span><strong>Space for your own creative work.</strong> If
+              you&rsquo;re an artist or filmmaker, we want Passenger Cinema to be a platform for your
+              creativity too: your illustrations or artwork in our posters and visual materials, your
+              short films screened at our events, or another way of bringing your work into the room.</span></li>
+            <li><span class="n">07</span><span><strong>An annual membership to The Prince Charles
+              Cinema</strong>, so you have another space to keep watching and discovering all year.</span></li>
+          </ul>
+          <p style="margin-top:2rem;max-width:52ch;opacity:.8">
+            Most importantly, we hope Passenger Cinema can be a space where you can experiment, meet
+            like-minded people and become part of a growing community built around cinema, culture and
+            storytelling.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= FORM -->
+  <section class="section">
+    <div class="wrap">
+      <div class="shead">
+        <div class="shead__top">
+          <p class="label">Register your interest</p>
+          <p class="label label--muted shead__note">No experience required</p>
+        </div>
+        <h2 class="display d2" style="max-width:20ch">Pick the role that sounds most like you.</h2>
+      </div>
+
+      <form class="form" data-pcform data-subject="Website: volunteer application" novalidate>
+        <div class="hp" aria-hidden="true">
+          <label>Leave this empty<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <fieldset style="border:0;padding:0;margin:0">
+          <legend class="label" style="margin-bottom:1rem">Role</legend>
+          <div class="roles" data-roles></div>
+        </fieldset>
+
+        <div class="grid2">
+          <div class="field">
+            <label for="v-name">Your name <span class="req" aria-hidden="true">*</span></label>
+            <input id="v-name" name="Your name" type="text" required autocomplete="name">
+            <p class="err" hidden>Please fill this in</p>
+          </div>
+          <div class="field">
+            <label for="v-email">Your email <span class="req" aria-hidden="true">*</span></label>
+            <input id="v-email" name="Your email" type="email" required autocomplete="email">
+            <p class="err" hidden>Please enter a valid email</p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label for="v-loc">Where are you based?</label>
+            <input id="v-loc" name="Based in" type="text" placeholder="London, or elsewhere" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="v-links">Instagram / portfolio / LinkedIn</label>
+            <input id="v-links" name="Links" type="text" autocomplete="off">
+          </div>
+        </div>
+
+        <hr style="margin:.5rem 0">
+
+        <div data-role-questions></div>
+
+        <div class="field">
+          <label for="v-time">Roughly how much time could you give?</label>
+          <p class="hint">Completely fine to say &ldquo;not sure yet&rdquo;. Some people help at one
+            screening a season; some are here every week.</p>
+          <textarea id="v-time" name="Availability" style="min-height:5.5rem"></textarea>
+        </div>
+
+        <div class="formMsg" data-formmsg role="status" aria-live="polite"></div>
+
+        <div>
+          <button class="btn" type="submit">Send application <span aria-hidden="true">&rarr;</span></button>
+          <p class="formNote" style="margin-top:1rem">
+            We reply to everyone. If none of the roles fit, choose &ldquo;something else&rdquo; and
+            tell us what you&rsquo;d like to do. Several of our volunteers invented their own job.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- =========================================================== FARIDA -->
+  <section class="section dark">
+    <div class="wrap">
+      <div class="two-col">
+        <div><p class="label">How people usually arrive</p></div>
+        <div class="prose">
+          <p class="lede" style="max-width:34ch;margin-bottom:1.5rem">
+            Most of our volunteers came to a screening first, liked the room, and stayed.
+          </p>
+          <p style="opacity:.85">
+            After our <a href="event.html?e=gabbeh">Gabbeh</a> screening in Hackney Wick, one attendee,
+            Farida, was inspired enough by the atmosphere to join Passenger Cinema as a volunteer. For
+            us that is the clearest sign an event has worked: it didn&rsquo;t just attract an audience
+            for an afternoon, it made someone want to be part of the thing itself.
+          </p>
+          <p style="opacity:.85">
+            The Gabbeh evening alone was organised by eight core volunteers, with four more friends
+            lending equipment, expertise and a set of weaving looms carried over from Turkey.
+          </p>
+          <p style="margin-top:2rem">
+            <a class="link" href="archive.html">See what we&rsquo;ve built so far <span class="arw" aria-hidden="true">&rarr;</span></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <img src="assets/img/brand/logo-ivory.svg" alt="Passenger Cinema">
+        <p>A volunteer-led community cinema, travelling through film. London, and wherever the next
+           film wants to live.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="screenings.html">Screenings</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li><a href="recommend.html">Recommend a film</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <ul>
+          <li><a data-instagram href="#" target="_blank" rel="noopener">Instagram: @passenger.cinema</a></li>
+          <li><a data-contact-email href="#">hello@passengercinema.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <p class="label">&copy; <span data-year>2026</span> Passenger Cinema</p>
+      <p class="label foot__awards">Cinema For All: Emerging Community Cinema Award</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/events.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

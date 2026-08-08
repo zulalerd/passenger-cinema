@@ -1,0 +1,16 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# never commit secrets (e.g. if you ever add a form key in a config file)
+.env
+.env.*
+
+# local build or scratch output
+node_modules/
+tmp/
+*.log

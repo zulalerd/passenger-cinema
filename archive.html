@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archive | Passenger Cinema</title>
+<meta name="description" content="Every Passenger Cinema screening so far: the film, the venue, the people who made it, and the photographs from the room.">
+<link rel="icon" href="assets/img/brand/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__in">
+    <a class="brand" href="index.html" aria-label="Passenger Cinema home">
+      <img src="assets/img/brand/logo-midnight.svg" alt="Passenger Cinema">
+      <span class="brand__tag">Travelling through film</span>
+    </a>
+    <button class="navToggle" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="navToggle__t">Menu</span>
+    </button>
+    <nav class="nav" id="nav" data-open="false" aria-label="Main">
+      <a href="screenings.html">Screenings</a>
+      <a href="archive.html">Archive</a>
+      <a href="recommend.html">Recommend</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section section--tight" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+    <div class="wrap">
+      <p class="label label--stamp">The archive</p>
+      <h1 class="display d1" style="max-width:16ch;margin:1rem 0 1.5rem">Where we&rsquo;ve been</h1>
+      <p class="lede" style="max-width:48ch">
+        Every screening we have ever put on, in reverse order. Each one had a different room, a
+        different set of collaborators and a different reason for existing.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(2rem,4vw,3rem)">
+    <div class="wrap">
+      <div class="filters" data-archive-filters role="group" aria-label="Filter screenings by country"></div>
+      <div class="cards cards--3" data-archive></div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <div class="two-col">
+        <div><p class="label">Missing something?</p></div>
+        <div class="prose">
+          <p class="lede" style="max-width:34ch;margin-bottom:1.5rem">
+            The archive keeps growing, and so does the list of places we haven&rsquo;t been yet.
+          </p>
+          <p style="opacity:.85">
+            If there is a film, a country or a community you think should be on this page, tell us.
+            A good proportion of our programme has come from exactly that kind of message.
+          </p>
+          <p style="margin-top:2rem"><a class="btn btn--ghost" href="recommend.html">Recommend a film</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <img src="assets/img/brand/logo-ivory.svg" alt="Passenger Cinema">
+        <p>A volunteer-led community cinema, travelling through film. London, and wherever the next
+           film wants to live.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="screenings.html">Screenings</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li><a href="recommend.html">Recommend a film</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <ul>
+          <li><a data-instagram href="#" target="_blank" rel="noopener">Instagram: @passenger.cinema</a></li>
+          <li><a data-contact-email href="#">hello@passengercinema.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <p class="label">&copy; <span data-year>2026</span> Passenger Cinema</p>
+      <p class="label foot__awards">Cinema For All: Emerging Community Cinema Award</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/events.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
