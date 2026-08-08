@@ -151,6 +151,12 @@ content:
       - { name: contactEmail,  label: Contact email, type: string }
       - { name: instagram,     label: Instagram URL, type: string }
       - { name: formEndpoint,  label: Form endpoint, type: string, description: "The Google Apps Script web app URL that receives form submissions. Leave blank to fall back to opening the visitor's email client." }
+      - name: analytics
+        label: Analytics (optional)
+        type: object
+        fields:
+          - { name: posthogKey,  label: PostHog project key, type: string, description: "Leave blank for no analytics at all. Paste the project API key from PostHog → Settings → Project to switch it on." }
+          - { name: posthogHost, label: PostHog host, type: string, description: "https://eu.i.posthog.com for the EU, https://us.i.posthog.com for the US." }
       - { name: footerTagline, label: Footer tagline, type: text }
       - { name: footerAward,   label: Footer award line, type: string }
 
