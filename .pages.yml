@@ -39,8 +39,8 @@ content:
           - { name: slug,     label: URL slug,     type: string, required: true, description: "Lowercase with hyphens, e.g. black-orpheus. Changing this breaks existing links." }
           - { name: director, label: Director,     type: string }
           - { name: year,     label: Year,         type: number }
-          - { name: code,     label: Country code, type: string, description: "Two letters, e.g. IR. Shown as the passport stamp." }
-          - { name: country,  label: Country,      type: string }
+          - { name: code,     label: Country code, type: string, description: "TWO LETTERS ONLY, e.g. IR. This is the passport stamp and the little tag on cards, so anything longer looks wrong. For a co-production pick the one country the event is really about." }
+          - { name: country,  label: Country,      type: string, description: "Shown in the details list, so a long co-production list is fine here." }
           - { name: date,     label: Date,         type: date,   required: true, options: { format: "yyyy-MM-dd" } }
           - { name: dateNote, label: Date override, type: string, description: "Only if the exact day is unknown, e.g. 'April 2026'. Shown instead of the date." }
           - { name: venue,    label: Venue,        type: string }
@@ -79,8 +79,8 @@ content:
           - { name: slug,     label: URL slug,     type: string, required: true, description: "Lowercase with hyphens. Changing this breaks existing links." }
           - { name: director, label: Director,     type: string }
           - { name: year,     label: Year,         type: number }
-          - { name: code,     label: Country code, type: string, description: "Two letters, e.g. IR." }
-          - { name: country,  label: Country,      type: string }
+          - { name: code,     label: Country code, type: string, description: "TWO LETTERS ONLY, e.g. IR. This is the passport stamp and the archive filter, so anything longer looks wrong." }
+          - { name: country,  label: Country,      type: string, description: "Also used to group the archive filters, so keep it to one country name." }
           - { name: date,     label: Date,         type: date, required: true, options: { format: "yyyy-MM-dd" } }
           - { name: dateNote, label: Date override, type: string, description: "Only if the exact day is unknown, e.g. 'April 2026'." }
           - { name: venue,    label: Venue,        type: string }

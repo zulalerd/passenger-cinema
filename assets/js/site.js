@@ -204,7 +204,10 @@
       ["Date", fmtLong(ev)],
       ["Time", (ev.doors || ev.start || "") + (ev.ends ? " to " + ev.ends : "")],
       ["Venue", ev.venue],
-      ["City", ev.city]
+      ["City", ev.city],
+      /* country lives here rather than in the letterspaced label line, because
+         a co-production can list a dozen countries and that would sprawl */
+      ["Country", ev.country]
     ].filter(function (r) { return r[1]; });
 
     var order = (ev.runningOrder || []).map(function (r) {
@@ -216,7 +219,7 @@
         '<p class="label label--stamp">Next departure</p>' +
         '<h2 class="display d2" style="margin:.7rem 0 .5rem">' + esc(ev.film) + "</h2>" +
         '<p class="label label--muted">' + esc(ev.director) +
-          (ev.country ? " · " + esc(ev.country) : "") + "</p>" +
+          (ev.year ? " · " + ev.year : "") + "</p>" +
         '<dl class="ticket__meta">' +
           meta.map(function (r) {
             return '<div class="ticket__row"><dt>' + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>";
@@ -396,8 +399,7 @@
       (cover ? '<div class="ehero__media"><img src="' + imgPath(cover) + '" alt=""></div>' : "") +
       '<div class="wrap ehero__in">' +
         '<p class="label label--muted">' +
-          esc(ev.code) + " &middot; " + esc(ev.country) +
-          (ev.year ? " · " + ev.year : "") + "</p>" +
+          esc(ev.code) + (ev.year ? " &middot; " + ev.year : "") + "</p>" +
         '<h1 class="display d1">' + esc(ev.film) + "</h1>" +
         '<p class="lede" style="max-width:44ch;opacity:.9">' + esc(ev.standfirst || "") + "</p>" +
         (ev.soldOut ? '<p style="margin-top:1.5rem"><span class="stamp stamp--ochre">Sold out</span></p>' : "") +
