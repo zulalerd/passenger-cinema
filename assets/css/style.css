@@ -27,6 +27,10 @@
   --maxw:  1320px;
   --readw: 62ch;
 
+  /* height of the sticky masthead — the mobile nav drops from underneath it,
+     so change it here and everything follows */
+  --headerH: clamp(84px, 7.5vw, 112px);
+
   --ease: cubic-bezier(.22,.61,.36,1);
 }
 
@@ -208,10 +212,11 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 }
 .masthead__in {
   display: flex; align-items: center; gap: 1.5rem;
-  min-height: 68px;
+  min-height: var(--headerH);
+  padding-block: clamp(1rem, 1.6vw, 1.6rem);
 }
-.brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; flex: 0 0 auto; }
-.brand img { width: clamp(96px, 12vw, 124px); }
+.brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; flex: 0 0 auto; }
+.brand img { width: clamp(92px, 10vw, 116px); }
 .brand__tag {
   display: none;
   font-family: var(--mono); font-size: .625rem; letter-spacing: .18em; text-transform: uppercase;
@@ -241,14 +246,14 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 @media (min-width: 940px) { .navToggle { display: none; } }
 @media (max-width: 939px) {
   .nav {
-    position: fixed; inset: 68px 0 auto 0;
+    position: fixed; inset: var(--headerH) 0 auto 0;
     background: var(--midnight); color: var(--ivory);
     flex-direction: column; align-items: flex-start; gap: 0;
     padding: 1rem var(--gut) 2rem;
     border-bottom: 1px solid var(--rule-dark);
     transform: translateY(-8px); opacity: 0; pointer-events: none;
     transition: opacity .2s var(--ease), transform .2s var(--ease);
-    max-height: calc(100dvh - 68px); overflow-y: auto;
+    max-height: calc(100dvh - var(--headerH)); overflow-y: auto;
   }
   .nav[data-open="true"] { transform: none; opacity: 1; pointer-events: auto; }
   .nav a { width: 100%; padding: .95rem 0; border-bottom: 1px solid rgba(251,250,237,.14); font-size: .82rem; }
@@ -333,22 +338,92 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .pillar p { margin: 0; font-size: .96rem; opacity: .82; }
 
 /* --------------------------------------------------------------- passport */
-.passport { display: flex; flex-wrap: wrap; gap: .6rem; }
+/* --------------------------------------------------------------- passport -
+   Stamps are drawn in CSS rather than set as images so they stay data-driven.
+   Three things make them read as real ink rather than as buttons: an uneven
+   rotation, a double rule with a gap between the lines, and a turbulence mask
+   that eats away at the ink the way a rubber stamp does on paper.
+   -------------------------------------------------------------------------- */
+.passport {
+  display: flex; flex-wrap: wrap;
+  gap: clamp(.9rem, 2vw, 1.6rem);
+  padding-block: 1rem;
+}
+
 .pstamp {
-  display: inline-flex; align-items: center; gap: .55rem;
-  font-family: var(--mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
-  padding: .55rem .85rem;
-  border: 1px solid var(--rule-strong);
+  --ink: var(--stamp);
+  position: relative;
+  display: inline-grid; justify-items: center; gap: .18rem;
+  padding: .8rem 1.15rem .7rem;
   text-decoration: none;
-  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+  color: var(--ink);
+  font-family: var(--mono);
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  /* the inner rule of the double frame */
+  box-shadow: inset 0 0 0 1px currentColor;
+  background-clip: padding-box;
+  transition: transform .3s var(--ease), opacity .2s var(--ease);
+  /* patchy ink */
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='120'><filter id='r'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' seed='7'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 -.28'/></filter><rect width='240' height='120' fill='white'/><rect width='240' height='120' filter='url(%23r)'/></svg>");
+          mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='120'><filter id='r'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' seed='7'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 -.28'/></filter><rect width='240' height='120' fill='white'/><rect width='240' height='120' filter='url(%23r)'/></svg>");
+  -webkit-mask-size: 240px 120px;
+          mask-size: 240px 120px;
 }
-.pstamp em { font-style: normal; opacity: .5; }
+
+/* the country code, the big line of the stamp */
 .pstamp b {
-  font-weight: 700; letter-spacing: .12em; font-size: .66rem;
-  border: 1px solid currentColor; padding: .18rem .34rem .18rem .4rem; opacity: .8;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: .22em;
+  line-height: 1;
+  padding-left: .22em;      /* optical: letterspacing adds a trailing gap */
 }
-.pstamp:hover { background: var(--ochre); border-color: var(--ochre); color: var(--ink); }
-.pstamp[data-next="true"] { border-color: var(--ochre); color: var(--ochre); border-style: dashed; }
+/* the country name, under a hairline, the way a stamp carries its port name */
+.pstamp {
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.pstamp__n {
+  border-top: 1px solid currentColor;
+  padding-top: .3rem;
+  margin-top: .12rem;
+  min-width: 100%;
+  text-align: center;
+}
+.pstamp em { font-style: normal; opacity: .75; }
+
+/* every stamp sits at its own angle, like a page that has been filling up */
+.pstamp:nth-child(6n+1) { transform: rotate(-3.4deg); }
+.pstamp:nth-child(6n+2) { transform: rotate(2.1deg)  translateY(3px); }
+.pstamp:nth-child(6n+3) { transform: rotate(-1.2deg) translateY(-2px); }
+.pstamp:nth-child(6n+4) { transform: rotate(4.1deg); }
+.pstamp:nth-child(6n+5) { transform: rotate(-2.6deg) translateY(2px); }
+.pstamp:nth-child(6n+6) { transform: rotate(1.4deg)  translateY(-3px); }
+
+/* three ink colours, cycling, so the page looks stamped over time */
+.pstamp:nth-child(3n+2) { --ink: #2E6E7E; }
+.pstamp:nth-child(3n+3) { --ink: #7A6A2F; }
+.deep .pstamp           { --ink: #E0705C; }
+.deep .pstamp:nth-child(3n+2) { --ink: #7FC3D4; }
+.deep .pstamp:nth-child(3n+3) { --ink: var(--ochre); }
+
+.pstamp:hover { opacity: .82; transform: rotate(0deg) scale(1.04); }
+
+/* the one we have not been to yet: not stamped, just pencilled in */
+.pstamp[data-next="true"] {
+  --ink: var(--ochre);
+  border-style: dashed;
+  box-shadow: none;
+  -webkit-mask-image: none; mask-image: none;
+  opacity: .9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pstamp:hover { transform: none; }
+}
 
 /* ------------------------------------------------------------ event cards */
 .cards { display: grid; gap: clamp(1.75rem, 3.5vw, 3rem); }

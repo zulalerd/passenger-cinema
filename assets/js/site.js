@@ -192,12 +192,14 @@
         if (!e.country || done[e.country]) return;
         done[e.country] = 1;
         out.push('<a class="pstamp" href="archive.html#' + encodeURIComponent(e.country) + '">' +
-          '<b>' + esc(e.code || "") + "</b>" + esc(e.country) + "</a>");
+          "<b>" + esc(e.code || "") + "</b>" +
+          '<span class="pstamp__n">' + esc(e.country) + "</span></a>");
       });
       PC.upcoming.forEach(function (e) {
-        out.push('<span class="pstamp" data-next="true"><b>' +
-          esc(e.destinationCode || "") + "</b>" +
-          esc(e.destinationCountry || e.city) + " <em>next</em></span>");
+        out.push('<span class="pstamp" data-next="true">' +
+          "<b>" + esc(e.destinationCode || "") + "</b>" +
+          '<span class="pstamp__n">' + esc(e.destinationCountry || e.city) +
+          " <em>next</em></span></span>");
       });
       pass.innerHTML = out.join("");
     }
