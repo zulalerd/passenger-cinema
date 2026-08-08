@@ -731,9 +731,15 @@
   }
 
   /* =======================================================================
-     ANALYTICS (optional)
-     Stays completely inert until a PostHog project key is set in the CMS
-     under Site text & settings. No key, no script, no cookies.
+     ANALYTICS (optional, and cookieless)
+     Inert until a PostHog project key is set in the CMS under
+     Site text & settings. With no key, nothing loads at all.
+
+     When it is on it stores NOTHING on the visitor's device: no cookies,
+     no localStorage, and no person profiles. That is a deliberate choice,
+     and it is why the site needs no cookie banner. The trade is that
+     PostHog cannot tell a returning visitor from a new one, so treat the
+     visitor counts as "visits" rather than "people".
      ===================================================================== */
   function analytics() {
     var key = t("analytics.posthogKey");
@@ -756,8 +762,11 @@
     }(document, window.posthog || []);
     window.posthog.init(key, {
       api_host: host,
-      person_profiles: "identified_only",  /* no profile for anonymous visitors */
-      capture_pageview: true
+      persistence: "memory",           /* nothing written to the device at all */
+      person_profiles: "never",        /* every event stays anonymous */
+      disable_session_recording: true, /* replay needs consent, see the note above */
+      capture_pageview: true,
+      autocapture: true                /* which links and buttons get clicked */
     });
   }
 
