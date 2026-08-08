@@ -5,8 +5,6 @@
                          "slug":  "saz-the-key-of-trust",
                          "director":  "Stephan Talneau",
                          "year":  2018,
-                         "code":  "",
-                         "country":  "Germany",
                          "date":  "2026-08-23",
                          "venue":  "The Dot Theatre",
                          "city":  "Dublin",
@@ -82,7 +80,7 @@
                      "story":  [
                                    "In the months before this screening, many of our Iranian friends had spent days and nights worrying about their homeland and loved ones back home, first through the protests in Iran and then through the war.",
                                    "At a time when headlines were dominated by fear and conflict, we wanted to tell a different story: one of beauty, creativity and shared humanity. We wanted to organise an event that celebrated Iranian culture and brought people together through cinema rather than division, as an act of solidarity.",
-                                   "We partnered with Rhizomatic London, a new third space founded by Meryl Prendergast, who had personally funded and renovated the space with volunteer support from the queer community. Through Meryl we met Iranian woven textile designer Misha Nikkhah, who introduced us to <em>Gabbeh</em>. The film, inspired by the vibrant woven carpets of southern Iran, felt like the perfect choice. Misha then joined forces with our friend Zeynep AÄŸÄ±rbaÅŸ, a knitwear designer whose work explores Anatolian weaving traditions, to develop workshops inspired by the film.",
+                                   "We partnered with Rhizomatic London, a new third space founded by Meryl Prendergast, who had personally funded and renovated the space with volunteer support from the queer community. Through Meryl we met Iranian woven textile designer Misha Nikkhah, who introduced us to <em>Gabbeh</em>. The film, inspired by the vibrant woven carpets of southern Iran, felt like the perfect choice. Misha then joined forces with our friend Zeynep Agirbas, a knitwear designer whose work explores Anatolian weaving traditions, to develop workshops inspired by the film.",
                                    "All 40 tickets sold within two days, with a waiting list of thirteen. More than half of the people in the room had never been to a Passenger Cinema event before, and most of them arrived through Rhizomatic, through Misha, and through local Iranian networks rather than our own channels.",
                                    "What made it different from our usual screenings was how many people shaped it. Rather than programming a film and inviting people to watch it, we brought together designers, artists, volunteers and audience members to create an event that felt collectively made."
                                ],
@@ -113,7 +111,7 @@
                      "credits":  [
                                      "Rhizomatic London, venue partner (Meryl Prendergast)",
                                      "Misha Nikkhah, woven textile designer and workshop lead",
-                                     "Zeynep AÄŸÄ±rbaÅŸ, knitwear designer and workshop lead",
+                                     "Zeynep Agirbas, knitwear designer and workshop lead",
                                      "8 core volunteers plus 4 friends who lent equipment and expertise"
                                  ],
                      "photos":  [
@@ -251,18 +249,18 @@
                      "code":  "JM",
                      "country":  "Jamaica",
                      "date":  "2025-11-24",
-                     "venue":  "CinÃ©-Real at The Castle Cinema",
+                     "venue":  "Ciné-Real at The Castle Cinema",
                      "city":  "Hackney, London",
                      "soldOut":  false,
                      "first":  false,
                      "standfirst":  "Jimmy Cliff on 16mm, projected on film, with half of every ticket going to Jamaican hurricane relief.",
                      "story":  [
-                                   "We screened <em>The Harder They Come</em> on 16mm with CinÃ©-Real, the film club that projects nothing else. Reels, splices, the whir of the projector in the room: the way the film was meant to be seen.",
+                                   "We screened <em>The Harder They Come</em> on 16mm with Ciné-Real, the film club that projects nothing else. Reels, splices, the whir of the projector in the room: the way the film was meant to be seen.",
                                    "Jamaica was living through the aftermath of a hurricane at the time. Rather than let that sit outside the room, we donated half of all ticket proceeds to hurricane relief, giving the audience a way to respond with solidarity as well as curiosity."
                                ],
                      "beyond":  "16mm projection, half of ticket proceeds donated to hurricane relief",
                      "credits":  [
-                                     "CinÃ©-Real 16mm film club, partner and projection"
+                                     "Ciné-Real 16mm film club, partner and projection"
                                  ],
                      "photos":  [
                                     "harder-they-come-01.jpg",
@@ -383,7 +381,7 @@
                      "standfirst":  "Where it started. A musical journey through Istanbul's soundscape, followed by a live set from Turkish jazz guitarist Kerem Advan.",
                      "story":  [
                                    "Our launch event. Sixty-five people in a basement in Dalston for a film about the sound of Istanbul, which is, more or less, the founding argument for Passenger Cinema: that you can travel a long way without leaving your seat.",
-                                   "AkÄ±n's documentary crosses the Bosphorus between genres and generations, from arabesk to Turkish rock to Kurdish folk. It only made sense to end the event with live music."
+                                   "Akin's documentary crosses the Bosphorus between genres and generations, from arabesk to Turkish rock to Kurdish folk. It only made sense to end the event with live music."
                                ],
                      "beyond":  "Live performance by Turkish jazz guitarist Kerem Advan",
                      "credits":  [
