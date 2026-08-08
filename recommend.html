@@ -38,9 +38,9 @@
   <section class="section section--tight" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
     <div class="wrap">
       <p class="label label--stamp">Programming</p>
-      <h1 class="display d1" style="max-width:16ch;margin:1rem 0 1.5rem">Where should we go next?</h1>
-      <p class="lede" style="max-width:48ch">
-        Our best evenings have started with someone telling us about a film we&rsquo;d never heard of,
+      <h1 class="display d1" style="max-width:16ch;margin:1rem 0 1.5rem" data-t="recommend.heading">Where should we go next?</h1>
+      <p class="lede" style="max-width:48ch" data-t="recommend.standfirst">
+        Our best events have started with someone telling us about a film we&rsquo;d never heard of,
         or offering a room nobody had thought of using as a cinema. Both are below.
       </p>
     </div>
@@ -48,7 +48,7 @@
 
   <div class="wrap">
     <div class="marquee-rule">
-      <div class="marquee-rule__in">
+      <div class="marquee-rule__in" data-t-marquee="recommend.marquee">
         <span>A film we should see</span><span>&middot;</span>
         <span>A room we should fill</span><span>&middot;</span>
         <span>A culture we haven&rsquo;t visited</span><span>&middot;</span>
@@ -65,7 +65,7 @@
           <p class="label">01 / Recommend a film</p>
           <p style="opacity:.75;font-size:.95rem;margin-top:1rem;max-width:32ch">
             It doesn&rsquo;t need to be obscure and it doesn&rsquo;t need to be worthy. It needs to be
-            worth building an evening around. Tell us why it matters to you.
+            worth building an event around. Tell us why it matters to you.
           </p>
           <p style="opacity:.75;font-size:.95rem;max-width:32ch">
             If it&rsquo;s a film from a culture you belong to, say so, because we would love to make it
@@ -74,7 +74,7 @@
         </div>
 
         <div>
-          <form class="form" data-pcform data-subject="Website: film recommendation" novalidate>
+          <form class="form" data-pcform data-subject="Film recommendations" novalidate>
             <div class="hp" aria-hidden="true">
               <label>Leave this empty<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
             </div>
@@ -86,20 +86,27 @@
                 <p class="err" hidden>Please fill this in</p>
               </div>
               <div class="field">
-                <label for="f-dir">Director / year</label>
-                <input id="f-dir" name="Director and year" type="text" autocomplete="off">
+                <label for="f-dir">Director</label>
+                <input id="f-dir" name="Director" type="text" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="grid2">
+              <div class="field">
+                <label for="f-country">Country</label>
+                <input id="f-country" name="Country" type="text" autocomplete="off">
+              </div>
+              <div class="field">
+                <label for="f-year">Year</label>
+                <input id="f-year" name="Year" type="text" inputmode="numeric" autocomplete="off">
               </div>
             </div>
 
             <div class="field">
-              <label for="f-country">Country or culture it comes from</label>
-              <input id="f-country" name="Country or culture" type="text" autocomplete="off">
-            </div>
-
-            <div class="field">
               <label for="f-why">Why this film? <span class="req" aria-hidden="true">*</span></label>
-              <p class="hint" id="f-why-h">What does it do to you, and why do you think a room full of
-                Londoners should sit with it? A few sentences is plenty.</p>
+              <p class="hint" id="f-why-h">Tell us what it did to you. What you remember, who you
+                watched it with, why it stayed. There is no wrong answer here and a few sentences
+                is plenty.</p>
               <textarea id="f-why" name="Why this film" aria-describedby="f-why-h" required></textarea>
               <p class="err" hidden>Please fill this in</p>
             </div>
@@ -107,7 +114,7 @@
             <div class="field">
               <label for="f-around">What could happen around it?</label>
               <p class="hint" id="f-around-h">A workshop, a meal, live music, a dance class, a guest
-                speaker, a conversation. Half of a Passenger Cinema evening happens after the credits.</p>
+                speaker, a conversation. Half of a Passenger Cinema event happens after the credits.</p>
               <textarea id="f-around" name="What could happen around it" aria-describedby="f-around-h" style="min-height:7rem"></textarea>
             </div>
 
@@ -164,7 +171,7 @@
         </div>
 
         <div>
-          <form class="form" data-pcform data-subject="Website: venue suggestion" novalidate>
+          <form class="form" data-pcform data-subject="Venue suggestions" novalidate>
             <div class="hp" aria-hidden="true">
               <label>Leave this empty<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
             </div>
@@ -254,8 +261,7 @@
     <div class="foot__grid">
       <div class="foot__brand">
         <img src="assets/img/brand/logo-ivory.svg" alt="Passenger Cinema">
-        <p>A volunteer-led community cinema, travelling through film. London, and wherever the next
-           film wants to live.</p>
+        <p data-t="footerTagline">A volunteer-led community cinema, travelling through film.</p>
       </div>
       <div>
         <h4>Site</h4>
@@ -277,12 +283,11 @@
     </div>
     <div class="foot__base">
       <p class="label">&copy; <span data-year>2026</span> Passenger Cinema</p>
-      <p class="label foot__awards">Cinema For All: Emerging Community Cinema Award</p>
+      <p class="label foot__awards" data-t="footerAward">Cinema For All: Emerging Community Cinema Award</p>
     </div>
   </div>
 </footer>
 
-<script src="data/events.js"></script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>

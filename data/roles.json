@@ -1,0 +1,131 @@
+{
+    "roles":  [
+                  {
+                      "id":  "social",
+                      "title":  "Social Media & Communications Manager",
+                      "blurb":  "Shape how Passenger Cinema sounds and looks online: posts, stories, newsletters, and the voice that invites people in.",
+                      "questions":  [
+                                        {
+                                            "id":  "about",
+                                            "label":  "Tell us a bit about yourself",
+                                            "hint":  "Your background (studies, work, current occupation), and any experience related to cinema, writing, cultural projects, social media or events.",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "inspiration",
+                                            "label":  "Which Instagram account, film platform or cultural project do you think communicates beautifully online? What do they do well?",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "experience",
+                                            "label":  "Do you have experience with social media, design or content creation?",
+                                            "hint":  "Feel free to share links to work or accounts you have managed. Professional experience is not required.",
+                                            "type":  "textarea",
+                                            "required":  false
+                                        },
+                                        {
+                                            "id":  "why",
+                                            "label":  "Why would you like to contribute to Passenger Cinema?",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "programmer",
+                      "title":  "Film Programmer",
+                      "blurb":  "Help decide where we travel next, and what the event around the film should be.",
+                      "questions":  [
+                                        {
+                                            "id":  "about",
+                                            "label":  "Tell us a bit about yourself",
+                                            "hint":  "Your background (studies, work, current occupation), and any experience related to cinema, writing, cultural projects, social media or events.",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "proposal",
+                                            "label":  "Propose one film you would screen with Passenger Cinema",
+                                            "hint":  "Briefly describe the cultural context or the experience you would build around it: discussion, food, music, dance, a guest speaker, anything.",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "three-films",
+                                            "label":  "Tell us about 3 films that have had an impact on you, and why",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "why",
+                                            "label":  "Why would you like to contribute to Passenger Cinema?",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "videographer",
+                      "title":  "Videographer / Video Storyteller",
+                      "blurb":  "Capture what actually happens in the room: the set-up, the strangers talking, the bit after the credits.",
+                      "questions":  [
+                                        {
+                                            "id":  "about",
+                                            "label":  "Tell us a bit about yourself",
+                                            "hint":  "Your background (studies, work, current occupation), and any experience related to filmmaking, videography, photography, cinema, cultural projects, social media or events.",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "inspiration",
+                                            "label":  "Share 1 to 3 short films, videos, filmmakers or creators whose visual storytelling you really like. What draws you to their work?",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "experience",
+                                            "label":  "Do you have experience filming and/or editing video content?",
+                                            "hint":  "Links to previous work, a portfolio, social accounts, student projects, anything you have created. Professional experience is not required.",
+                                            "type":  "textarea",
+                                            "required":  false
+                                        },
+                                        {
+                                            "id":  "idea",
+                                            "label":  "Imagine you were making a 1 to 2 minute video about Passenger Cinema. What would you want to capture or explore?",
+                                            "hint":  "The story behind Passenger Cinema, the process of putting a screening together, the people involved, the atmosphere of an event, or something completely different.",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "general",
+                      "title":  "General volunteer, or something else",
+                      "blurb":  "Front of house, set-up and pack-down, photography, illustration, translation, workshop help, or an idea we have not thought of.",
+                      "questions":  [
+                                        {
+                                            "id":  "about",
+                                            "label":  "Tell us a bit about yourself",
+                                            "hint":  "Your background, and anything related to cinema, cultural projects or events.",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "help",
+                                            "label":  "How would you like to get involved?",
+                                            "hint":  "Front of house, set-up, photography, illustration, translation, workshops, or something we have not thought of yet.",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        },
+                                        {
+                                            "id":  "why",
+                                            "label":  "Why would you like to contribute to Passenger Cinema?",
+                                            "type":  "textarea",
+                                            "required":  true
+                                        }
+                                    ]
+                  }
+              ]
+}

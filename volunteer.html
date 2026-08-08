@@ -38,8 +38,8 @@
   <section class="section section--tight" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
     <div class="wrap">
       <p class="label label--stamp">Join the crew</p>
-      <h1 class="display d1" style="max-width:15ch;margin:1rem 0 1.5rem">Come and make it with us.</h1>
-      <p class="lede" style="max-width:48ch">
+      <h1 class="display d1" style="max-width:15ch;margin:1rem 0 1.5rem" data-t="volunteer.heading">Come and organise with us.</h1>
+      <p class="lede" style="max-width:48ch" data-t="volunteer.standfirst">
         Passenger Cinema is a volunteer-led community, and we want everyone who contributes to feel
         that they are genuinely part of what we are building.
       </p>
@@ -52,12 +52,14 @@
       <div class="two-col">
         <div>
           <p class="label">What we offer</p>
-          <p style="opacity:.75;font-size:.95rem;margin-top:1rem;max-width:32ch">
-            In return for your time and creativity, you become part of the Passenger Cinema team.
+          <p style="opacity:.75;font-size:.95rem;margin-top:1rem;max-width:32ch" data-t="volunteer.offerIntro">
+            Most importantly, we hope Passenger Cinema can be a space where you can experiment, meet
+            like-minded people and become part of a growing community built around cinema, culture
+            and storytelling.
           </p>
         </div>
         <div>
-          <ul class="offer">
+          <ul class="offer" data-t-offer="volunteer.offer">
             <li><span class="n">01</span><span><strong>Shape Passenger Cinema with us.</strong>
               Contribute to our projects, screenings and events, and have a real voice in how the
               community develops.</span></li>
@@ -76,11 +78,6 @@
             <li><span class="n">07</span><span><strong>An annual membership to The Prince Charles
               Cinema</strong>, so you have another space to keep watching and discovering all year.</span></li>
           </ul>
-          <p style="margin-top:2rem;max-width:52ch;opacity:.8">
-            Most importantly, we hope Passenger Cinema can be a space where you can experiment, meet
-            like-minded people and become part of a growing community built around cinema, culture and
-            storytelling.
-          </p>
         </div>
       </div>
     </div>
@@ -92,12 +89,11 @@
       <div class="shead">
         <div class="shead__top">
           <p class="label">Register your interest</p>
-          <p class="label label--muted shead__note">No experience required</p>
         </div>
         <h2 class="display d2" style="max-width:20ch">Pick the role that sounds most like you.</h2>
       </div>
 
-      <form class="form" data-pcform data-subject="Website: volunteer application" novalidate>
+      <form class="form" data-pcform data-subject="Volunteer applications" novalidate>
         <div class="hp" aria-hidden="true">
           <label>Leave this empty<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
         </div>
@@ -137,8 +133,7 @@
 
         <div class="field">
           <label for="v-time">Roughly how much time could you give?</label>
-          <p class="hint">Completely fine to say &ldquo;not sure yet&rdquo;. Some people help at one
-            screening a season; some are here every week.</p>
+          <p class="hint">Completely fine to say &ldquo;not sure yet&rdquo;. Some people help at one screening a season.</p>
           <textarea id="v-time" name="Availability" style="min-height:5.5rem"></textarea>
         </div>
 
@@ -148,7 +143,7 @@
           <button class="btn" type="submit">Send application <span aria-hidden="true">&rarr;</span></button>
           <p class="formNote" style="margin-top:1rem">
             We reply to everyone. If none of the roles fit, choose &ldquo;something else&rdquo; and
-            tell us what you&rsquo;d like to do. Several of our volunteers invented their own job.
+            tell us what you&rsquo;d like to do.
           </p>
         </div>
       </form>
@@ -171,7 +166,7 @@
             for an afternoon, it made someone want to be part of the thing itself.
           </p>
           <p style="opacity:.85">
-            The Gabbeh evening alone was organised by eight core volunteers, with four more friends
+            The Gabbeh event alone was organised by eight core volunteers, with four more friends
             lending equipment, expertise and a set of weaving looms carried over from Turkey.
           </p>
           <p style="margin-top:2rem">
@@ -189,8 +184,7 @@
     <div class="foot__grid">
       <div class="foot__brand">
         <img src="assets/img/brand/logo-ivory.svg" alt="Passenger Cinema">
-        <p>A volunteer-led community cinema, travelling through film. London, and wherever the next
-           film wants to live.</p>
+        <p data-t="footerTagline">A volunteer-led community cinema, travelling through film.</p>
       </div>
       <div>
         <h4>Site</h4>
@@ -212,12 +206,11 @@
     </div>
     <div class="foot__base">
       <p class="label">&copy; <span data-year>2026</span> Passenger Cinema</p>
-      <p class="label foot__awards">Cinema For All: Emerging Community Cinema Award</p>
+      <p class="label foot__awards" data-t="footerAward">Cinema For All: Emerging Community Cinema Award</p>
     </div>
   </div>
 </footer>
 
-<script src="data/events.js"></script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>

@@ -1,20 +1,19 @@
 /* ==========================================================================
    PASSENGER CINEMA - site behaviour
-   No build step, no dependencies. Reads everything from data/events.js.
+   No build step, no dependencies.
+
+   All content comes from three JSON files, which are what the CMS edits:
+     data/site.json    settings and page copy
+     data/events.json  screenings, upcoming and past
+     data/roles.json   volunteer roles and their questions
+
+   Because those are fetched, the site needs to be served over http rather
+   than opened straight off the disk. Run preview.cmd to look at it locally.
    ========================================================================== */
 (function () {
   "use strict";
 
-  /* ======================================================================
-     CONFIGURATION: the only thing you need to change
-     ----------------------------------------------------------------------
-     FORM_ENDPOINT: paste a form endpoint here to receive submissions by
-     email. Free options that need no server:
-        Formspree  ->  https://formspree.io     e.g. "https://formspree.io/f/abcdwxyz"
-        Netlify    ->  if you deploy on Netlify, see README.md
-     Leave it as "" and every form falls back to opening the visitor's
-     email client with the answers pre-filled. The site still works.
-     ====================================================================== */
+  /* these are filled in from data/site.json before anything renders */
   var FORM_ENDPOINT = "";
   var CONTACT_EMAIL = "hello@passengercinema.com";
   var INSTAGRAM     = "https://www.instagram.com/passenger.cinema/";
@@ -22,7 +21,15 @@
   /* ---------------------------------------------------------------- utils */
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
-  var PC = window.PC || { upcoming: [], past: [], roles: [] };
+  var PC   = { upcoming: [], past: [], roles: [] };
+  var SITE = {};
+
+  /* look up "home.heroHeading" in the site settings */
+  function t(path) {
+    return String(path).split(".").reduce(function (o, k) {
+      return (o && o[k] != null) ? o[k] : null;
+    }, SITE);
+  }
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -54,6 +61,72 @@
     return p(d.getDate()) + "." + p(d.getMonth() + 1) + "." + String(d.getFullYear()).slice(2);
   }
   function imgPath(f) { return "assets/img/events/" + f; }
+
+  /* =======================================================================
+     EDITABLE COPY
+     Any element with data-t="some.path" gets its text from site.json.
+     data-t-html does the same but allows <em> and <strong> through.
+     Repeating blocks are handled by the small renderers below.
+     ===================================================================== */
+  function bindText() {
+    $$("[data-t]").forEach(function (el) {
+      var v = t(el.getAttribute("data-t"));
+      if (v != null) el.textContent = v;
+    });
+    $$("[data-t-html]").forEach(function (el) {
+      var v = t(el.getAttribute("data-t-html"));
+      if (v != null) el.innerHTML = v;
+    });
+    /* an array of paragraphs */
+    $$("[data-t-paras]").forEach(function (el) {
+      var v = t(el.getAttribute("data-t-paras"));
+      if (Array.isArray(v)) el.innerHTML = v.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+    });
+    /* label / title / body cards, used for the pillars and the first-time strip */
+    $$("[data-t-pillars]").forEach(function (el) {
+      var v = t(el.getAttribute("data-t-pillars"));
+      if (!Array.isArray(v)) return;
+      el.innerHTML = v.map(function (p) {
+        return '<article class="pillar">' +
+          '<span class="pillar__n">' + esc(p.label) + "</span>" +
+          '<h3 class="display d4">' + p.title + "</h3>" +
+          "<p>" + p.body + "</p></article>";
+      }).join("");
+    });
+    /* the numbered "what we offer" list */
+    $$("[data-t-offer]").forEach(function (el) {
+      var v = t(el.getAttribute("data-t-offer"));
+      if (!Array.isArray(v)) return;
+      el.innerHTML = v.map(function (line, i) {
+        return '<li><span class="n">' + (i < 9 ? "0" : "") + (i + 1) + "</span><span>" + line + "</span></li>";
+      }).join("");
+    });
+    /* figure / label stat row, used for the awards block */
+    $$("[data-t-stats]").forEach(function (el) {
+      var v = t(el.getAttribute("data-t-stats"));
+      if (!Array.isArray(v)) return;
+      el.innerHTML = v.map(function (s) {
+        return "<div><b>" + esc(s.figure) + "</b><span>" + esc(s.label) + "</span></div>";
+      }).join("");
+    });
+    /* the scrolling rule of short phrases */
+    $$("[data-t-marquee]").forEach(function (el) {
+      var v = t(el.getAttribute("data-t-marquee"));
+      if (!Array.isArray(v)) return;
+      el.innerHTML = v.map(function (s, i) {
+        return (i ? "<span>&middot;</span>" : "") + "<span>" + esc(s) + "</span>";
+      }).join("");
+    });
+    /* founders */
+    $$("[data-t-team]").forEach(function (el) {
+      var v = t(el.getAttribute("data-t-team"));
+      if (!Array.isArray(v)) return;
+      el.innerHTML = v.map(function (m) {
+        return '<div><h3 class="display d3">' + esc(m.name) + "</h3>" +
+          '<p class="label label--muted" style="margin-top:.5rem">' + esc(m.role) + "</p></div>";
+      }).join("");
+    });
+  }
 
   /* =======================================================================
      CHROME: nav, current page, shared contact details
@@ -135,7 +208,7 @@
     ].filter(function (r) { return r[1]; });
 
     var order = (ev.runningOrder || []).map(function (r) {
-      return "<li><time>" + esc(r[0]) + "</time><span>" + esc(r[1]) + "</span></li>";
+      return "<li><time>" + esc(r.time) + "</time><span>" + esc(r.what) + "</span></li>";
     }).join("");
 
     return '<article class="ticket">' +
@@ -369,7 +442,7 @@
       impact = '<section class="section section--tight"><div class="wrap">' +
         '<div class="shead"><div class="shead__top"><p class="label">What happened next</p></div></div>' +
         '<div class="impact">' + ev.impact.map(function (r) {
-          return "<div><b>" + esc(r[0]) + "</b><span>" + esc(r[1]) + "</span></div>";
+          return "<div><b>" + esc(r.figure) + "</b><span>" + esc(r.label) + "</span></div>";
         }).join("") + "</div></div></section>";
     }
 
@@ -579,14 +652,20 @@
 
         if (FORM_ENDPOINT) {
           if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
-          var payload = { _subject: subject };
+          var payload = { _form: subject };
           data.forEach(function (r) { payload[r[0]] = r[1]; });
+          /* text/plain keeps this a "simple request", so the browser skips the
+             CORS preflight that Google Apps Script cannot answer. The script
+             still receives it as JSON. */
           fetch(FORM_ENDPOINT, {
             method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
             body: JSON.stringify(payload)
           }).then(function (r) {
             if (!r.ok) throw new Error("bad status");
+            return r.json();
+          }).then(function (res) {
+            if (res && res.ok === false) throw new Error(res.error || "rejected");
             form.reset();
             done("ok", "<strong>Thank you, that has landed.</strong><br>We read everything and we will be in touch.");
           }).catch(function () {
@@ -612,6 +691,7 @@
      GO
      ===================================================================== */
   function init() {
+    bindText();
     chrome();
     renderHome();
     renderScreenings();
@@ -621,9 +701,42 @@
     initForms();
   }
 
+  function failed(err) {
+    var m = document.createElement("div");
+    m.style.cssText = "padding:2rem;font-family:monospace;font-size:.85rem;line-height:1.6";
+    m.innerHTML = "<strong>Could not load the site content.</strong><br><br>" +
+      "If you opened this file straight from your computer, the browser blocks it " +
+      "from reading the JSON files in <code>data/</code>. Run <code>preview.cmd</code> " +
+      "in the project folder and use the address it prints instead.<br><br>" +
+      "<em>" + esc(err && err.message ? err.message : String(err)) + "</em>";
+    var main = $("#main") || document.body;
+    main.prepend(m);
+  }
+
+  function boot() {
+    var get = function (p) {
+      return fetch(p, { cache: "no-cache" }).then(function (r) {
+        if (!r.ok) throw new Error(p + " returned " + r.status);
+        return r.json();
+      });
+    };
+    Promise.all([get("data/site.json"), get("data/events.json"), get("data/roles.json")])
+      .then(function (res) {
+        SITE = res[0] || {};
+        PC.upcoming = (res[1] && res[1].upcoming) || [];
+        PC.past     = (res[1] && res[1].past) || [];
+        PC.roles    = (res[2] && res[2].roles) || [];
+        if (SITE.formEndpoint) FORM_ENDPOINT = SITE.formEndpoint;
+        if (SITE.contactEmail) CONTACT_EMAIL = SITE.contactEmail;
+        if (SITE.instagram)    INSTAGRAM     = SITE.instagram;
+        init();
+      })
+      .catch(failed);
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", boot);
   } else {
-    init();
+    boot();
   }
 })();

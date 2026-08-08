@@ -38,9 +38,9 @@
   <section class="section section--tight" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
     <div class="wrap">
       <p class="label label--stamp">Departures</p>
-      <h1 class="display d1" style="max-width:14ch;margin:1rem 0 1.5rem">What&rsquo;s on</h1>
-      <p class="lede" style="max-width:46ch">
-        We programme one journey at a time, and we build the whole evening around it: the room,
+      <h1 class="display d1" style="max-width:14ch;margin:1rem 0 1.5rem" data-t="screenings.heading">What&rsquo;s on</h1>
+      <p class="lede" style="max-width:46ch" data-t="screenings.standfirst">
+        We programme one journey at a time, and we build the whole event around it: the room,
         the food, the music, the people who know the film best.
       </p>
     </div>
@@ -48,8 +48,7 @@
 
   <div class="wrap">
     <div class="marquee-rule">
-      <div class="marquee-rule__in">
-        <span>No fixed address</span><span>&middot;</span>
+      <div class="marquee-rule__in" data-t-marquee="screenings.marquee">
         <span>Every venue is different</span><span>&middot;</span>
         <span>Doors, film, then something else entirely</span><span>&middot;</span>
         <span>All welcome</span>
@@ -66,9 +65,9 @@
     <div class="wrap">
       <div class="shead">
         <div class="shead__top"><p class="label">If it&rsquo;s your first time</p></div>
-        <h2 class="display d2" style="max-width:22ch">What actually happens at a Passenger Cinema night?</h2>
+        <h2 class="display d2" style="max-width:22ch" data-t="screenings.firstTimeHeading">What actually happens at a Passenger Cinema night?</h2>
       </div>
-      <div class="pillars">
+      <div class="pillars" data-t-pillars="screenings.firstTime">
         <article class="pillar">
           <span class="pillar__n">Before</span>
           <h3 class="display d4">Come on your own</h3>
@@ -85,7 +84,7 @@
           <span class="pillar__n">After</span>
           <h3 class="display d4">The part people remember</h3>
           <p>A workshop, a meal, a live set, a Q&amp;A, a conversation that runs long. This is the
-             half of the evening that turns an audience into a room of people who know each other.</p>
+             half of the event that turns an audience into a room of people who know each other.</p>
         </article>
       </div>
     </div>
@@ -120,8 +119,7 @@
     <div class="foot__grid">
       <div class="foot__brand">
         <img src="assets/img/brand/logo-ivory.svg" alt="Passenger Cinema">
-        <p>A volunteer-led community cinema, travelling through film. London, and wherever the next
-           film wants to live.</p>
+        <p data-t="footerTagline">A volunteer-led community cinema, travelling through film.</p>
       </div>
       <div>
         <h4>Site</h4>
@@ -143,12 +141,11 @@
     </div>
     <div class="foot__base">
       <p class="label">&copy; <span data-year>2026</span> Passenger Cinema</p>
-      <p class="label foot__awards">Cinema For All: Emerging Community Cinema Award</p>
+      <p class="label foot__awards" data-t="footerAward">Cinema For All: Emerging Community Cinema Award</p>
     </div>
   </div>
 </footer>
 
-<script src="data/events.js"></script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>

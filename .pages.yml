@@ -1,0 +1,244 @@
+# =============================================================================
+# Passenger Cinema — CMS configuration for Pages CMS (pagescms.org)
+#
+# Log in at https://app.pagescms.org with GitHub, pick this repo, and you get a
+# web admin for everything below. Saving writes a commit straight to the repo,
+# and GitHub Pages redeploys the site.
+#
+# Nothing here affects the website itself. It only describes the shape of the
+# JSON files so the CMS can draw sensible forms.
+# =============================================================================
+
+media:
+  - name: event-photos
+    label: Event photographs
+    input: assets/img/events
+    output: assets/img/events
+    extensions: [jpg, jpeg, png, webp]
+  - name: brand
+    label: Brand assets
+    input: assets/img/brand
+    output: assets/img/brand
+    extensions: [svg, png, jpg]
+
+content:
+  # ---------------------------------------------------------------- SCREENINGS
+  - name: events
+    label: Screenings
+    path: data/events.json
+    type: file
+    format: json
+    fields:
+      - name: upcoming
+        label: Upcoming
+        type: object
+        list: true
+        description: Screenings that have not happened yet. The first one is the "next departure" on the home page.
+        fields:
+          - { name: film,     label: Film title,   type: string, required: true }
+          - { name: slug,     label: URL slug,     type: string, required: true, description: "Lowercase with hyphens, e.g. black-orpheus. Changing this breaks existing links." }
+          - { name: director, label: Director,     type: string }
+          - { name: year,     label: Year,         type: number }
+          - { name: code,     label: Country code, type: string, description: "Two letters, e.g. IR. Shown as the passport stamp." }
+          - { name: country,  label: Country,      type: string }
+          - { name: date,     label: Date,         type: date,   required: true, options: { format: "yyyy-MM-dd" } }
+          - { name: dateNote, label: Date override, type: string, description: "Only if the exact day is unknown, e.g. 'April 2026'. Shown instead of the date." }
+          - { name: venue,    label: Venue,        type: string }
+          - { name: city,     label: City / area,  type: string }
+          - { name: doors,    label: Doors,        type: string, description: "e.g. 19:00" }
+          - { name: start,    label: Film starts,  type: string }
+          - { name: ends,     label: Ends,         type: string }
+          - { name: ticketUrl,   label: Ticket link,  type: string }
+          - { name: ticketLabel, label: Ticket button text, type: string }
+          - { name: destinationCode,    label: Destination code,    type: string, description: "Where the audience physically goes, if different from the film's country." }
+          - { name: destinationCountry, label: Destination country, type: string }
+          - { name: standfirst, label: Short summary, type: text, description: "One or two sentences. Used on cards and the ticket." }
+          - { name: body,     label: About the film, type: text, list: true, description: "One entry per paragraph. Basic HTML like <em> is allowed." }
+          - name: runningOrder
+            label: Running order
+            type: object
+            list: true
+            fields:
+              - { name: time, label: Time, type: string }
+              - { name: what, label: What happens, type: string }
+          - { name: beyond, label: Beyond the screen, type: string, description: "The one-line summary of the workshop, meal or gig. Shown on cards." }
+          - name: photos
+            label: Photographs
+            type: image
+            list: true
+            options: { media: event-photos, path: "" }
+            description: "The first photograph is the cover image, so pick a wide one."
+
+      - name: past
+        label: Archive
+        type: object
+        list: true
+        description: Past screenings, newest first. Drag to reorder.
+        fields:
+          - { name: film,     label: Film title,   type: string, required: true }
+          - { name: slug,     label: URL slug,     type: string, required: true, description: "Lowercase with hyphens. Changing this breaks existing links." }
+          - { name: director, label: Director,     type: string }
+          - { name: year,     label: Year,         type: number }
+          - { name: code,     label: Country code, type: string, description: "Two letters, e.g. IR." }
+          - { name: country,  label: Country,      type: string }
+          - { name: date,     label: Date,         type: date, required: true, options: { format: "yyyy-MM-dd" } }
+          - { name: dateNote, label: Date override, type: string, description: "Only if the exact day is unknown, e.g. 'April 2026'." }
+          - { name: venue,    label: Venue,        type: string }
+          - { name: city,     label: City / area,  type: string }
+          - { name: attendance, label: Attendance, type: number }
+          - { name: soldOut,  label: Sold out?,    type: boolean }
+          - { name: first,    label: Our first screening?, type: boolean }
+          - { name: standfirst, label: Short summary, type: text }
+          - { name: story,    label: The screening, type: text, list: true, description: "One entry per paragraph. Basic HTML like <em> is allowed." }
+          - { name: beyondTitle, label: "Beyond the screen: heading", type: string }
+          - { name: beyondBody,  label: "Beyond the screen: paragraphs", type: text, list: true }
+          - { name: beyond,   label: Beyond the screen summary, type: string, description: "One line, shown on cards." }
+          - name: impact
+            label: What happened next
+            type: object
+            list: true
+            fields:
+              - { name: figure, label: Figure, type: string }
+              - { name: label,  label: Label, type: string }
+          - { name: credits,  label: Made with, type: string, list: true }
+          - name: links
+            label: External links
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Link text, type: string }
+              - { name: url,   label: URL, type: string }
+          - name: photos
+            label: Photographs
+            type: image
+            list: true
+            options: { media: event-photos, path: "" }
+            description: "The first photograph is the cover image, so pick a wide one."
+          - { name: confirm, label: Internal note, type: text, description: "Not shown on the website. Use it to flag anything still unverified." }
+
+  # -------------------------------------------------------------------- ROLES
+  - name: roles
+    label: Volunteer roles
+    path: data/roles.json
+    type: file
+    format: json
+    fields:
+      - name: roles
+        label: Roles
+        type: object
+        list: true
+        fields:
+          - { name: id,    label: ID, type: string, required: true, description: "Short lowercase key, e.g. programmer." }
+          - { name: title, label: Role title, type: string, required: true }
+          - { name: blurb, label: Short description, type: text }
+          - name: questions
+            label: Application questions
+            type: object
+            list: true
+            fields:
+              - { name: id,       label: Field ID, type: string, required: true }
+              - { name: label,    label: Question, type: text, required: true }
+              - { name: hint,     label: Helper text, type: text }
+              - { name: required, label: Required?, type: boolean }
+
+  # --------------------------------------------------------------- SITE COPY
+  - name: site
+    label: Site text & settings
+    path: data/site.json
+    type: file
+    format: json
+    fields:
+      - { name: contactEmail,  label: Contact email, type: string }
+      - { name: instagram,     label: Instagram URL, type: string }
+      - { name: formEndpoint,  label: Form endpoint, type: string, description: "The Google Apps Script web app URL that receives form submissions. Leave blank to fall back to opening the visitor's email client." }
+      - { name: footerTagline, label: Footer tagline, type: text }
+      - { name: footerAward,   label: Footer award line, type: string }
+
+      - name: home
+        label: Home page
+        type: object
+        fields:
+          - { name: heroKicker,     label: Hero stamp, type: string }
+          - { name: heroLabel,      label: Hero label, type: string }
+          - { name: heroHeading,    label: Hero heading, type: text }
+          - { name: heroStandfirst, label: Hero standfirst, type: text }
+          - { name: manifestoLede,  label: Manifesto lede, type: text }
+          - { name: manifestoBody,  label: Manifesto paragraphs, type: text, list: true }
+          - name: pillars
+            label: Three pillars
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Small label, type: string }
+              - { name: title, label: Title, type: string }
+              - { name: body,  label: Body, type: text }
+          - { name: passportHeading,   label: Passport heading, type: text }
+          - { name: involvedHeading,   label: Get involved heading, type: text }
+          - { name: involvedRecommend, label: Recommend card text, type: text }
+          - { name: involvedVolunteer, label: Volunteer card text, type: text }
+
+      - name: screenings
+        label: Screenings page
+        type: object
+        fields:
+          - { name: heading,    label: Heading, type: string }
+          - { name: standfirst, label: Standfirst, type: text }
+          - { name: marquee,    label: Marquee phrases, type: string, list: true }
+          - { name: firstTimeHeading, label: First-timer heading, type: text }
+          - name: firstTime
+            label: Before / during / after
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Small label, type: string }
+              - { name: title, label: Title, type: string }
+              - { name: body,  label: Body, type: text }
+
+      - name: archive
+        label: Archive page
+        type: object
+        fields:
+          - { name: heading,    label: Heading, type: string }
+          - { name: standfirst, label: Standfirst, type: text }
+
+      - name: recommend
+        label: Recommend page
+        type: object
+        fields:
+          - { name: heading,    label: Heading, type: string }
+          - { name: standfirst, label: Standfirst, type: text }
+          - { name: filmIntro,  label: Film column paragraphs, type: text, list: true }
+          - { name: venueIntro, label: Venue column paragraphs, type: text, list: true }
+
+      - name: volunteer
+        label: Volunteer page
+        type: object
+        fields:
+          - { name: heading,    label: Heading, type: string }
+          - { name: standfirst, label: Standfirst, type: text }
+          - { name: offer,      label: What we offer, type: text, list: true }
+          - { name: offerClose, label: Closing paragraph, type: text }
+
+      - name: about
+        label: About page
+        type: object
+        fields:
+          - { name: heading,    label: Heading, type: text }
+          - { name: standfirst, label: Standfirst, type: text }
+          - { name: body,       label: Paragraphs, type: text, list: true }
+          - name: team
+            label: Team
+            type: object
+            list: true
+            fields:
+              - { name: name, label: Name, type: string }
+              - { name: role, label: Role, type: string }
+          - { name: teamNote, label: Team note, type: text }
+          - name: awards
+            label: Recognition
+            type: object
+            list: true
+            fields:
+              - { name: figure, label: Figure, type: string }
+              - { name: label,  label: Label, type: string }
+          - { name: awardsNote, label: Recognition note, type: text }
