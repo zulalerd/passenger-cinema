@@ -111,36 +111,45 @@ an email client set up, and nothing is stored.
 
 ## 5. How it gets online
 
-The site is live at **https://passengercinema.com**, hosted on **Vercel**.
-
-The chain is:
+The site is live at **https://passengercinema.com**, hosted on **GitHub Pages**.
 
 ```
-you save in the CMS  →  commit to GitHub  →  Vercel redeploys  →  Cloudflare  →  visitor
+you save in the CMS  →  commit to main  →  GitHub Pages rebuilds  →  visitor
 ```
 
-Cloudflare holds the DNS and proxies to Vercel. You don't need to touch either
-of them day to day: pushing to `main`, whether from the CMS or by hand, is all
-it takes. A deploy lands in about a minute.
+That is the whole chain. There is no separate hosting service and no build step.
+Anything pushed to `main`, whether from the CMS or by hand, is live within a few
+minutes.
 
-GitHub Pages is **not** used. There is deliberately no `CNAME` file in the repo,
-because that file is how Pages claims a domain and having both configured for
-`passengercinema.com` caused confusion.
+### Things not to delete
 
-### `vercel.json`
+- **`CNAME`** holds `passengercinema.com`. This is how Pages claims the domain.
+  Delete it and the site reverts to zulalerd.github.io.
+- The domain's DNS lives at **Cloudflare**: four A records on the bare domain
+  pointing at GitHub (185.199.108–111.153), set to **DNS only**, not proxied.
+  Turning the Cloudflare proxy on breaks HTTPS.
 
-This sets cache headers, and it matters. The files in `data/` are rewritten on
-every CMS save, so they are marked `must-revalidate` — without that, Vercel's
-CDN can serve yesterday's events for hours and it looks like the site is broken.
-Photographs cache for a week, since they never change once uploaded.
+### The one quirk
+
+Pages caches for about ten minutes and that is not configurable. After saving in
+the CMS, give it ten minutes before deciding something is wrong. This is the
+trade for having a single service instead of three.
 
 ### When something looks wrong
 
 Open **https://passengercinema.com/data/events.json** in your browser.
 
-- Films listed there → the content is fine, so it is a deploy or cache issue.
-  Hard-reload with Ctrl+Shift+R, and check the Vercel dashboard for a failed build.
-- That URL errors → something is genuinely broken. Check the most recent commit.
+- Films listed there → the content is fine. Wait ten minutes, then hard-reload
+  with Ctrl+Shift+R. Also try a private window, which rules out your own cache.
+- That URL errors → something is genuinely broken. Check the Actions tab in the
+  repo for a failed Pages build, and look at the most recent commit.
+
+### About the www warning
+
+GitHub checks `www.passengercinema.com` automatically even though the custom
+domain is the bare version. If there is no `www` DNS record it shows a warning.
+That warning does not affect the site. To clear it, add a CNAME record at
+Cloudflare: name `www`, target `zulalerd.github.io`, DNS only.
 
 ---
 
