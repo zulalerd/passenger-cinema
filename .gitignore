@@ -14,3 +14,6 @@ desktop.ini
 node_modules/
 tmp/
 *.log
+
+# working folder: contact sheets used to choose photographs
+_photo-picker/
