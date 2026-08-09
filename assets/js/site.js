@@ -735,11 +735,20 @@
      Inert until a PostHog project key is set in the CMS under
      Site text & settings. With no key, nothing loads at all.
 
-     When it is on it stores NOTHING on the visitor's device: no cookies,
-     no localStorage, and no person profiles. That is a deliberate choice,
-     and it is why the site needs no cookie banner. The trade is that
-     PostHog cannot tell a returning visitor from a new one, so treat the
-     visitor counts as "visits" rather than "people".
+     It stores NOTHING on the visitor's device: no cookies, no localStorage,
+     no person profiles. The trade is that PostHog cannot tell a returning
+     visitor from a new one, so read the numbers as "visits", not "people".
+
+     Session replay is ON. Two things follow from that:
+
+     1. Because nothing is stored, the session id resets on every page load,
+        so a replay covers one page rather than a whole journey.
+     2. Replay records behaviour, which UK and EU regulators treat as needing
+        consent. The site has no consent banner, so this is a decision the
+        owner has taken knowingly. At minimum the site needs a privacy notice
+        saying that sessions are recorded.
+
+     Forms carry .ph-no-capture so nothing anyone types is ever recorded.
      ===================================================================== */
   function analytics() {
     var key = t("analytics.posthogKey");
@@ -762,11 +771,18 @@
     }(document, window.posthog || []);
     window.posthog.init(key, {
       api_host: host,
-      persistence: "memory",           /* nothing written to the device at all */
-      person_profiles: "never",        /* every event stays anonymous */
-      disable_session_recording: true, /* replay needs consent, see the note above */
+      persistence: "memory",            /* nothing written to the device at all */
+      person_profiles: "never",         /* every event stays anonymous */
       capture_pageview: true,
-      autocapture: true                /* which links and buttons get clicked */
+      autocapture: true,                /* which links and buttons get clicked */
+      disable_session_recording: false, /* replay on, see the caveats above */
+      session_recording: {
+        /* Never record what anyone types. The volunteer form asks for names,
+           emails and long personal answers, and none of that should end up
+           in a replay. Whole forms are excluded via .ph-no-capture below. */
+        maskAllInputs: true,
+        maskTextSelector: ".ph-no-capture, .ph-no-capture *"
+      }
     });
   }
 
