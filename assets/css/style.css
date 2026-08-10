@@ -365,9 +365,11 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   display: flex; gap: .75rem;
   overflow-x: auto; overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   padding: clamp(1.5rem,3vw,2.25rem) var(--gut);
+  /* without this the first snap point sits one gutter in, so the strip never
+     quite returns to the beginning */
+  scroll-padding-inline: var(--gut);
   scrollbar-width: none;                 /* moved with the arrows instead */
 }
 .reel::-webkit-scrollbar { display: none; }
@@ -397,6 +399,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .reel__item img {
   height: clamp(210px, 30vw, 330px);
   width: auto; max-width: 100%;
+  /* an unloaded image is auto-width, so it measures zero, the strip collapses
+     and lazy loading never fires. This keeps a box for it to arrive into and
+     is always narrower than the real photograph, so it never crops. */
+  min-width: 110px;
   object-fit: cover; display: block;
 }
 .reel__item .figcap { margin-top: .5rem; }
@@ -674,7 +680,12 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .lightbox[data-open="true"] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 1rem; }
 .lightbox__bar { display: flex; align-items: center; gap: 1rem; color: var(--ivory); }
 .lightbox__bar .label { opacity: .7; }
-.lightbox__fig { display: grid; place-items: center; min-height: 0; min-width: 0; overflow: hidden; }
+/* flex, not grid: a grid row here sizes itself to the photograph's own height,
+   so max-height: 100% on the image had nothing smaller to measure against */
+.lightbox__fig {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 0; min-width: 0; overflow: hidden;
+}
 .lightbox__fig img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .lightbox__nav { display: flex; justify-content: center; gap: .6rem; }
 .lightbox button {

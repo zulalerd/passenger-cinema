@@ -151,6 +151,21 @@
     reel.parentNode.insertBefore(wrap, reel);
     wrap.appendChild(reel);
 
+    /* Ask for a smooth scroll, but check it actually happened: snapping and
+       reduced-motion settings can swallow it, and a button that appears to do
+       nothing is worse than one that jumps. */
+    function glide(to) {
+      var end = Math.max(0, Math.min(reel.scrollWidth - reel.clientWidth, to));
+      var from = reel.scrollLeft;
+      try { reel.scrollTo({ left: end, behavior: "smooth" }); }
+      catch (e) { reel.scrollLeft = end; }
+      setTimeout(function () {
+        if (Math.abs(reel.scrollLeft - from) < 2) reel.scrollLeft = end;
+        sync();
+      }, 150);
+      setTimeout(sync, 700);   /* again once a smooth scroll has finished */
+    }
+
     function arrow(dir, glyph, label) {
       var b = document.createElement("button");
       b.type = "button";
@@ -159,8 +174,7 @@
       b.innerHTML = '<span aria-hidden="true">' + glyph + "</span>";
       b.addEventListener("click", function () {
         var by = Math.round(reel.clientWidth * 0.8) * (dir === "next" ? 1 : -1);
-        if (reel.scrollBy) reel.scrollBy({ left: by, behavior: "smooth" });
-        else reel.scrollLeft += by;
+        glide(reel.scrollLeft + by);
       });
       wrap.appendChild(b);
       return b;

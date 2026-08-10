@@ -7,7 +7,7 @@
 # Run preview.cmd (double-click) or:  powershell -File preview.ps1
 
 $Root = $PSScriptRoot
-$Port = 5199
+$Port = if ($env:PC_PORT) { [int]$env:PC_PORT } else { 5199 }
 
 $mime = @{
   ".html"="text/html; charset=utf-8"; ".css"="text/css; charset=utf-8"
@@ -30,7 +30,7 @@ Write-Host "  Passenger Cinema is running at " -NoNewline
 Write-Host "http://localhost:$Port/" -ForegroundColor Cyan
 Write-Host "  Press Ctrl+C to stop."
 Write-Host ""
-Start-Process "http://localhost:$Port/"
+if (-not $env:PC_NO_OPEN) { Start-Process "http://localhost:$Port/" }
 
 while ($listener.IsListening) {
   try {

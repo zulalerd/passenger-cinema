@@ -63,7 +63,16 @@
                                ],
                      "beyond":  "Culinary experience inspired by the film",
                      "photos":  [
-                                    "the-cook-the-thief-01.jpg"
+                                    "the-cook-the-thief-01.jpg",
+                                    "the-cook-the-thief-02.jpg",
+                                    "the-cook-the-thief-03.jpg",
+                                    "the-cook-the-thief-04.jpg",
+                                    "the-cook-the-thief-05.jpg",
+                                    "the-cook-the-thief-06.jpg",
+                                    "the-cook-the-thief-07.jpg",
+                                    "the-cook-the-thief-08.jpg",
+                                    "the-cook-the-thief-09.jpg",
+                                    "the-cook-the-thief-10.jpg"
                                 ],
                      "credits":  [
                                      {
@@ -393,15 +402,10 @@
                                          "name":  "Ece Bapcum",
                                          "role":  "Photographer",
                                          "photo":  ""
-                                     },
-                                     {
-                                         "name":  "Ecem Can",
-                                         "role":  "Event volunteer",
-                                         "photo":  ""
                                      }
                                  ],
                      "start":  "21:00",
-                     "beyond":  "Double bill with Rebels with Projectors, part of the Festival of Community Cinema"
+                     "beyond":  "Double bill with Rebels with Projectors, part of the Festival of Community Cinema celebrating 100 years of community cinema"
                  },
                  {
                      "film":  "The Harder They Come",
