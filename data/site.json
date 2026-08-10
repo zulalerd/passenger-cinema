@@ -97,7 +97,6 @@
                   "standfirst":  "Passenger Cinema was founded in London in 2024 on a simple idea: cinema can help us travel, not only to different places but towards one another.",
                   "body":  [
                                "Every screening is an invitation to discover a new country, meet new people and experience a culture through film.",
-                               "Every event starts with the same question: <em>where should this film live?</em> We choose the room that suits the story, which is how we have ended up in an independent cinema, a film school, a community space and a craft café. Each new space introduces Passenger Cinema to a different local community, and no two events are the same. That keeps us creatively challenged, and it keeps our audience curious about where we’ll take them next.",
                                "Our programme reflects the diversity of the city we call home. Every event brings together people of different ages, nationalities and backgrounds around a shared experience, proving that cinema can create common ground even when we don’t share the same language or story.",
                                "We have travelled through cinema to Turkey, Japan, Brazil, Mexico, Jamaica, Italy, Hong Kong, Spain and Iran, celebrating stories that are rarely given the spotlight in mainstream cinemas. We believe audiences are curious and adventurous, and our programming reflects that. We have been proud to welcome people from the cultures represented on screen alongside those discovering them for the first time, creating conversations that continue long after the credits roll."
                            ],
@@ -137,6 +136,6 @@
                       "heading":  "Never miss a screening.",
                       "body":  "Follow our calendar and you get an email whenever we announce the next one. No newsletter, no digest, nothing else: just the events.",
                       "cta":  "Follow our calendar",
-                      "emailBody":  "Prefer email? Leave your address and we will add you to the list for future screenings."
+                      "emailBody":  "Prefer email? Leave your address and we will send you emails for future screenings."
                   }
 }

@@ -343,6 +343,16 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   padding-bottom: .55rem; border-bottom: 1px dotted var(--rule-strong); }
 .runorder time { font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; }
 
+/* a smaller button, for places that should not shout */
+.btn--sm { padding: .62rem 1.05rem; font-size: .68rem; letter-spacing: .12em; gap: .45rem; }
+
+/* Stay in touch: deliberately compact. It sits at the foot of the page
+   and should not compete with the screening above it. */
+.stayintouch__lede { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0 0 .5rem; }
+.stayintouch__p { opacity: .82; font-size: .92rem; max-width: 48ch; margin: 0; }
+.stayintouch__row { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.1rem 0 0; }
+.stayintouch .field input { padding: .62rem .85rem; }
+
 /* email signup: field and button on one line where there is room */
 .signup { display: grid; gap: .75rem; }
 @media (min-width: 520px) { .signup { grid-template-columns: 1fr auto; align-items: start; } }
@@ -367,58 +377,29 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .pillar h3 { margin-bottom: .6rem; }
 .pillar p { margin: 0; font-size: .96rem; opacity: .82; }
 
-/* --------------------------------------------------------------- passport */
 /* --------------------------------------------------------------- passport -
-   Stamps are drawn in CSS rather than set as images so they stay data-driven.
-   Three things make them read as real ink rather than as buttons: an uneven
-   rotation, a double rule with a gap between the lines, and a turbulence mask
-   that eats away at the ink the way a rubber stamp does on paper.
+   The stamps are SVG, drawn in site.js, so all the box styling that used to
+   live here is gone. What is left positions them and sets the ink colour.
    -------------------------------------------------------------------------- */
 .passport {
   display: flex; flex-wrap: wrap;
-  gap: clamp(.9rem, 2vw, 1.6rem);
+  gap: clamp(.5rem, 1.4vw, 1rem);
   padding-block: 1rem;
 }
 
-.pstamp {
-  --ink: var(--stamp);
-  position: relative;
-  display: inline-grid; justify-items: center; gap: .18rem;
-  padding: .8rem 1.15rem .7rem;
-  text-decoration: none;
-  color: var(--ink);
-  font-family: var(--mono);
-  border: 2px solid currentColor;
-  border-radius: 4px;
-  /* the inner rule of the double frame */
-  box-shadow: inset 0 0 0 1px currentColor;
-  background-clip: padding-box;
-  transition: transform .3s var(--ease), opacity .2s var(--ease);
-  /* patchy ink */
-  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='120'><filter id='r'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' seed='7'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 -.28'/></filter><rect width='240' height='120' fill='white'/><rect width='240' height='120' filter='url(%23r)'/></svg>");
-          mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='120'><filter id='r'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' seed='7'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 -.28'/></filter><rect width='240' height='120' fill='white'/><rect width='240' height='120' filter='url(%23r)'/></svg>");
-  -webkit-mask-size: 240px 120px;
-          mask-size: 240px 120px;
-}
-
-/* the country name is the whole stamp now, so it carries the weight */
-.pstamp {
-  font-size: .72rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  line-height: 1.3;
-}
-.pstamp__n {
-  font-weight: 700;
-  max-width: 22ch;          /* a long co-production list must not stretch the stamp */
-  text-align: center;
-  overflow-wrap: anywhere;
-}
-.pstamp em { font-style: normal; opacity: .75; }
-
-/* The wrapper exists only so the hover postcard has somewhere to live: the
-   stamp itself is masked, and a mask clips its children. */
+/* The wrapper exists so the hover postcard has somewhere to live: the SVG
+   would otherwise clip it. */
 .pstamp-wrap { position: relative; display: inline-block; }
+
+.pstamp {
+  --ink: #B8402C;
+  --cancel: #0B2C36;
+  --stamp-paper: #FBFAED;
+  display: block;
+  text-decoration: none;
+  transition: transform .3s var(--ease), opacity .2s var(--ease);
+}
+.stampsvg { display: block; font-family: var(--mono); overflow: visible; }
 
 /* every stamp sits at its own angle, like a page that has been filling up */
 .pstamp-wrap:nth-child(6n+1) .pstamp { transform: rotate(-3.4deg); }
@@ -431,25 +412,16 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 /* three ink colours, cycling, so the page looks stamped over time */
 .pstamp-wrap:nth-child(3n+2) .pstamp { --ink: #2E6E7E; }
 .pstamp-wrap:nth-child(3n+3) .pstamp { --ink: #7A6A2F; }
-.deep .pstamp                        { --ink: #E0705C; }
-.deep .pstamp-wrap:nth-child(3n+2) .pstamp { --ink: #7FC3D4; }
-.deep .pstamp-wrap:nth-child(3n+3) .pstamp { --ink: var(--ochre); }
 
-.pstamp-wrap:hover .pstamp { opacity: .82; transform: rotate(0deg) scale(1.04); }
+.pstamp-wrap:hover .pstamp { transform: rotate(0deg) scale(1.05); }
 
-/* the one we have not been to yet: not stamped, just pencilled in */
-.pstamp[data-next="true"] {
-  --ink: var(--ochre);
-  border-style: dashed;
-  box-shadow: none;
-  -webkit-mask-image: none; mask-image: none;
-  opacity: .9;
-}
+/* the one we have not been to yet: printed, but not yet cancelled */
+.pstamp[data-next="true"] { --ink: #9A6B1F; opacity: .95; }
 
 /* ---- the postcard that appears on hover -------------------------------- */
 .pcard {
   position: absolute;
-  bottom: calc(100% + 12px);
+  bottom: calc(100% + 6px);
   left: 50%;
   width: 168px;
   z-index: 30;
@@ -462,7 +434,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   transform: translateX(-50%) rotate(-2.5deg) scale(.94);
   transform-origin: bottom center;
   transition: opacity .22s var(--ease), transform .28s var(--ease), visibility .22s;
-  pointer-events: none;      /* never let it block the stamp underneath */
+  pointer-events: none;
 }
 .pcard__fig { display: block; overflow: hidden; }
 .pcard__fig img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
@@ -474,14 +446,12 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   font-family: var(--mono); font-size: .56rem; letter-spacing: .14em;
   text-transform: uppercase; opacity: .55;
 }
-/* a little tail, so it reads as attached to the stamp */
 .pcard::after {
   content: ""; position: absolute; top: 100%; left: 50%; translate: -50% 0;
   border: 6px solid transparent; border-top-color: var(--ivory);
 }
 
-/* Hover only. On a touch screen there is no hover, and tapping should just
-   follow the link rather than reveal a card nobody asked for. */
+/* Hover only. On a touch screen tapping should just follow the link. */
 @media (hover: hover) and (pointer: fine) {
   .pstamp-wrap:hover .pcard,
   .pstamp-wrap:focus-within .pcard {
@@ -494,7 +464,6 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   .pstamp-wrap:hover .pstamp { transform: none; }
   .pcard { transition: opacity .01ms, visibility .01ms; }
 }
-
 /* ------------------------------------------------------------ event cards */
 .cards { display: grid; gap: clamp(1.5rem, 2.4vw, 2.1rem); }
 @media (min-width: 720px)  { .cards--2 { grid-template-columns: repeat(2, 1fr); } }

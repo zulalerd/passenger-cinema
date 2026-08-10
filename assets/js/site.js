@@ -63,6 +63,75 @@
   function imgPath(f) { return "assets/img/events/" + f; }
 
   /* =======================================================================
+     PASSPORT STAMPS
+     Drawn as SVG rather than set as images: no files to license, sharp at
+     any size, and the country and date come straight from the data.
+     A perforated postage stamp with a cancellation struck across it.
+     ===================================================================== */
+  var STAMP_UID = 0;
+  function stampSVG(country, date, pending) {
+    var w = 128, h = 92, r = 3.2, step = 9;
+    var id = "s" + (++STAMP_UID);
+    var name = String(country || "").toUpperCase();
+    /* long names step down a size or they collide with the frame */
+    var size = name.length > 13 ? 7.5 : name.length > 9 ? 9 : 11;
+
+    var holes = "";
+    for (var x = step / 2; x < w; x += step) {
+      holes += '<circle cx="' + x.toFixed(1) + '" cy="0" r="' + r + '"/>' +
+               '<circle cx="' + x.toFixed(1) + '" cy="' + h + '" r="' + r + '"/>';
+    }
+    for (var y = step / 2; y < h; y += step) {
+      holes += '<circle cx="0" cy="' + y.toFixed(1) + '" r="' + r + '"/>' +
+               '<circle cx="' + w + '" cy="' + y.toFixed(1) + '" r="' + r + '"/>';
+    }
+
+    var waves = "";
+    for (var k = 0; k < 4; k++) {
+      var wy = 26 + k * 7;
+      waves += '<path d="M 74 ' + wy + ' q 9 -3 18 0 t 18 0 t 18 0" fill="none" ' +
+               'stroke="var(--cancel)" stroke-width="1.6" opacity=".5"/>';
+    }
+
+    /* a cancellation only belongs on somewhere we have actually been */
+    var cancel = pending ? "" :
+      '<g filter="url(#rf' + id + ')" opacity=".78">' +
+        '<circle cx="98" cy="30" r="23" fill="none" stroke="var(--cancel)" stroke-width="2"/>' +
+        '<circle cx="98" cy="30" r="18" fill="none" stroke="var(--cancel)" stroke-width=".7"/>' +
+        '<text x="98" y="27.5" text-anchor="middle" fill="var(--cancel)" font-size="5.2" letter-spacing=".5">LONDON</text>' +
+        '<text x="98" y="36" text-anchor="middle" fill="var(--cancel)" font-weight="700" font-size="6.4">' + esc(date) + "</text>" +
+        waves +
+      "</g>";
+
+    return '<svg class="stampsvg" viewBox="-6 -4 ' + (w + 12) + ' ' + (h + 8) + '" ' +
+        'width="' + (w + 12) + '" height="' + (h + 8) + '" aria-hidden="true" focusable="false">' +
+      "<defs>" +
+        '<mask id="pf' + id + '"><rect width="' + w + '" height="' + h + '" fill="#fff"/>' +
+          '<g fill="#000">' + holes + "</g></mask>" +
+        '<filter id="gr' + id + '"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="4"/>' +
+          '<feColorMatrix type="saturate" values="0"/>' +
+          '<feComponentTransfer><feFuncA type="linear" slope="0.10"/></feComponentTransfer>' +
+          '<feComposite operator="in" in2="SourceGraphic"/></filter>' +
+        '<filter id="rf' + id + '"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="4" seed="9" result="n"/>' +
+          '<feDisplacementMap in="SourceGraphic" in2="n" scale="1.5" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+      "</defs>" +
+      '<g mask="url(#pf' + id + ')">' +
+        '<rect width="' + w + '" height="' + h + '" fill="var(--stamp-paper)"/>' +
+        '<rect width="' + w + '" height="' + h + '" filter="url(#gr' + id + ')" fill="var(--ink)"/>' +
+      "</g>" +
+      '<g filter="url(#rf' + id + ')" fill="none" stroke="var(--ink)" opacity=".9">' +
+        '<rect x="9" y="9" width="' + (w - 18) + '" height="' + (h - 18) + '" stroke-width="1.6"' +
+          (pending ? ' stroke-dasharray="5 3"' : "") + "/>" +
+      "</g>" +
+      '<text x="' + w / 2 + '" y="' + (h / 2 + 2) + '" text-anchor="middle" fill="var(--ink)" ' +
+        'font-weight="700" font-size="' + size + '" letter-spacing="1.4">' + esc(name) + "</text>" +
+      '<text x="' + w / 2 + '" y="' + (h - 19) + '" text-anchor="middle" fill="var(--ink)" opacity=".6" ' +
+        'font-size="4.6" letter-spacing="1.6">' + (pending ? "NEXT DEPARTURE" : "PASSENGER CINEMA") + "</text>" +
+      cancel +
+    "</svg>";
+  }
+
+  /* =======================================================================
      EDITABLE COPY
      Any element with data-t="some.path" gets its text from site.json.
      data-t-html does the same but allows <em> and <strong> through.
@@ -294,8 +363,8 @@
         done[e.country] = 1;   /* PC.past is newest first, so this is the latest */
         var cover = e.photos && e.photos.length ? e.photos[0] : null;
         out.push('<span class="pstamp-wrap">' +
-          '<a class="pstamp" href="archive.html#' + encodeURIComponent(e.country) + '">' +
-            '<span class="pstamp__n">' + esc(e.country) + "</span></a>" +
+          '<a class="pstamp" href="archive.html#' + encodeURIComponent(e.country) + '"' +
+            ' aria-label="' + esc(e.country) + '">' + stampSVG(e.country, fmtStamp(e), false) + "</a>" +
           peek(cover, e.film, fmtShort(e)) +
         "</span>");
       });
@@ -303,8 +372,7 @@
       PC.upcoming.forEach(function (e) {
         out.push('<span class="pstamp-wrap">' +
           '<span class="pstamp" data-next="true">' +
-            '<span class="pstamp__n">' + esc(e.destinationCountry || e.city) +
-            " <em>next</em></span></span>" +
+            stampSVG(e.destinationCountry || e.city, fmtStamp(e), true) + "</span>" +
           peek(e.poster || (e.photos && e.photos[0]), e.film, fmtShort(e)) +
         "</span>");
       });
