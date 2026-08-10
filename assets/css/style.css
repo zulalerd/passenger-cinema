@@ -19,9 +19,9 @@
   --rule-strong:    color-mix(in srgb, var(--midnight) 42%, transparent);
   --rule-dark:      rgba(251, 250, 237, .20);
 
-  --display: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans:    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --mono:    "Space Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
   --gut:   clamp(1.25rem, 4vw, 3.5rem);
   --maxw:  1320px;
@@ -84,8 +84,8 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gut); }
 .wrap--narrow { max-width: 880px; }
 
-.section { padding-block: clamp(3.5rem, 8vw, 7rem); }
-.section--tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
+.section { padding-block: clamp(3.25rem, 5vw, 4.5rem); }
+.section--tight { padding-block: clamp(2.25rem, 3.2vw, 2.75rem); }
 
 .dark  { background: var(--midnight); color: var(--ivory); }
 .dark  { --rule: var(--rule-dark); --rule-strong: rgba(251,250,237,.4); }
@@ -120,7 +120,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .display {
   font-family: var(--display);
   font-weight: 400;
-  font-variation-settings: "opsz" 60;
+  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 60;
   line-height: 1.02;
   letter-spacing: -.018em;
   text-wrap: balance;
@@ -147,7 +147,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .rule-strong { border-top: 1px solid var(--rule-strong); }
 
 /* section heading: label + rule + title */
-.shead { display: grid; gap: .9rem; margin-bottom: clamp(1.75rem, 4vw, 3rem); }
+.shead { display: grid; gap: .8rem; margin-bottom: clamp(1.5rem, 2.4vw, 1.9rem); }
 .shead__top {
   display: flex; align-items: baseline; gap: 1rem;
   border-top: 1px solid var(--rule-strong); padding-top: .7rem;
@@ -277,7 +277,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 }
 .hero__in {
   position: relative;
-  min-height: min(88vh, 780px);
+  min-height: min(74vh, 640px);
   display: flex; flex-direction: column; justify-content: flex-end;
   padding-block: clamp(4rem, 12vh, 7rem) clamp(2rem, 5vh, 3rem);
 }
@@ -430,7 +430,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 }
 
 /* ------------------------------------------------------------ event cards */
-.cards { display: grid; gap: clamp(1.75rem, 3.5vw, 3rem); }
+.cards { display: grid; gap: clamp(1.5rem, 2.4vw, 2.1rem); }
 @media (min-width: 720px)  { .cards--2 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 720px)  { .cards--3 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1040px) { .cards--3 { grid-template-columns: repeat(3, 1fr); } }
@@ -512,7 +512,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .ehero__media::after { content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(6,32,42,.7) 0%, rgba(6,32,42,.3) 40%, rgba(6,32,42,.92) 100%); }
 .ehero__in { position: relative; padding-block: clamp(3.5rem, 10vh, 6rem) clamp(2.25rem, 5vh, 3.5rem);
-  min-height: min(70vh, 620px); display: flex; flex-direction: column; justify-content: flex-end; }
+  min-height: min(62vh, 540px); display: flex; flex-direction: column; justify-content: flex-end; }
 .ehero h1 { max-width: 18ch; margin-block: 1.1rem .9rem; }
 
 .emeta { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.4rem;
@@ -655,8 +655,8 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .marquee-rule__in { display: flex; gap: 2.5rem; white-space: nowrap; font-family: var(--mono);
   font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; opacity: .6; }
 
-.two-col { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
-@media (min-width: 900px) { .two-col { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); } }
+.two-col { display: grid; gap: clamp(1.75rem, 3vw, 2.75rem); align-items: start; }
+@media (min-width: 900px) { .two-col { grid-template-columns: minmax(0,.42fr) minmax(0,1.58fr); } }
 .two-col--even { grid-template-columns: 1fr; }
 @media (min-width: 900px) { .two-col--even { grid-template-columns: 1fr 1fr; } }
 

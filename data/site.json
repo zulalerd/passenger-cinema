@@ -117,5 +117,25 @@
                                }
                            ],
                   "teamNote":  "Beyond the two of us, Passenger Cinema is a rotating crew of volunteers: programmers, photographers, designers, writers, front-of-house, and friends who turn up with projectors, sound systems and, on one occasion, weaving looms carried over from Turkey."
-              }
+              },
+    "donateUrl":  "https://donate.stripe.com/00wcN51nPgJD7cQ0LN3Ru00",
+    "support":  {
+                    "heading":  "Help us keep travelling.",
+                    "standfirst":  "Passenger Cinema is run entirely by volunteers. Nobody takes a wage. What we raise goes straight back into the next screening.",
+                    "body":  [
+                                 "Every event has to pay for itself before it can happen. A licence for the film, a room for the day, a projector and a sound system if the room hasn't got them, and the posters that get people through the door.",
+                                 "Ticket prices cover most of it, and we keep them deliberately low so that money is never the reason someone doesn't come. Donations are what close the gap, and what let us take a risk on a film nobody has heard of."
+                             ],
+                    "uses":  [
+                                 "<strong>Film licences.</strong> The single biggest cost, and the one nobody sees. A licence runs from around £100 to £250 per screening.",
+                                 "<strong>Rooms.</strong> Some spaces host us for nothing. Most do not.",
+                                 "<strong>Kit.</strong> Projectors, screens and sound for the rooms that have none.",
+                                 "<strong>Keeping tickets low</strong>, so that cost is never the reason someone stays home.",
+                                 "<strong>Taking a risk</strong> on a film with no audience yet, which is usually the one worth showing."
+                             ],
+                    "note":  "Payments are handled by Stripe. Give once or set up something monthly, whatever suits.",
+                    "otherHeading":  "Money is not the only useful thing.",
+                    "sponsorLede":  "If you are a company, a venue or a funder, there is more we could do together.",
+                    "sponsorBody":  "We have partnered with cinemas, film schools, craft spaces, restaurants and cultural organisations across London, Istanbul, Barcelona and Dublin. Sponsorship can mean funding a screening, hosting one, or bringing something to it that we could not make ourselves."
+                }
 }

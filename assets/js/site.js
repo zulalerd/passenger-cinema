@@ -161,6 +161,13 @@
       if (el.tagName === "A") el.href = "mailto:" + CONTACT_EMAIL;
     });
     $$("[data-instagram]").forEach(function (el) { el.href = INSTAGRAM; });
+    /* the Stripe payment link, editable in the CMS. If it is ever blank the
+       button points at the contact email rather than going nowhere. */
+    var donate = t("donateUrl");
+    $$("[data-donate]").forEach(function (el) {
+      if (donate) { el.href = donate; }
+      else { el.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Donating to Passenger Cinema"); }
+    });
     $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
   }
 
