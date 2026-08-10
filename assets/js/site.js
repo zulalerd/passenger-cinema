@@ -310,18 +310,20 @@
 
     slot.innerHTML = PC.upcoming.map(function (ev) {
       var body = (ev.body || []).map(function (p) { return "<p>" + p + "</p>"; }).join("");
-      /* a still from the film, above the ticket, so the page is not all type */
-      var still = (ev.photos && ev.photos.length)
-        ? '<figure class="upcoming__still"><img src="' + imgPath(ev.photos[0]) +
-          '" alt="' + esc(ev.film) + '" fetchpriority="high"></figure>'
+      /* the poster sits beside the description rather than above the ticket,
+         so the two columns fill each other's white space */
+      var poster = ev.poster
+        ? '<figure class="filmgrid__fig"><img src="' + imgPath(ev.poster) +
+          '" alt="Poster for ' + esc(ev.film) + '" loading="lazy"></figure>'
         : "";
       return '<article style="margin-bottom:clamp(3rem,7vw,5rem)">' +
-        still +
         ticketMarkup(ev, true) +
-        (body ? '<div class="two-col" style="margin-top:clamp(2.5rem,5vw,4rem)">' +
-            '<div><p class="label">About the film</p></div>' +
-            '<div class="prose">' + body + "</div>" +
-          "</div>" : "") +
+        (body
+          ? '<div style="margin-top:clamp(2.5rem,5vw,4rem)">' +
+              '<div class="shead"><div class="shead__top"><p class="label">About the film</p></div></div>' +
+              '<div class="filmgrid">' + poster + '<div class="prose">' + body + "</div></div>" +
+            "</div>"
+          : "") +
       "</article>";
     }).join("");
   }

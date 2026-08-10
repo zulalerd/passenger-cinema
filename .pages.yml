@@ -62,6 +62,11 @@ content:
               - { name: time, label: Time, type: string }
               - { name: what, label: What happens, type: string }
           - { name: beyond, label: Beyond the screen, type: string, description: "The one-line summary of the workshop, meal or gig. Shown on cards." }
+          - name: poster
+            label: Poster
+            type: image
+            options: { media: event-photos, path: "" }
+            description: "The event poster, shown beside the film description. Portrait works best."
           - name: photos
             label: Photographs
             type: image
@@ -159,7 +164,6 @@ content:
           - { name: posthogHost, label: PostHog host, type: string, description: "https://eu.i.posthog.com for the EU, https://us.i.posthog.com for the US." }
       - { name: donateUrl,     label: Donate link, type: string, description: "The Stripe payment link. Leave blank and the Donate button falls back to emailing you." }
       - { name: footerTagline, label: Footer tagline, type: text }
-      - { name: footerAward,   label: Footer award line, type: string }
 
       - name: home
         label: Home page
@@ -234,8 +238,7 @@ content:
           - { name: standfirst,   label: Standfirst, type: text }
           - { name: body,         label: Paragraphs, type: text, list: true }
           - { name: uses,         label: What donations pay for, type: text, list: true }
-          - { name: note,         label: Note under the button, type: text }
-          - { name: otherHeading, label: "Other ways to help: heading", type: text }
+          - { name: otherHeading, label: "Other ways to support: heading", type: text }
           - { name: sponsorLede,  label: "Organisations: lede", type: text }
           - { name: sponsorBody,  label: "Organisations: body", type: text }
 

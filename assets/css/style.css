@@ -293,14 +293,16 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='.55'/></svg>");
 }
 
-/* a film still above the upcoming ticket */
-.upcoming__still { margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); }
-.upcoming__still img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+/* A portrait image beside a column of text, used for the film poster on the
+   screenings page and the founders photograph on the About page. Each fills
+   the white space the other would leave. */
+.filmgrid { display: grid; gap: clamp(1.5rem, 3vw, 2.75rem); align-items: start; }
+@media (min-width: 780px) {
+  .filmgrid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
 }
-@media (max-width: 600px) { .upcoming__still img { aspect-ratio: 4 / 3; } }
+.filmgrid__fig { margin: 0; }
+.filmgrid__fig img { width: 100%; }
+.filmgrid .prose { max-width: none; }
 
 /* ------------------------------------------------------- boarding / ticket */
 .ticket {
