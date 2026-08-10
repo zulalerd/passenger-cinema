@@ -81,44 +81,49 @@
     </div>
   </section>
 
-  <!-- ======================================================== ELSEWHERE -->
+  <!-- ==================================================== STAY IN TOUCH -->
   <section class="section dark">
     <div class="wrap">
       <div class="two-col">
-        <div><p class="label">Can&rsquo;t make this one?</p></div>
-        <div class="prose">
-          <p style="opacity:.85">
-            Follow us on Instagram for announcements, browse our past events to see where we&rsquo;ve
-            already been, or tell us where you think we should go next.
-          </p>
-          <p style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem">
-            <a class="btn btn--ghost" data-instagram href="#" target="_blank" rel="noopener">@passenger.cinema</a>
-            <a class="btn btn--ghost" href="recommend.html">Suggest a film</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================= SUBSCRIBE -->
-  <section class="section section--tight ivory" data-subscribe>
-    <div class="wrap">
-      <div class="subscribe">
+        <div><p class="label">Stay in touch</p></div>
         <div>
-          <p class="label label--stamp">Stay in touch</p>
-          <h2 class="display d3" style="margin:.6rem 0 .5rem" data-t="subscribe.heading">
+          <p class="lede" style="max-width:34ch;margin-bottom:1.5rem" data-t="subscribe.heading">
             Never miss a screening.
-          </h2>
-          <p style="opacity:.8;max-width:46ch;margin:0" data-t="subscribe.body">
+          </p>
+          <p style="opacity:.85;max-width:52ch" data-t="subscribe.body">
             Follow our calendar and you get an email whenever we announce the next one.
             No newsletter, no digest, nothing else: just the events.
           </p>
+
+          <p style="margin:2rem 0 0;display:flex;flex-wrap:wrap;gap:1rem">
+            <a class="btn" data-luma href="#" target="_blank" rel="noopener">
+              <span data-t="subscribe.cta">Follow our calendar</span> <span aria-hidden="true">&#8599;</span>
+            </a>
+            <a class="btn btn--ghost" data-instagram href="#" target="_blank" rel="noopener">@passenger.cinema</a>
+          </p>
+
+          <hr style="margin:2.5rem 0 2rem">
+
+          <p style="opacity:.85;max-width:52ch" data-t="subscribe.emailBody">
+            Prefer email? Leave your address and we will add you to the list for future screenings.
+          </p>
+          <form class="form ph-no-capture" data-pcform data-subject="Newsletter" novalidate
+                style="margin-top:1.25rem;max-width:34rem">
+            <div class="hp" aria-hidden="true">
+              <label>Leave this empty<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <div class="signup">
+              <div class="field">
+                <label class="sr" for="nl-email">Your email</label>
+                <input id="nl-email" name="Your email" type="email" required
+                       placeholder="you@example.com" autocomplete="email">
+                <p class="err" hidden>Please enter a valid email</p>
+              </div>
+              <button class="btn" type="submit">Sign up</button>
+            </div>
+            <div class="formMsg" data-formmsg role="status" aria-live="polite" style="margin-top:1rem"></div>
+          </form>
         </div>
-        <p style="margin:0">
-          <a class="btn" data-luma href="#" target="_blank" rel="noopener">
-            <span data-t="subscribe.cta">Follow our calendar</span> <span aria-hidden="true">&#8599;</span>
-          </a>
-        </p>
       </div>
     </div>
   </section>

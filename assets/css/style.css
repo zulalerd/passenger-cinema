@@ -343,6 +343,11 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   padding-bottom: .55rem; border-bottom: 1px dotted var(--rule-strong); }
 .runorder time { font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; }
 
+/* email signup: field and button on one line where there is room */
+.signup { display: grid; gap: .75rem; }
+@media (min-width: 520px) { .signup { grid-template-columns: 1fr auto; align-items: start; } }
+.signup .btn { white-space: nowrap; }
+
 /* ------------------------------------------------------------- subscribe */
 .subscribe {
   display: grid; gap: 1.5rem; align-items: center;

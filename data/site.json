@@ -136,6 +136,7 @@
     "subscribe":  {
                       "heading":  "Never miss a screening.",
                       "body":  "Follow our calendar and you get an email whenever we announce the next one. No newsletter, no digest, nothing else: just the events.",
-                      "cta":  "Follow our calendar"
+                      "cta":  "Follow our calendar",
+                      "emailBody":  "Prefer email? Leave your address and we will add you to the list for future screenings."
                   }
 }

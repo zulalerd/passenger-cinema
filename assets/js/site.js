@@ -461,6 +461,7 @@
     /* --- meta ------------------------------------------------------- */
     var metaRows = [
       ["Date", fmtLong(ev)],
+      ["Time", ev.start || ev.doors],
       ["Venue", ev.venue],
       ["Where", ev.city],
       ["Director", ev.director],

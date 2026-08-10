@@ -317,10 +317,11 @@
                      "city":  "Whitechapel, London",
                      "soldOut":  false,
                      "first":  false,
-                     "standfirst":  "A film about a village cinema and the people it holds together, screened in one of London's oldest independent cinemas.",
+                     "standfirst":  "A double bill for a hundred years of community cinema: the Cinema For All documentary Rebels with Projectors, then Tornatore's Cinema Paradiso. Tickets were three pounds.",
                      "story":  [
-                                   "There is no more honest film to programme as a community cinema than the one about a community cinema. Tornatore's Sicilian village hall, where the whole town turns up, argues, falls in love and grieves in front of the same screen, is more or less our mission statement with better weather.",
-                                   "We took it to the Genesis in Whitechapel, an independent cinema with well over a century of history on the Mile End Road, and filled the room."
+                                   "We joined the Festival of Community Cinema, a nationwide celebration of a hundred years of volunteer-led cinema in Britain and of the programming that has come out of it.",
+                                   "The night opened with <em>Rebels with Projectors</em>, a new documentary produced by Cinema For All about the people who have kept community cinema running for a century. Then Tornatore's Oscar-winning <em>Cinema Paradiso</em>, which is a film about exactly that: a village hall, a projectionist, and a whole town growing up in front of the same screen.",
+                                   "We took it to the Genesis in Whitechapel, an independent cinema with well over a century of history on the Mile End Road. Tickets were three pounds, because a hundred years of community cinema is not something to price people out of."
                                ],
                      "photos":  [
                                     "cinema-paradiso-01.jpg",
@@ -339,6 +340,11 @@
                                          "photo":  ""
                                      },
                                      {
+                                         "name":  "Cinema For All",
+                                         "role":  "Festival of Community Cinema",
+                                         "photo":  ""
+                                     },
+                                     {
                                          "name":  "Ece Bapcum",
                                          "role":  "Photographer",
                                          "photo":  ""
@@ -348,7 +354,9 @@
                                          "role":  "Event volunteer",
                                          "photo":  ""
                                      }
-                                 ]
+                                 ],
+                     "start":  "21:00",
+                     "beyond":  "Double bill with Rebels with Projectors, part of the Festival of Community Cinema"
                  },
                  {
                      "film":  "The Harder They Come",
@@ -435,6 +443,11 @@
                                      {
                                          "name":  "Manuela Irene",
                                          "role":  "director",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Josie Tamburello",
+                                         "role":  "Moderator",
                                          "photo":  ""
                                      },
                                      {

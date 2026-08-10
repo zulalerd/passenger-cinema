@@ -238,7 +238,8 @@ content:
         fields:
           - { name: heading, label: Heading, type: text }
           - { name: body,    label: Body, type: text }
-          - { name: cta,     label: Button text, type: string }
+          - { name: cta,       label: Button text, type: string }
+          - { name: emailBody, label: Email signup line, type: text }
 
       - name: support
         label: Support us page
