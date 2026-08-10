@@ -378,7 +378,17 @@
         "</div></section>";
       return;
     }
-
+track("screening_viewed", {
+  film: ev.film,
+  slug: ev.slug,
+  country: ev.country,
+  year: ev.year,
+  event_date: ev.date,
+  venue: ev.venue,
+  city: ev.city,
+  has_photos: ev.photos && ev.photos.length > 0,
+  photo_count: ev.photos ? ev.photos.length : 0
+});
     var ev = PC.past[i];
     var prev = PC.past[i + 1];      /* older */
     var next = PC.past[i - 1];      /* newer */
@@ -792,7 +802,11 @@
       }
     });
   }
-
+function track(name, props) {
+  if (window.posthog && window.posthog.capture) {
+    window.posthog.capture(name, props);
+  }
+}
   function boot() {
     var get = function (p) {
       return fetch(p, { cache: "no-cache" }).then(function (r) {
