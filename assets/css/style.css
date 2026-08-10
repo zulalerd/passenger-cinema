@@ -781,6 +781,9 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 
 .figcap { font-family: var(--mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase;
   opacity: .55; margin-top: .7rem; }
+/* Turkish needs a dotted capital İ, which the CSS transform cannot give us.
+   These captions are written in capitals already and left exactly as typed. */
+.figcap--asis { text-transform: none; }
 
 .empty {
   border: 1px dashed var(--rule-strong); padding: clamp(1.75rem, 4vw, 2.75rem);

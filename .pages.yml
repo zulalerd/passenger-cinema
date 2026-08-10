@@ -272,4 +272,4 @@ content:
           - { name: heading,    label: Heading, type: text }
           - { name: standfirst, label: Standfirst, type: text }
           - { name: body,       label: Paragraphs, type: text, list: true }
-          - { name: founderCaption, label: Caption under the photograph, type: string }
+          - { name: founderCaption, label: Caption under the photograph, type: string, description: "Type it in capitals, exactly as it should appear, so Turkish letters stay right." }
