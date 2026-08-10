@@ -735,18 +735,21 @@
      Inert until a PostHog project key is set in the CMS under
      Site text & settings. With no key, nothing loads at all.
 
-     It stores NOTHING on the visitor's device: no cookies, no localStorage,
-     no person profiles. The trade is that PostHog cannot tell a returning
-     visitor from a new one, so read the numbers as "visits", not "people".
+     No cookies and no person profiles. The session id lives in
+     sessionStorage, which is wiped when the tab closes, so nothing follows
+     anyone between visits. PostHog therefore cannot tell a returning
+     visitor from a new one: read the numbers as "visits", not "people".
 
-     Session replay is ON. Two things follow from that:
+     Session replay is ON, and covers a whole visit rather than one page.
+     Two things worth remembering:
 
-     1. Because nothing is stored, the session id resets on every page load,
-        so a replay covers one page rather than a whole journey.
+     1. sessionStorage is still storage on someone's device, so this is not
+        a loophole around consent rules, just a much lighter touch than a
+        persistent cookie.
      2. Replay records behaviour, which UK and EU regulators treat as needing
-        consent. The site has no consent banner, so this is a decision the
-        owner has taken knowingly. At minimum the site needs a privacy notice
-        saying that sessions are recorded.
+        consent. There is no consent banner, so this is a decision the owner
+        has taken knowingly. The site should carry a privacy notice saying
+        sessions are recorded.
 
      Forms carry .ph-no-capture so nothing anyone types is ever recorded.
      ===================================================================== */
@@ -771,7 +774,11 @@
     }(document, window.posthog || []);
     window.posthog.init(key, {
       api_host: host,
-      persistence: "memory",            /* nothing written to the device at all */
+      /* sessionStorage, not cookies. The session id survives clicking from
+         one page to the next, so a replay covers the whole visit instead of
+         one page. It is wiped the moment the tab closes, so nothing follows
+         anyone between visits and there is no long-lived identifier. */
+      persistence: "sessionStorage",
       person_profiles: "never",         /* every event stays anonymous */
       capture_pageview: true,
       autocapture: true,                /* which links and buttons get clicked */
