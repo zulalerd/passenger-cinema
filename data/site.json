@@ -42,11 +42,6 @@
     "screenings":  {
                        "heading":  "What’s on",
                        "standfirst":  "We programme one journey at a time, and we build the whole event around it: the room, the food, the music, the people who know the film best.",
-                       "marquee":  [
-                                       "Every venue is different",
-                                       "Doors, film, then something else entirely",
-                                       "All welcome"
-                                   ],
                        "firstTimeHeading":  "What actually happens at a Passenger Cinema event?",
                        "firstTime":  [
                                          {
