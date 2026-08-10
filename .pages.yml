@@ -260,10 +260,10 @@ content:
             label: Photographs from the night
             type: object
             list: true
-            description: "A single row you swipe sideways. Leave it empty and the whole award section stays hidden."
+            description: "A single row moved with the arrows. The first one listed shows first. Leave it empty and the whole award section stays hidden."
             fields:
               - { name: photo,   label: Photograph, type: image, options: { media: event-photos, path: "" } }
-              - { name: caption, label: Caption, type: string }
+              - { name: caption, label: Description, type: string, description: "Not shown on the page. Read aloud by screen readers, so describe what is happening." }
 
       - name: about
         label: About page
@@ -272,11 +272,4 @@ content:
           - { name: heading,    label: Heading, type: text }
           - { name: standfirst, label: Standfirst, type: text }
           - { name: body,       label: Paragraphs, type: text, list: true }
-          - name: team
-            label: Team
-            type: object
-            list: true
-            fields:
-              - { name: name, label: Name, type: string }
-              - { name: role, label: Role, type: string }
-          - { name: teamNote, label: Team note, type: text }
+          - { name: founderCaption, label: Caption under the photograph, type: string }

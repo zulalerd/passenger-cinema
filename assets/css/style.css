@@ -360,14 +360,35 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 
 /* A single row of photographs you drag or swipe sideways. Full bleed on
    purpose, so it is obvious there is more past the edge. */
+.reelwrap { position: relative; }
 .reel {
   display: flex; gap: .75rem;
   overflow-x: auto; overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   padding: clamp(1.5rem,3vw,2.25rem) var(--gut);
-  scrollbar-width: thin;
+  scrollbar-width: none;                 /* moved with the arrows instead */
 }
+.reel::-webkit-scrollbar { display: none; }
+
+/* the two arrows, sitting over the ends of the strip */
+.reelbtn {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 3rem; height: 3rem; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--rule);
+  background: var(--ivory); color: var(--midnight);
+  font-size: 1.15rem; line-height: 1; cursor: pointer;
+  box-shadow: 0 2px 14px rgba(17, 76, 92, .16);
+  transition: opacity .2s var(--ease), background .2s var(--ease);
+}
+.reelbtn--prev { left: max(.5rem, calc(var(--gut) - 1.5rem)); }
+.reelbtn--next { right: max(.5rem, calc(var(--gut) - 1.5rem)); }
+.reelbtn:hover { background: #fff; }
+.reelbtn:disabled { opacity: 0; pointer-events: none; }
+.reelbtn[hidden] { display: none; }
+@media (max-width: 600px) { .reelbtn { width: 2.6rem; height: 2.6rem; } }
 /* a strip of prints: each photo keeps its own shape, they share a height */
 .reel__item {
   margin: 0; flex: 0 0 auto; scroll-snap-align: start;

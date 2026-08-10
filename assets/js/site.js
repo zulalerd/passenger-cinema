@@ -117,7 +117,8 @@
         return (i ? "<span>&middot;</span>" : "") + "<span>" + esc(s) + "</span>";
       }).join("");
     });
-    /* the awards night: one row you drag or swipe sideways.
+    /* the awards night: one row of photographs, moved with the arrows.
+       The caption text is used as the alt text only, never shown.
        With no photographs yet, the whole section stays hidden. */
     var reel = $("[data-award-reel]");
     if (reel) {
@@ -129,22 +130,57 @@
           if (!file) return "";
           return '<figure class="reel__item">' +
             '<img src="' + imgPath(file) + '" alt="' + esc(cap) + '" loading="lazy" decoding="async">' +
-            (cap ? '<figcaption class="figcap">' + esc(cap) + "</figcaption>" : "") +
           "</figure>";
         }).join("");
+        initReel(reel);
         $$("[data-award]").forEach(function (el) { el.hidden = false; });
       }
     }
 
-    /* founders */
-    $$("[data-t-team]").forEach(function (el) {
-      var v = t(el.getAttribute("data-t-team"));
-      if (!Array.isArray(v)) return;
-      el.innerHTML = v.map(function (m) {
-        return '<div><h3 class="display d3">' + esc(m.name) + "</h3>" +
-          '<p class="label label--muted" style="margin-top:.5rem">' + esc(m.role) + "</p></div>";
-      }).join("");
-    });
+  }
+
+  /* =======================================================================
+     REEL ARROWS
+     A row of photographs moved with two buttons instead of a scrollbar.
+     The bar itself is hidden in CSS; swiping and trackpads still work, and
+     the arrows grey out at each end so you can see where you are.
+     ===================================================================== */
+  function initReel(reel) {
+    var wrap = document.createElement("div");
+    wrap.className = "reelwrap";
+    reel.parentNode.insertBefore(wrap, reel);
+    wrap.appendChild(reel);
+
+    function arrow(dir, glyph, label) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "reelbtn reelbtn--" + dir;
+      b.setAttribute("aria-label", label);
+      b.innerHTML = '<span aria-hidden="true">' + glyph + "</span>";
+      b.addEventListener("click", function () {
+        var by = Math.round(reel.clientWidth * 0.8) * (dir === "next" ? 1 : -1);
+        if (reel.scrollBy) reel.scrollBy({ left: by, behavior: "smooth" });
+        else reel.scrollLeft += by;
+      });
+      wrap.appendChild(b);
+      return b;
+    }
+
+    var prev = arrow("prev", "←", "Previous photographs");
+    var next = arrow("next", "→", "More photographs");
+
+    function sync() {
+      var max = reel.scrollWidth - reel.clientWidth;
+      var fits = max <= 4;                       /* nothing to move: no arrows */
+      prev.hidden = next.hidden = fits;
+      prev.disabled = reel.scrollLeft <= 4;
+      next.disabled = reel.scrollLeft >= max - 4;
+    }
+    reel.addEventListener("scroll", sync);
+    window.addEventListener("resize", sync);
+    /* the photographs arrive after this runs, so measure again once they have */
+    $$("img", reel).forEach(function (im) { im.addEventListener("load", sync); });
+    sync();
   }
 
   /* =======================================================================
