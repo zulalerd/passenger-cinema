@@ -88,23 +88,23 @@
 
     var waves = "";
     for (var k = 0; k < 4; k++) {
-      var wy = 26 + k * 7;
+      var wy = 20 + k * 6.5;
       waves += '<path d="M 74 ' + wy + ' q 9 -3 18 0 t 18 0 t 18 0" fill="none" ' +
                'stroke="var(--cancel)" stroke-width="1.6" opacity=".5"/>';
     }
 
     /* a cancellation only belongs on somewhere we have actually been */
     var cancel = pending ? "" :
-      '<g filter="url(#rf' + id + ')" opacity=".78">' +
-        '<circle cx="98" cy="30" r="23" fill="none" stroke="var(--cancel)" stroke-width="2"/>' +
-        '<circle cx="98" cy="30" r="18" fill="none" stroke="var(--cancel)" stroke-width=".7"/>' +
-        '<text x="98" y="27.5" text-anchor="middle" fill="var(--cancel)" font-size="5.2" letter-spacing=".5">LONDON</text>' +
-        '<text x="98" y="36" text-anchor="middle" fill="var(--cancel)" font-weight="700" font-size="6.4">' + esc(date) + "</text>" +
+      '<g class="stampsvg__cancel" filter="url(#rf' + id + ')" opacity=".78">' +
+        '<circle cx="100" cy="26" r="20" fill="none" stroke="var(--cancel)" stroke-width="2"/>' +
+        '<circle cx="100" cy="26" r="15.5" fill="none" stroke="var(--cancel)" stroke-width=".7"/>' +
+        '<text x="100" y="23.5" text-anchor="middle" fill="var(--cancel)" font-size="5.2" letter-spacing=".5">LONDON</text>' +
+        '<text x="100" y="31.5" text-anchor="middle" fill="var(--cancel)" font-weight="700" font-size="6.4">' + esc(date) + "</text>" +
         waves +
       "</g>";
 
     return '<svg class="stampsvg" viewBox="-6 -4 ' + (w + 12) + ' ' + (h + 8) + '" ' +
-        'width="' + (w + 12) + '" height="' + (h + 8) + '" aria-hidden="true" focusable="false">' +
+        'aria-hidden="true" focusable="false">' +
       "<defs>" +
         '<mask id="pf' + id + '"><rect width="' + w + '" height="' + h + '" fill="#fff"/>' +
           '<g fill="#000">' + holes + "</g></mask>" +
@@ -123,7 +123,7 @@
         '<rect x="9" y="9" width="' + (w - 18) + '" height="' + (h - 18) + '" stroke-width="1.6"' +
           (pending ? ' stroke-dasharray="5 3"' : "") + "/>" +
       "</g>" +
-      '<text x="' + w / 2 + '" y="' + (h / 2 + 2) + '" text-anchor="middle" fill="var(--ink)" ' +
+      '<text x="' + w / 2 + '" y="' + (h / 2 + 8) + '" text-anchor="middle" fill="var(--ink)" ' +
         'font-weight="700" font-size="' + size + '" letter-spacing="1.4">' + esc(name) + "</text>" +
       '<text x="' + w / 2 + '" y="' + (h - 19) + '" text-anchor="middle" fill="var(--ink)" opacity=".6" ' +
         'font-size="4.6" letter-spacing="1.6">' + (pending ? "NEXT DEPARTURE" : "PASSENGER CINEMA") + "</text>" +

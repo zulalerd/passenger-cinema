@@ -399,7 +399,22 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   text-decoration: none;
   transition: transform .3s var(--ease), opacity .2s var(--ease);
 }
-.stampsvg { display: block; font-family: var(--mono); overflow: visible; }
+.stampsvg {
+  display: block; font-family: var(--mono); overflow: visible;
+  width: 140px; height: auto;
+}
+
+/* On a phone the stamps were two per row and ate the whole screen. Smaller,
+   and without the cancellation, which is the part that crowds the country
+   name once the stamp gets this small. */
+@media (max-width: 700px) {
+  .passport { gap: .45rem; }
+  .stampsvg { width: 104px; }
+  .stampsvg__cancel { display: none; }
+}
+@media (max-width: 400px) {
+  .stampsvg { width: 94px; }
+}
 
 /* every stamp sits at its own angle, like a page that has been filling up */
 .pstamp-wrap:nth-child(6n+1) .pstamp { transform: rotate(-3.4deg); }
