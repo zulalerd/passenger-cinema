@@ -139,7 +139,12 @@
                   "heading":  "Emerging Community Cinema of the Year.",
                   "body":  "In 2025 we won the Emerging Community Cinema Award at the Film Society of the Year Awards, run by Cinema For All and sponsored by WRS Insurance. It came in the year community cinema in Britain turned a hundred, which made it feel like being handed a place in a much longer story.",
                   "photos":  [
-
+                                 { "photo": "award-01.jpg", "caption": "Collecting the Emerging Community Cinema Award" },
+                                 { "photo": "award-02.jpg", "caption": "On stage, just after our name was read out" },
+                                 { "photo": "award-03.jpg", "caption": "Certificate in hand" },
+                                 { "photo": "award-04.jpg", "caption": "Some of the Passenger Cinema crew" },
+                                 { "photo": "award-05.jpg", "caption": "On the red carpet" },
+                                 { "photo": "award-06.jpg", "caption": "Film Society of the Year Awards 2025" }
                              ]
               }
 }

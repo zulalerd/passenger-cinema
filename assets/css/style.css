@@ -368,11 +368,16 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   padding: clamp(1.5rem,3vw,2.25rem) var(--gut);
   scrollbar-width: thin;
 }
+/* a strip of prints: each photo keeps its own shape, they share a height */
 .reel__item {
   margin: 0; flex: 0 0 auto; scroll-snap-align: start;
-  width: clamp(220px, 34vw, 340px);
+  max-width: 86vw;
 }
-.reel__item img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.reel__item img {
+  height: clamp(210px, 30vw, 330px);
+  width: auto; max-width: 100%;
+  object-fit: cover; display: block;
+}
 .reel__item .figcap { margin-top: .5rem; }
 
 /* ------------------------------------------------------------- subscribe */
