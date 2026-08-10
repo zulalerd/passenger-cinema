@@ -667,12 +667,15 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   position: fixed; inset: 0; z-index: 200; display: none;
   background: rgba(6,32,42,.96);
   padding: clamp(1rem, 4vw, 3rem);
+  overflow: hidden;
 }
-.lightbox[data-open="true"] { display: grid; grid-template-rows: auto 1fr auto; gap: 1rem; }
+/* minmax(0, 1fr) rather than 1fr: a plain 1fr row refuses to shrink below the
+   photograph's own height, so tall pictures ran off the screen on desktop. */
+.lightbox[data-open="true"] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 1rem; }
 .lightbox__bar { display: flex; align-items: center; gap: 1rem; color: var(--ivory); }
 .lightbox__bar .label { opacity: .7; }
-.lightbox__fig { display: grid; place-items: center; min-height: 0; }
-.lightbox__fig img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.lightbox__fig { display: grid; place-items: center; min-height: 0; min-width: 0; overflow: hidden; }
+.lightbox__fig img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .lightbox__nav { display: flex; justify-content: center; gap: .6rem; }
 .lightbox button {
   background: transparent; border: 1px solid rgba(251,250,237,.45); color: var(--ivory); cursor: pointer;
