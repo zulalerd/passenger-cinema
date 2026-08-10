@@ -64,70 +64,34 @@
 
   /* =======================================================================
      PASSPORT STAMPS
-     Drawn as SVG rather than set as images: no files to license, sharp at
-     any size, and the country and date come straight from the data.
-     A perforated postage stamp with a cancellation struck across it.
+     A clean circular roundel: country arched over the top, date across the
+     middle, our name arched underneath. Flat colour, no distressing and no
+     texture. Drawn as SVG so it stays sharp and needs no image files.
      ===================================================================== */
   var STAMP_UID = 0;
   function stampSVG(country, date, pending) {
-    var w = 128, h = 92, r = 3.2, step = 9;
     var id = "s" + (++STAMP_UID);
     var name = String(country || "").toUpperCase();
-    /* long names step down a size or they collide with the frame */
-    var size = name.length > 13 ? 7.5 : name.length > 9 ? 9 : 11;
+    /* long names shrink rather than run into the ring */
+    var size = name.length > 13 ? 6.6 : name.length > 9 ? 7.6 : 8.8;
 
-    var holes = "";
-    for (var x = step / 2; x < w; x += step) {
-      holes += '<circle cx="' + x.toFixed(1) + '" cy="0" r="' + r + '"/>' +
-               '<circle cx="' + x.toFixed(1) + '" cy="' + h + '" r="' + r + '"/>';
-    }
-    for (var y = step / 2; y < h; y += step) {
-      holes += '<circle cx="0" cy="' + y.toFixed(1) + '" r="' + r + '"/>' +
-               '<circle cx="' + w + '" cy="' + y.toFixed(1) + '" r="' + r + '"/>';
-    }
-
-    var waves = "";
-    for (var k = 0; k < 4; k++) {
-      var wy = 20 + k * 6.5;
-      waves += '<path d="M 74 ' + wy + ' q 9 -3 18 0 t 18 0 t 18 0" fill="none" ' +
-               'stroke="var(--cancel)" stroke-width="1.6" opacity=".5"/>';
-    }
-
-    /* a cancellation only belongs on somewhere we have actually been */
-    var cancel = pending ? "" :
-      '<g class="stampsvg__cancel" filter="url(#rf' + id + ')" opacity=".78">' +
-        '<circle cx="100" cy="26" r="20" fill="none" stroke="var(--cancel)" stroke-width="2"/>' +
-        '<circle cx="100" cy="26" r="15.5" fill="none" stroke="var(--cancel)" stroke-width=".7"/>' +
-        '<text x="100" y="23.5" text-anchor="middle" fill="var(--cancel)" font-size="5.2" letter-spacing=".5">LONDON</text>' +
-        '<text x="100" y="31.5" text-anchor="middle" fill="var(--cancel)" font-weight="700" font-size="6.4">' + esc(date) + "</text>" +
-        waves +
-      "</g>";
-
-    return '<svg class="stampsvg" viewBox="-6 -4 ' + (w + 12) + ' ' + (h + 8) + '" ' +
-        'aria-hidden="true" focusable="false">' +
+    return '<svg class="stampsvg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">' +
       "<defs>" +
-        '<mask id="pf' + id + '"><rect width="' + w + '" height="' + h + '" fill="#fff"/>' +
-          '<g fill="#000">' + holes + "</g></mask>" +
-        '<filter id="gr' + id + '"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="4"/>' +
-          '<feColorMatrix type="saturate" values="0"/>' +
-          '<feComponentTransfer><feFuncA type="linear" slope="0.10"/></feComponentTransfer>' +
-          '<feComposite operator="in" in2="SourceGraphic"/></filter>' +
-        '<filter id="rf' + id + '"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="4" seed="9" result="n"/>' +
-          '<feDisplacementMap in="SourceGraphic" in2="n" scale="1.5" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+        '<path id="tp' + id + '" d="M 17 50 A 33 33 0 0 1 83 50" fill="none"/>' +
+        '<path id="bt' + id + '" d="M 22 50 A 28 28 0 0 0 78 50" fill="none"/>' +
       "</defs>" +
-      '<g mask="url(#pf' + id + ')">' +
-        '<rect width="' + w + '" height="' + h + '" fill="var(--stamp-paper)"/>' +
-        '<rect width="' + w + '" height="' + h + '" filter="url(#gr' + id + ')" fill="var(--ink)"/>' +
+      '<g fill="none" stroke="var(--ink)">' +
+        '<circle cx="50" cy="50" r="46" stroke-width="2.4"' + (pending ? ' stroke-dasharray="6 4"' : "") + "/>" +
+        '<circle cx="50" cy="50" r="40" stroke-width=".9"/>' +
       "</g>" +
-      '<g filter="url(#rf' + id + ')" fill="none" stroke="var(--ink)" opacity=".9">' +
-        '<rect x="9" y="9" width="' + (w - 18) + '" height="' + (h - 18) + '" stroke-width="1.6"' +
-          (pending ? ' stroke-dasharray="5 3"' : "") + "/>" +
-      "</g>" +
-      '<text x="' + w / 2 + '" y="' + (h / 2 + 8) + '" text-anchor="middle" fill="var(--ink)" ' +
-        'font-weight="700" font-size="' + size + '" letter-spacing="1.4">' + esc(name) + "</text>" +
-      '<text x="' + w / 2 + '" y="' + (h - 19) + '" text-anchor="middle" fill="var(--ink)" opacity=".6" ' +
-        'font-size="4.6" letter-spacing="1.6">' + (pending ? "NEXT DEPARTURE" : "PASSENGER CINEMA") + "</text>" +
-      cancel +
+      '<text fill="var(--ink)" font-weight="700" font-size="' + size + '" letter-spacing="1.3">' +
+        '<textPath href="#tp' + id + '" startOffset="50%" text-anchor="middle">' + esc(name) + "</textPath></text>" +
+      '<line x1="27" y1="45" x2="73" y2="45" stroke="var(--ink)" stroke-width=".9"/>' +
+      '<text x="50" y="60" text-anchor="middle" fill="var(--ink)" font-weight="700" font-size="11" letter-spacing=".6">' +
+        esc(pending ? "NEXT" : date) + "</text>" +
+      '<line x1="27" y1="66" x2="73" y2="66" stroke="var(--ink)" stroke-width=".9"/>' +
+      '<text fill="var(--ink)" opacity=".75" font-size="4.4" letter-spacing="1.5">' +
+        '<textPath href="#bt' + id + '" startOffset="50%" text-anchor="middle">PASSENGER CINEMA</textPath></text>' +
     "</svg>";
   }
 

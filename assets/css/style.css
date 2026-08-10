@@ -383,7 +383,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
    -------------------------------------------------------------------------- */
 .passport {
   display: flex; flex-wrap: wrap;
-  gap: clamp(.5rem, 1.4vw, 1rem);
+  gap: clamp(.6rem, 1.6vw, 1.1rem);
   padding-block: 1rem;
 }
 
@@ -393,45 +393,16 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 
 .pstamp {
   --ink: #B8402C;
-  --cancel: #0B2C36;
-  --stamp-paper: #FBFAED;
   display: block;
   text-decoration: none;
   transition: transform .3s var(--ease), opacity .2s var(--ease);
 }
 .stampsvg {
   display: block; font-family: var(--mono); overflow: visible;
-  width: 140px; height: auto;
+  width: 96px; height: 96px;
 }
-
-/* On a phone the stamps were two per row and ate the whole screen. Smaller,
-   and without the cancellation, which is the part that crowds the country
-   name once the stamp gets this small. */
-@media (max-width: 700px) {
-  .passport { gap: .45rem; }
-  .stampsvg { width: 104px; }
-  .stampsvg__cancel { display: none; }
-}
-@media (max-width: 400px) {
-  .stampsvg { width: 94px; }
-}
-
-/* every stamp sits at its own angle, like a page that has been filling up */
-.pstamp-wrap:nth-child(6n+1) .pstamp { transform: rotate(-3.4deg); }
-.pstamp-wrap:nth-child(6n+2) .pstamp { transform: rotate(2.1deg)  translateY(3px); }
-.pstamp-wrap:nth-child(6n+3) .pstamp { transform: rotate(-1.2deg) translateY(-2px); }
-.pstamp-wrap:nth-child(6n+4) .pstamp { transform: rotate(4.1deg); }
-.pstamp-wrap:nth-child(6n+5) .pstamp { transform: rotate(-2.6deg) translateY(2px); }
-.pstamp-wrap:nth-child(6n+6) .pstamp { transform: rotate(1.4deg)  translateY(-3px); }
-
-/* three ink colours, cycling, so the page looks stamped over time */
-.pstamp-wrap:nth-child(3n+2) .pstamp { --ink: #2E6E7E; }
-.pstamp-wrap:nth-child(3n+3) .pstamp { --ink: #7A6A2F; }
-
-.pstamp-wrap:hover .pstamp { transform: rotate(0deg) scale(1.05); }
-
-/* the one we have not been to yet: printed, but not yet cancelled */
-.pstamp[data-next="true"] { --ink: #9A6B1F; opacity: .95; }
+@media (max-width: 700px) { .passport { gap: .5rem; } .stampsvg { width: 78px; height: 78px; } }
+@media (max-width: 400px) { .stampsvg { width: 70px; height: 70px; } }
 
 /* ---- the postcard that appears on hover -------------------------------- */
 .pcard {
