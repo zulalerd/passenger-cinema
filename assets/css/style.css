@@ -401,22 +401,26 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 }
 .pstamp em { font-style: normal; opacity: .75; }
 
+/* The wrapper exists only so the hover postcard has somewhere to live: the
+   stamp itself is masked, and a mask clips its children. */
+.pstamp-wrap { position: relative; display: inline-block; }
+
 /* every stamp sits at its own angle, like a page that has been filling up */
-.pstamp:nth-child(6n+1) { transform: rotate(-3.4deg); }
-.pstamp:nth-child(6n+2) { transform: rotate(2.1deg)  translateY(3px); }
-.pstamp:nth-child(6n+3) { transform: rotate(-1.2deg) translateY(-2px); }
-.pstamp:nth-child(6n+4) { transform: rotate(4.1deg); }
-.pstamp:nth-child(6n+5) { transform: rotate(-2.6deg) translateY(2px); }
-.pstamp:nth-child(6n+6) { transform: rotate(1.4deg)  translateY(-3px); }
+.pstamp-wrap:nth-child(6n+1) .pstamp { transform: rotate(-3.4deg); }
+.pstamp-wrap:nth-child(6n+2) .pstamp { transform: rotate(2.1deg)  translateY(3px); }
+.pstamp-wrap:nth-child(6n+3) .pstamp { transform: rotate(-1.2deg) translateY(-2px); }
+.pstamp-wrap:nth-child(6n+4) .pstamp { transform: rotate(4.1deg); }
+.pstamp-wrap:nth-child(6n+5) .pstamp { transform: rotate(-2.6deg) translateY(2px); }
+.pstamp-wrap:nth-child(6n+6) .pstamp { transform: rotate(1.4deg)  translateY(-3px); }
 
 /* three ink colours, cycling, so the page looks stamped over time */
-.pstamp:nth-child(3n+2) { --ink: #2E6E7E; }
-.pstamp:nth-child(3n+3) { --ink: #7A6A2F; }
-.deep .pstamp           { --ink: #E0705C; }
-.deep .pstamp:nth-child(3n+2) { --ink: #7FC3D4; }
-.deep .pstamp:nth-child(3n+3) { --ink: var(--ochre); }
+.pstamp-wrap:nth-child(3n+2) .pstamp { --ink: #2E6E7E; }
+.pstamp-wrap:nth-child(3n+3) .pstamp { --ink: #7A6A2F; }
+.deep .pstamp                        { --ink: #E0705C; }
+.deep .pstamp-wrap:nth-child(3n+2) .pstamp { --ink: #7FC3D4; }
+.deep .pstamp-wrap:nth-child(3n+3) .pstamp { --ink: var(--ochre); }
 
-.pstamp:hover { opacity: .82; transform: rotate(0deg) scale(1.04); }
+.pstamp-wrap:hover .pstamp { opacity: .82; transform: rotate(0deg) scale(1.04); }
 
 /* the one we have not been to yet: not stamped, just pencilled in */
 .pstamp[data-next="true"] {
@@ -427,8 +431,53 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   opacity: .9;
 }
 
+/* ---- the postcard that appears on hover -------------------------------- */
+.pcard {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  width: 168px;
+  z-index: 30;
+  display: grid; gap: .1rem;
+  padding: 8px 8px 10px;
+  background: var(--ivory);
+  color: var(--midnight);
+  box-shadow: 0 2px 3px rgba(6,32,42,.14), 0 18px 34px -14px rgba(6,32,42,.6);
+  opacity: 0; visibility: hidden;
+  transform: translateX(-50%) rotate(-2.5deg) scale(.94);
+  transform-origin: bottom center;
+  transition: opacity .22s var(--ease), transform .28s var(--ease), visibility .22s;
+  pointer-events: none;      /* never let it block the stamp underneath */
+}
+.pcard__fig { display: block; overflow: hidden; }
+.pcard__fig img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.pcard__t {
+  font-family: var(--display); font-size: .82rem; line-height: 1.2;
+  letter-spacing: 0; text-transform: none; margin-top: .45rem;
+}
+.pcard__n {
+  font-family: var(--mono); font-size: .56rem; letter-spacing: .14em;
+  text-transform: uppercase; opacity: .55;
+}
+/* a little tail, so it reads as attached to the stamp */
+.pcard::after {
+  content: ""; position: absolute; top: 100%; left: 50%; translate: -50% 0;
+  border: 6px solid transparent; border-top-color: var(--ivory);
+}
+
+/* Hover only. On a touch screen there is no hover, and tapping should just
+   follow the link rather than reveal a card nobody asked for. */
+@media (hover: hover) and (pointer: fine) {
+  .pstamp-wrap:hover .pcard,
+  .pstamp-wrap:focus-within .pcard {
+    opacity: 1; visibility: visible;
+    transform: translateX(-50%) rotate(-2.5deg) scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .pstamp:hover { transform: none; }
+  .pstamp-wrap:hover .pstamp { transform: none; }
+  .pcard { transition: opacity .01ms, visibility .01ms; }
 }
 
 /* ------------------------------------------------------------ event cards */

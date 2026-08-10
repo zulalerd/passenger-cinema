@@ -270,17 +270,39 @@
     if (pass) {
       var done = {};
       var out = [];
+
+      /* The little postcard that appears on hover. It has to be a sibling of
+         the stamp rather than a child: the stamp carries an SVG ink mask, and
+         a mask clips everything inside it. */
+      function peek(img, title, note) {
+        if (!img) return "";
+        return '<span class="pcard" aria-hidden="true">' +
+          '<span class="pcard__fig"><img src="' + imgPath(img) + '" alt="" loading="lazy"></span>' +
+          '<span class="pcard__t">' + esc(title) + "</span>" +
+          (note ? '<span class="pcard__n">' + esc(note) + "</span>" : "") +
+        "</span>";
+      }
+
       PC.past.forEach(function (e) {
         if (!e.country || done[e.country]) return;
-        done[e.country] = 1;
-        out.push('<a class="pstamp" href="archive.html#' + encodeURIComponent(e.country) + '">' +
-          '<span class="pstamp__n">' + esc(e.country) + "</span></a>");
+        done[e.country] = 1;   /* PC.past is newest first, so this is the latest */
+        var cover = e.photos && e.photos.length ? e.photos[0] : null;
+        out.push('<span class="pstamp-wrap">' +
+          '<a class="pstamp" href="archive.html#' + encodeURIComponent(e.country) + '">' +
+            '<span class="pstamp__n">' + esc(e.country) + "</span></a>" +
+          peek(cover, e.film, fmtShort(e)) +
+        "</span>");
       });
+
       PC.upcoming.forEach(function (e) {
-        out.push('<span class="pstamp" data-next="true">' +
-          '<span class="pstamp__n">' + esc(e.destinationCountry || e.city) +
-          " <em>next</em></span></span>");
+        out.push('<span class="pstamp-wrap">' +
+          '<span class="pstamp" data-next="true">' +
+            '<span class="pstamp__n">' + esc(e.destinationCountry || e.city) +
+            " <em>next</em></span></span>" +
+          peek(e.poster || (e.photos && e.photos[0]), e.film, fmtShort(e)) +
+        "</span>");
       });
+
       pass.innerHTML = out.join("");
     }
 
