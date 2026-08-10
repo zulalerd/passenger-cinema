@@ -134,5 +134,12 @@
     "subscribe":  {
                       "heading":  "Never miss a screening.",
                       "body":  "Leave your email and we will tell you when the next one is announced. No newsletter, no digest, nothing else: just the events."
-                  }
+                  },
+    "award":  {
+                  "heading":  "Emerging Community Cinema of the Year.",
+                  "body":  "In 2025 we won the Emerging Community Cinema Award at the Film Society of the Year Awards, run by Cinema For All and sponsored by WRS Insurance. It came in the year community cinema in Britain turned a hundred, which made it feel like being handed a place in a much longer story.",
+                  "photos":  [
+
+                             ]
+              }
 }

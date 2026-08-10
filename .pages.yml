@@ -250,6 +250,21 @@ content:
           - { name: sponsorLede,  label: "Organisations: lede", type: text }
           - { name: sponsorBody,  label: "Organisations: body", type: text }
 
+      - name: award
+        label: Award section (About page)
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: text }
+          - { name: body,    label: Body, type: text }
+          - name: photos
+            label: Photographs from the night
+            type: object
+            list: true
+            description: "A single row you swipe sideways. Leave it empty and the whole award section stays hidden."
+            fields:
+              - { name: photo,   label: Photograph, type: image, options: { media: event-photos, path: "" } }
+              - { name: caption, label: Caption, type: string }
+
       - name: about
         label: About page
         type: object
@@ -265,11 +280,3 @@ content:
               - { name: name, label: Name, type: string }
               - { name: role, label: Role, type: string }
           - { name: teamNote, label: Team note, type: text }
-          - name: awards
-            label: Recognition
-            type: object
-            list: true
-            fields:
-              - { name: figure, label: Figure, type: string }
-              - { name: label,  label: Label, type: string }
-          - { name: awardsNote, label: Recognition note, type: text }

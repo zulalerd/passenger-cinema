@@ -63,39 +63,6 @@
   function imgPath(f) { return "assets/img/events/" + f; }
 
   /* =======================================================================
-     PASSPORT STAMPS
-     A clean circular roundel: country arched over the top, date across the
-     middle, our name arched underneath. Flat colour, no distressing and no
-     texture. Drawn as SVG so it stays sharp and needs no image files.
-     ===================================================================== */
-  var STAMP_UID = 0;
-  function stampSVG(country, date, pending) {
-    var id = "s" + (++STAMP_UID);
-    var name = String(country || "").toUpperCase();
-    /* long names shrink rather than run into the ring */
-    var size = name.length > 13 ? 6.6 : name.length > 9 ? 7.6 : 8.8;
-
-    return '<svg class="stampsvg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">' +
-      "<defs>" +
-        '<path id="tp' + id + '" d="M 17 50 A 33 33 0 0 1 83 50" fill="none"/>' +
-        '<path id="bt' + id + '" d="M 22 50 A 28 28 0 0 0 78 50" fill="none"/>' +
-      "</defs>" +
-      '<g fill="none" stroke="var(--ink)">' +
-        '<circle cx="50" cy="50" r="46" stroke-width="2.4"' + (pending ? ' stroke-dasharray="6 4"' : "") + "/>" +
-        '<circle cx="50" cy="50" r="40" stroke-width=".9"/>' +
-      "</g>" +
-      '<text fill="var(--ink)" font-weight="700" font-size="' + size + '" letter-spacing="1.3">' +
-        '<textPath href="#tp' + id + '" startOffset="50%" text-anchor="middle">' + esc(name) + "</textPath></text>" +
-      '<line x1="27" y1="45" x2="73" y2="45" stroke="var(--ink)" stroke-width=".9"/>' +
-      '<text x="50" y="60" text-anchor="middle" fill="var(--ink)" font-weight="700" font-size="11" letter-spacing=".6">' +
-        esc(pending ? "NEXT" : date) + "</text>" +
-      '<line x1="27" y1="66" x2="73" y2="66" stroke="var(--ink)" stroke-width=".9"/>' +
-      '<text fill="var(--ink)" opacity=".75" font-size="4.4" letter-spacing="1.5">' +
-        '<textPath href="#bt' + id + '" startOffset="50%" text-anchor="middle">PASSENGER CINEMA</textPath></text>' +
-    "</svg>";
-  }
-
-  /* =======================================================================
      EDITABLE COPY
      Any element with data-t="some.path" gets its text from site.json.
      data-t-html does the same but allows <em> and <strong> through.
@@ -150,6 +117,25 @@
         return (i ? "<span>&middot;</span>" : "") + "<span>" + esc(s) + "</span>";
       }).join("");
     });
+    /* the awards night: one row you drag or swipe sideways.
+       With no photographs yet, the whole section stays hidden. */
+    var reel = $("[data-award-reel]");
+    if (reel) {
+      var shots = t("award.photos");
+      if (Array.isArray(shots) && shots.length) {
+        reel.innerHTML = shots.map(function (s) {
+          var file = typeof s === "string" ? s : s.photo;
+          var cap  = typeof s === "string" ? "" : (s.caption || "");
+          if (!file) return "";
+          return '<figure class="reel__item">' +
+            '<img src="' + imgPath(file) + '" alt="' + esc(cap) + '" loading="lazy" decoding="async">' +
+            (cap ? '<figcaption class="figcap">' + esc(cap) + "</figcaption>" : "") +
+          "</figure>";
+        }).join("");
+        $$("[data-award]").forEach(function (el) { el.hidden = false; });
+      }
+    }
+
     /* founders */
     $$("[data-t-team]").forEach(function (el) {
       var v = t(el.getAttribute("data-t-team"));
@@ -321,8 +307,8 @@
         done[e.country] = 1;   /* PC.past is newest first, so this is the latest */
         var cover = e.photos && e.photos.length ? e.photos[0] : null;
         out.push('<span class="pstamp-wrap">' +
-          '<a class="pstamp" href="archive.html#' + encodeURIComponent(e.country) + '"' +
-            ' aria-label="' + esc(e.country) + '">' + stampSVG(e.country, fmtStamp(e), false) + "</a>" +
+          '<a class="pstamp" href="archive.html#' + encodeURIComponent(e.country) + '">' +
+            '<span class="pstamp__n">' + esc(e.country) + "</span></a>" +
           peek(cover, e.film, fmtShort(e)) +
         "</span>");
       });
@@ -330,7 +316,8 @@
       PC.upcoming.forEach(function (e) {
         out.push('<span class="pstamp-wrap">' +
           '<span class="pstamp" data-next="true">' +
-            stampSVG(e.destinationCountry || e.city, fmtStamp(e), true) + "</span>" +
+            '<span class="pstamp__n">' + esc(e.destinationCountry || e.city) +
+            " <em>next</em></span></span>" +
           peek(e.poster || (e.photos && e.photos[0]), e.film, fmtShort(e)) +
         "</span>");
       });
