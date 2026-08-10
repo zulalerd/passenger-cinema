@@ -402,10 +402,10 @@
                                ],
                      "beyond":  "16mm projection, half of ticket proceeds donated to hurricane relief",
                      "photos":  [
+                                    "harder-they-come-04.jpg",
                                     "harder-they-come-01.jpg",
                                     "harder-they-come-02.jpg",
                                     "harder-they-come-03.jpg",
-                                    "harder-they-come-04.jpg",
                                     "harder-they-come-05.jpg",
                                     "harder-they-come-06.jpg",
                                     "harder-they-come-07.jpg",
@@ -420,11 +420,6 @@
                                      {
                                          "name":  "Ece Bapcum",
                                          "role":  "Photographer",
-                                         "photo":  ""
-                                     },
-                                     {
-                                         "name":  "Ecem Can",
-                                         "role":  "Event volunteer",
                                          "photo":  ""
                                      }
                                  ]

@@ -425,11 +425,12 @@
 
     var bar = $("[data-archive-filters]");
     if (bar) {
+      /* events are already newest first, so collecting them in that order puts
+         the most recently visited country at the front of the filter bar */
       var countries = [];
       events.forEach(function (e) {
         if (e.country && countries.indexOf(e.country) === -1) countries.push(e.country);
       });
-      countries.sort();
       bar.innerHTML = '<button type="button" aria-pressed="true" data-f="">All · ' + total + "</button>" +
         countries.map(function (c) {
           return '<button type="button" aria-pressed="false" data-f="' + esc(c) + '">' + esc(c) + "</button>";
