@@ -19,9 +19,9 @@
   --rule-strong:    color-mix(in srgb, var(--midnight) 42%, transparent);
   --rule-dark:      rgba(251, 250, 237, .20);
 
-  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --display: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans:    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono:    "Space Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
   --gut:   clamp(1.25rem, 4vw, 3.5rem);
   --maxw:  1320px;
@@ -120,7 +120,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .display {
   font-family: var(--display);
   font-weight: 400;
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 60;
+  font-variation-settings: "opsz" 60;
   line-height: 1.02;
   letter-spacing: -.018em;
   text-wrap: balance;
