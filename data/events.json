@@ -62,12 +62,26 @@
                                    "Greenaway's film is set almost entirely around a restaurant table, so the event was built around one too. We worked with local community builders and food creatives to design a culinary experience alongside the screening, with the meal and the film reading each other."
                                ],
                      "beyond":  "Culinary experience inspired by the film",
-                     "credits":  [
-                                     "Barcelona community builders and food creatives"
-                                 ],
                      "photos":  [
                                     "the-cook-the-thief-01.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "Barcelona community builders and food creatives",
+                                         "role":  "",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "Gabbeh",
@@ -96,30 +110,6 @@
                                         "After the screening, almost the entire audience stayed for weaving and natural dye workshops led by Misha and Zeynep. Tables were covered with yarn, patterns, looms and dyeing materials. Participants learnt about the symbolism of carpets, tried basic weaving techniques and experimented with natural dyes. People who had arrived as strangers spent hours sitting together, weaving, talking and sharing stories."
                                     ],
                      "beyond":  "Weaving and natural dye workshops",
-                     "impact":  [
-                                    {
-                                        "figure":  "40",
-                                        "label":  "tickets, sold out in two days"
-                                    },
-                                    {
-                                        "figure":  "13",
-                                        "label":  "people on the waiting list"
-                                    },
-                                    {
-                                        "figure":  "50%+",
-                                        "label":  "first-time Passenger visitors"
-                                    },
-                                    {
-                                        "figure":  "~100",
-                                        "label":  "new followers in the weeks around it"
-                                    }
-                                ],
-                     "credits":  [
-                                     "Rhizomatic London, venue partner (Meryl Prendergast)",
-                                     "Misha Nikkhah, woven textile designer and workshop lead",
-                                     "Zeynep Ağırbaş, knitwear designer and workshop lead",
-                                     "8 core volunteers plus 4 friends who lent equipment and expertise"
-                                 ],
                      "photos":  [
                                     "gabbeh-01.jpg",
                                     "gabbeh-02.jpg",
@@ -130,7 +120,39 @@
                                     "gabbeh-07.jpg",
                                     "gabbeh-08.jpg",
                                     "gabbeh-09.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "Rhizomatic London",
+                                         "role":  "venue partner (Meryl Prendergast)",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Misha Nikkhah",
+                                         "role":  "woven textile designer and workshop lead",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Zeynep Ağırbaş",
+                                         "role":  "knitwear designer and workshop lead",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "8 core volunteers plus 4 friends who lent equipment and expertise",
+                                         "role":  "",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "Vengo",
@@ -152,10 +174,6 @@
                                    "Several attendees were inspired enough to join Maika's classes afterwards. Many told us it was their favourite Passenger Cinema event."
                                ],
                      "beyond":  "Live flamenco workshop with Maika Jimenez Blanco",
-                     "credits":  [
-                                     "The Bath House, Hackney Wick, venue",
-                                     "Maika Jimenez Blanco, flamenco instructor"
-                                 ],
                      "links":  [
                                    {
                                        "label":  "Maika's reflection on the event",
@@ -165,7 +183,29 @@
                      "photos":  [
                                     "vengo-01.jpg",
                                     "vengo-02.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "The Bath House",
+                                         "role":  "Hackney Wick, venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Maika Jimenez Blanco",
+                                         "role":  "flamenco instructor",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "The Red Shoes",
@@ -186,10 +226,6 @@
                                    "It is the clearest expression of what we mean when we say cinema can build bridges: not a metaphor, just two rooms of people in different countries having one conversation."
                                ],
                      "beyond":  "Simultaneous London and Istanbul screening, plus a live-streamed discussion",
-                     "credits":  [
-                                     "Central Film School, London, venue and partner",
-                                     "Postane, Istanbul, venue"
-                                 ],
                      "photos":  [
                                     "red-shoes-00.jpg",
                                     "red-shoes-01.jpg",
@@ -201,7 +237,29 @@
                                     "red-shoes-ist-01.jpg",
                                     "red-shoes-ist-02.jpg",
                                     "red-shoes-ist-03.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "Central Film School",
+                                         "role":  "London, venue and partner",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Postane",
+                                         "role":  "Istanbul, venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "In the Mood for Love",
@@ -225,8 +283,26 @@
                                 ],
                      "beyond":  "Dinner together at Gold Mine, Chinatown",
                      "credits":  [
-                                     "The Prince Charles Cinema, Soho, venue",
-                                     "Gold Mine, Chinatown, post-screening dinner"
+                                     {
+                                         "name":  "The Prince Charles Cinema",
+                                         "role":  "Soho, venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Gold Mine",
+                                         "role":  "Chinatown, post-screening dinner",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
                                  ]
                  },
                  {
@@ -246,9 +322,6 @@
                                    "There is no more honest film to programme as a community cinema than the one about a community cinema. Tornatore's Sicilian village hall, where the whole town turns up, argues, falls in love and grieves in front of the same screen, is more or less our mission statement with better weather.",
                                    "We took it to the Genesis in Whitechapel, an independent cinema with well over a century of history on the Mile End Road, and filled the room."
                                ],
-                     "credits":  [
-                                     "Genesis Cinema, Whitechapel, venue"
-                                 ],
                      "photos":  [
                                     "cinema-paradiso-01.jpg",
                                     "cinema-paradiso-02.jpg",
@@ -258,7 +331,24 @@
                                     "cinema-paradiso-06.jpg",
                                     "cinema-paradiso-07.jpg",
                                     "cinema-paradiso-08.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "Genesis Cinema",
+                                         "role":  "Whitechapel, venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "The Harder They Come",
@@ -278,9 +368,6 @@
                                    "Jamaica was living through the aftermath of a hurricane at the time. Rather than let that sit outside the room, we donated half of all ticket proceeds to hurricane relief, giving the audience a way to respond with solidarity as well as curiosity."
                                ],
                      "beyond":  "16mm projection, half of ticket proceeds donated to hurricane relief",
-                     "credits":  [
-                                     "Ciné-Real 16mm film club, partner and projection"
-                                 ],
                      "photos":  [
                                     "harder-they-come-01.jpg",
                                     "harder-they-come-02.jpg",
@@ -290,7 +377,24 @@
                                     "harder-they-come-06.jpg",
                                     "harder-they-come-07.jpg",
                                     "harder-they-come-08.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "Ciné-Real 16mm film club",
+                                         "role":  "partner and projection",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "Xibalba Monster",
@@ -311,10 +415,6 @@
                                    "We hosted its England premiere at Close-Up in Shoreditch, a cinema attached to one of the best film libraries in the city. Director Manuela Irene joined us afterwards for a Q&A with the audience."
                                ],
                      "beyond":  "Q&A with director Manuela Irene",
-                     "credits":  [
-                                     "Close-Up Cinema, Shoreditch, venue",
-                                     "Manuela Irene, director"
-                                 ],
                      "photos":  [
                                     "xibalba-monster-00.jpg",
                                     "xibalba-monster-01.jpg",
@@ -325,7 +425,29 @@
                                     "xibalba-monster-06.jpg",
                                     "xibalba-monster-07.jpg",
                                     "xibalba-monster-08.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "Close-Up Cinema",
+                                         "role":  "Shoreditch, venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Manuela Irene",
+                                         "role":  "director",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "Black Orpheus",
@@ -350,13 +472,31 @@
                                         "We collaborated with the Brazilian organisation VaiBrasil, who ran a Carnival party in the same venue immediately after the screening. The film ends in Carnival; so did the event."
                                     ],
                      "beyond":  "Carnaval party with VaiBrasil",
-                     "credits":  [
-                                     "The Scala, King's Cross, venue",
-                                     "VaiBrasil, post-screening Carnaval party"
-                                 ],
                      "photos":  [
                                     "black-orpheus-01.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "The Scala",
+                                         "role":  "King's Cross, venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "VaiBrasil",
+                                         "role":  "post-screening Carnaval party",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ece Bapcum",
+                                         "role":  "Photographer",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Ecem Can",
+                                         "role":  "Event volunteer",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "Tampopo",
@@ -377,13 +517,21 @@
                                    "We screened it in the Members' Bar at Picturehouse Finsbury Park and then walked the audience round to Tenmaru for ramen."
                                ],
                      "beyond":  "Post-screening ramen at Tenmaru, Finsbury Park",
-                     "credits":  [
-                                     "Picturehouse Finsbury Park, venue",
-                                     "Tenmaru Ramen, post-screening"
-                                 ],
                      "photos":  [
                                     "tampopo-01.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "Picturehouse Finsbury Park",
+                                         "role":  "venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Tenmaru Ramen",
+                                         "role":  "post-screening",
+                                         "photo":  ""
+                                     }
+                                 ]
                  },
                  {
                      "film":  "Crossing the Bridge: The Sound of Istanbul",
@@ -404,10 +552,6 @@
                                    "Akın's documentary crosses the Bosphorus between genres and generations, from arabesk to Turkish rock to Kurdish folk. It only made sense to end the event with live music."
                                ],
                      "beyond":  "Live performance by Turkish jazz guitarist Kerem Advan",
-                     "credits":  [
-                                     "The Jago, Dalston, venue",
-                                     "Kerem Advan, live performance"
-                                 ],
                      "photos":  [
                                     "crossing-the-bridge-00.jpg",
                                     "crossing-the-bridge-01.jpg",
@@ -418,7 +562,19 @@
                                     "crossing-the-bridge-06.jpg",
                                     "crossing-the-bridge-07.jpg",
                                     "crossing-the-bridge-08.jpg"
-                                ]
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "The Jago",
+                                         "role":  "Dalston, venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Kerem Advan",
+                                         "role":  "live performance",
+                                         "photo":  ""
+                                     }
+                                 ]
                  }
              ]
 }

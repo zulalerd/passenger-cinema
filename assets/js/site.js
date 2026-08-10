@@ -168,6 +168,12 @@
       if (donate) { el.href = donate; }
       else { el.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Donating to Passenger Cinema"); }
     });
+
+    /* the Luma calendar. If there is no link, hide the whole block rather
+       than leave a button that goes nowhere. */
+    var luma = t("lumaUrl");
+    $$("[data-luma]").forEach(function (el) { el.href = luma || "#"; });
+    if (!luma) { $$("[data-subscribe]").forEach(function (el) { el.hidden = true; }); }
     $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
   }
 
@@ -484,16 +490,6 @@
         "</div></div></section>";
     }
 
-    /* --- impact ----------------------------------------------------- */
-    var impact = "";
-    if (ev.impact && ev.impact.length) {
-      impact = '<section class="section section--tight"><div class="wrap">' +
-        '<div class="shead"><div class="shead__top"><p class="label">What happened next</p></div></div>' +
-        '<div class="impact">' + ev.impact.map(function (r) {
-          return "<div><b>" + esc(r.figure) + "</b><span>" + esc(r.label) + "</span></div>";
-        }).join("") + "</div></div></section>";
-    }
-
     /* --- gallery ---------------------------------------------------- */
     var gallery = "";
     if (ev.photos && ev.photos.length > 1) {
@@ -515,7 +511,19 @@
       credits = '<section class="section"><div class="wrap"><div class="two-col">' +
         '<div><p class="label">Made with</p></div><div>' +
         (ev.credits && ev.credits.length
-          ? '<ul class="credits">' + ev.credits.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>"
+          ? '<ul class="credits">' + ev.credits.map(function (c) {
+              /* older entries were plain strings; tolerate both shapes */
+              if (typeof c === "string") return '<li class="credit"><span class="credit__t">' + esc(c) + "</span></li>";
+              var initials = String(c.name || "?").trim().split(/\s+/).slice(0, 2)
+                .map(function (w) { return w.charAt(0); }).join("").toUpperCase();
+              var face = c.photo
+                ? '<img class="credit__pic" src="' + imgPath(c.photo) + '" alt="" loading="lazy">'
+                : '<span class="credit__pic credit__pic--initials" aria-hidden="true">' + esc(initials) + "</span>";
+              return '<li class="credit">' + face +
+                '<span class="credit__t"><b>' + esc(c.name) + "</b>" +
+                (c.role ? '<span class="credit__r">' + esc(c.role) + "</span>" : "") +
+                "</span></li>";
+            }).join("") + "</ul>"
           : "") +
         (ev.links && ev.links.length
           ? '<p style="margin-top:1.75rem">' + ev.links.map(function (l) {
@@ -537,7 +545,7 @@
       '<p style="margin:2.5rem 0 0"><a class="link" href="archive.html">All past events <span class="arw" aria-hidden="true">&rarr;</span></a></p>' +
       "</div></nav>";
 
-    root.innerHTML = hero + meta + story + beyond + impact + gallery + credits + nav;
+    root.innerHTML = hero + meta + story + beyond + gallery + credits + nav;
 
     if (ev.photos && ev.photos.length > 1) initLightbox(ev);
   }
