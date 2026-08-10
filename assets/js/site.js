@@ -303,7 +303,13 @@
 
     slot.innerHTML = PC.upcoming.map(function (ev) {
       var body = (ev.body || []).map(function (p) { return "<p>" + p + "</p>"; }).join("");
+      /* a still from the film, above the ticket, so the page is not all type */
+      var still = (ev.photos && ev.photos.length)
+        ? '<figure class="upcoming__still"><img src="' + imgPath(ev.photos[0]) +
+          '" alt="' + esc(ev.film) + '" fetchpriority="high"></figure>'
+        : "";
       return '<article style="margin-bottom:clamp(3rem,7vw,5rem)">' +
+        still +
         ticketMarkup(ev, true) +
         (body ? '<div class="two-col" style="margin-top:clamp(2.5rem,5vw,4rem)">' +
             '<div><p class="label">About the film</p></div>' +
