@@ -131,11 +131,8 @@
                     "sponsorLede":  "If you are a company, a venue or a funder, there is more we could do together.",
                     "sponsorBody":  "We have partnered with cinemas, film schools, craft spaces, restaurants and cultural organisations across London, Istanbul, Barcelona and Dublin. Sponsorship can mean funding a screening, hosting one, or bringing something to it that we could not make ourselves."
                 },
-    "lumaUrl":  "https://luma.com/passengercinema",
     "subscribe":  {
                       "heading":  "Never miss a screening.",
-                      "body":  "Follow our calendar and you get an email whenever we announce the next one. No newsletter, no digest, nothing else: just the events.",
-                      "cta":  "Follow our calendar",
-                      "emailBody":  "Prefer email? Leave your address and we will send you emails for future screenings."
+                      "body":  "Leave your email and we will tell you when the next one is announced. No newsletter, no digest, nothing else: just the events."
                   }
 }

@@ -164,7 +164,6 @@ content:
           - { name: posthogKey,  label: PostHog project key, type: string, description: "Leave blank for no analytics at all. Paste the project API key from PostHog → Settings → Project to switch it on." }
           - { name: posthogHost, label: PostHog host, type: string, description: "https://eu.i.posthog.com for the EU, https://us.i.posthog.com for the US." }
       - { name: donateUrl,     label: Donate link, type: string, description: "The Stripe payment link. Leave blank and the Donate button falls back to emailing you." }
-      - { name: lumaUrl,       label: Luma calendar link, type: string, description: "Your public Luma calendar. Leave blank and the whole Stay in touch block disappears." }
       - { name: footerTagline, label: Footer tagline, type: text }
 
       - name: home
@@ -238,8 +237,6 @@ content:
         fields:
           - { name: heading, label: Heading, type: text }
           - { name: body,    label: Body, type: text }
-          - { name: cta,       label: Button text, type: string }
-          - { name: emailBody, label: Email signup line, type: text }
 
       - name: support
         label: Support us page

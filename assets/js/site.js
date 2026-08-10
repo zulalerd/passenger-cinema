@@ -237,12 +237,6 @@
       if (donate) { el.href = donate; }
       else { el.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Donating to Passenger Cinema"); }
     });
-
-    /* the Luma calendar. If there is no link, hide the whole block rather
-       than leave a button that goes nowhere. */
-    var luma = t("lumaUrl");
-    $$("[data-luma]").forEach(function (el) { el.href = luma || "#"; });
-    if (!luma) { $$("[data-subscribe]").forEach(function (el) { el.hidden = true; }); }
     $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
   }
 
