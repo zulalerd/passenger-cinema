@@ -50,8 +50,8 @@ content:
           - { name: ends,     label: Ends,         type: string }
           - { name: ticketUrl,   label: Ticket link,  type: string }
           - { name: ticketLabel, label: Ticket button text, type: string }
-          - { name: destinationCode,    label: Destination code,    type: string, description: "Where the audience physically goes, if different from the film's country." }
-          - { name: destinationCountry, label: Destination country, type: string }
+          - { name: destinationCountry, label: Ticket stamp, type: string, description: "The rotated stamp on the ticket stub. Usually the film's country, but it can be anything: Saz uses 'Road trip' because it crosses nine of them." }
+          - { name: destination,        label: Destination, type: string, description: "Where the film takes you. Falls back to the city if left blank." }
           - { name: standfirst, label: Short summary, type: text, description: "One or two sentences. Used on cards and the ticket." }
           - { name: body,     label: About the film, type: text, list: true, description: "One entry per paragraph. Basic HTML like <em> is allowed." }
           - name: runningOrder

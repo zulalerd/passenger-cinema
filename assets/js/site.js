@@ -238,7 +238,8 @@
         '<span class="stamp">' +
           esc(ev.destinationCountry || ev.country || "") + "</span>" +
         '<div class="ticket__row"><dt>Boarding</dt><dd>' + esc(fmtStamp(ev)) + "</dd></div>" +
-        '<div class="ticket__row"><dt>Destination</dt><dd>' + esc(ev.city) + "</dd></div>" +
+        /* where the film takes you, which is not always where the room is */
+        '<div class="ticket__row"><dt>Destination</dt><dd>' + esc(ev.destination || ev.city) + "</dd></div>" +
         (ev.ticketUrl
           ? '<a class="btn" style="margin-top:.5rem" href="' + esc(ev.ticketUrl) + '" target="_blank" rel="noopener">' +
             esc(ev.ticketLabel || "Get tickets") + ' <span aria-hidden="true">&#8599;</span></a>'
@@ -393,20 +394,24 @@
         "</div></section>";
       return;
     }
-track("screening_viewed", {
-  film: ev.film,
-  slug: ev.slug,
-  country: ev.country,
-  year: ev.year,
-  event_date: ev.date,
-  venue: ev.venue,
-  city: ev.city,
-  has_photos: ev.photos && ev.photos.length > 0,
-  photo_count: ev.photos ? ev.photos.length : 0
-});
     var ev = PC.past[i];
     var prev = PC.past[i + 1];      /* older */
     var next = PC.past[i - 1];      /* newer */
+
+    /* must come after ev is assigned: var hoisting means ev exists but is
+       undefined above this line, which threw on every event page */
+    track("screening_viewed", {
+      film: ev.film,
+      slug: ev.slug,
+      country: ev.country,
+      year: ev.year,
+      event_date: ev.date,
+      venue: ev.venue,
+      city: ev.city,
+      has_photos: !!(ev.photos && ev.photos.length),
+      photo_count: ev.photos ? ev.photos.length : 0
+    });
+
     document.title = ev.film + " | Passenger Cinema";
     var md = $('meta[name="description"]');
     if (md && ev.standfirst) md.setAttribute("content", ev.standfirst);
@@ -817,11 +822,14 @@ track("screening_viewed", {
       }
     });
   }
-function track(name, props) {
-  if (window.posthog && window.posthog.capture) {
-    window.posthog.capture(name, props);
+  /* Safe no-op when analytics is off, which is the normal state locally and
+     whenever the PostHog key is blank. Never pass anything a visitor typed. */
+  function track(name, props) {
+    if (window.posthog && window.posthog.capture) {
+      window.posthog.capture(name, props);
+    }
   }
-}
+
   function boot() {
     var get = function (p) {
       return fetch(p, { cache: "no-cache" }).then(function (r) {
