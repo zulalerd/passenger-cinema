@@ -10,6 +10,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>
+/* Fetch the content now, while the page is still parsing, rather than waiting
+   for site.js at the end of the body. Without this the browser paints the copy
+   built into this file first and swaps it a moment later, which reads as a
+   flicker back to an older version of the page. */
+window.__pcData = ["data/site.json", "data/events.json", "data/roles.json"].map(function (p) {
+  var job = fetch(p, { cache: "no-cache" }).then(function (r) {
+    if (!r.ok) throw new Error(p + " returned " + r.status);
+    return r.json();
+  });
+  job.catch(function () {});   /* site.js handles the failure; keep the console quiet */
+  return job;
+});
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -41,8 +55,8 @@
       <p class="label label--stamp">Programming</p>
       <h1 class="display d1" style="max-width:16ch;margin:1rem 0 1.5rem" data-t="recommend.heading">Where should we go next?</h1>
       <p class="lede" style="max-width:48ch" data-t="recommend.standfirst">
-        Our best events have started with someone telling us about a film we&rsquo;d never heard of,
-        or offering a room nobody had thought of using as a cinema. Both are below.
+        Some of our best events have started with someone telling us about a film we&rsquo;d never
+        heard of, or offering a room nobody had thought of using as a cinema. Both are below.
       </p>
     </div>
   </section>

@@ -10,6 +10,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>
+/* Fetch the content now, while the page is still parsing, rather than waiting
+   for site.js at the end of the body. Without this the browser paints the copy
+   built into this file first and swaps it a moment later, which reads as a
+   flicker back to an older version of the page. */
+window.__pcData = ["data/site.json", "data/events.json", "data/roles.json"].map(function (p) {
+  var job = fetch(p, { cache: "no-cache" }).then(function (r) {
+    if (!r.ok) throw new Error(p + " returned " + r.status);
+    return r.json();
+  });
+  job.catch(function () {});   /* site.js handles the failure; keep the console quiet */
+  return job;
+});
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -56,7 +70,7 @@
     <div class="wrap">
       <div class="shead">
         <div class="shead__top"><p class="label">If it&rsquo;s your first time</p></div>
-        <h2 class="display d2" style="max-width:22ch" data-t="screenings.firstTimeHeading">What actually happens at a Passenger Cinema night?</h2>
+        <h2 class="display d2" style="max-width:22ch" data-t="screenings.firstTimeHeading">What actually happens at a Passenger Cinema event?</h2>
       </div>
       <div class="pillars" data-t-pillars="screenings.firstTime">
         <article class="pillar">

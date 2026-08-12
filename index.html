@@ -14,6 +14,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>
+/* Fetch the content now, while the page is still parsing, rather than waiting
+   for site.js at the end of the body. Without this the browser paints the copy
+   built into this file first and swaps it a moment later, which reads as a
+   flicker back to an older version of the page. */
+window.__pcData = ["data/site.json", "data/events.json", "data/roles.json"].map(function (p) {
+  var job = fetch(p, { cache: "no-cache" }).then(function (r) {
+    if (!r.ok) throw new Error(p + " returned " + r.status);
+    return r.json();
+  });
+  job.catch(function () {});   /* site.js handles the failure; keep the console quiet */
+  return job;
+});
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -51,9 +65,9 @@
       </div>
       <h1 class="display d1" data-t="home.heroHeading">Travelling without moving.</h1>
       <p class="hero__sub lede" data-t="home.heroStandfirst">
-        We are a volunteer-run community cinema in London. Every screening is a journey to
-        another country, and the event around the film is built with the people whose
-        culture is on the screen.
+        We bring films from around the world to different places, and bring people together
+        around them. Each screening is a chance to share a story, meet new people, and see
+        somewhere familiar or far away.
       </p>
       <div class="hero__foot">
         <a class="btn" href="screenings.html">What&rsquo;s on <span aria-hidden="true">&rarr;</span></a>
@@ -117,7 +131,7 @@
           <h3 class="display d3" style="margin-bottom:1rem">Recommend a film<br>or a space</h3>
           <p style="opacity:.82;max-width:38ch" data-t="home.involvedRecommend">
             Our programme comes from our audience as much as from us. Tell us about a film you think
-            London should see, or a room you think would make a beautiful cinema for one night.
+            London should see, or a room you think would make a beautiful cinema for a day.
           </p>
           <p style="margin:2rem 0 0"><a class="btn btn--ghost" href="recommend.html">Send us a suggestion</a></p>
         </article>

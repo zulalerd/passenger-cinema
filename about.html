@@ -10,6 +10,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>
+/* Fetch the content now, while the page is still parsing, rather than waiting
+   for site.js at the end of the body. Without this the browser paints the copy
+   built into this file first and swaps it a moment later, which reads as a
+   flicker back to an older version of the page. */
+window.__pcData = ["data/site.json", "data/events.json", "data/roles.json"].map(function (p) {
+  var job = fetch(p, { cache: "no-cache" }).then(function (r) {
+    if (!r.ok) throw new Error(p + " returned " + r.status);
+    return r.json();
+  });
+  job.catch(function () {});   /* site.js handles the failure; keep the console quiet */
+  return job;
+});
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -62,6 +76,19 @@
           <p>
             Every screening is an invitation to discover a new country, meet new people and experience
             a culture through film.
+          </p>
+          <p>
+            Our programme reflects the diversity of the city we call home. Every event brings together
+            people of different ages, nationalities and backgrounds around a shared experience, proving
+            that cinema can create common ground even when we don&rsquo;t share the same language or story.
+          </p>
+          <p>
+            We have travelled through cinema to Turkey, Japan, Brazil, Mexico, Jamaica, Italy, Hong Kong,
+            Spain and Iran, celebrating stories that are rarely given the spotlight in mainstream cinemas.
+            We believe audiences are curious and adventurous, and our programming reflects that. We have
+            been proud to welcome people from the cultures represented on screen alongside those
+            discovering them for the first time, creating conversations that continue long after the
+            credits roll.
           </p>
         </div>
       </div>
@@ -117,9 +144,7 @@
           </p>
           <p style="opacity:.85;max-width:52ch" data-t="award.body">
             In 2025 we won the Emerging Community Cinema Award at the Film Society of the Year
-            Awards, run by Cinema For All and sponsored by WRS Insurance. It came in the year
-            community cinema in Britain turned a hundred, which made it feel like being handed a
-            place in a much longer story.
+            Awards, run by Cinema For All and sponsored by WRS Insurance.
           </p>
           <p style="margin-top:1.5rem">
             <a class="link" href="https://cinemaforall.org.uk/film-society-of-the-year-awards-2025/"

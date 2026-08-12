@@ -932,7 +932,14 @@
         return r.json();
       });
     };
-    Promise.all([get("data/site.json"), get("data/events.json"), get("data/roles.json")])
+    /* The <head> starts these requests while the page is still parsing, so the
+       copy is usually in hand by the time we can write it into the page. If
+       that snippet is missing we simply ask for them now. */
+    var early = window.__pcData;
+    var jobs = (early && early.length === 3)
+      ? early
+      : [get("data/site.json"), get("data/events.json"), get("data/roles.json")];
+    Promise.all(jobs)
       .then(function (res) {
         SITE = res[0] || {};
         PC.upcoming = (res[1] && res[1].upcoming) || [];
