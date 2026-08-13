@@ -363,11 +363,12 @@
         "</span>");
       });
 
+      /* the one we have not been to yet leads to what's on, not to the archive */
       PC.upcoming.forEach(function (e) {
         out.push('<span class="pstamp-wrap">' +
-          '<span class="pstamp" data-next="true">' +
+          '<a class="pstamp" data-next="true" href="screenings.html">' +
             '<span class="pstamp__n">' + esc(e.destinationCountry || e.city) +
-            " <em>next</em></span></span>" +
+            " <em>next</em></span></a>" +
           peek(e.poster || (e.photos && e.photos[0]), e.film, fmtShort(e)) +
         "</span>");
       });
