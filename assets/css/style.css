@@ -268,7 +268,11 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 /* ------------------------------------------------------------------- hero */
 .hero { position: relative; background: var(--ink); color: var(--ivory); overflow: hidden; }
 .hero__media { position: absolute; inset: 0; }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; opacity: .52; filter: saturate(.85) contrast(1.03); }
+/* the crowd sits left of centre, so hold that side when a narrow screen crops */
+.hero__media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 35% center;
+  opacity: .52; filter: saturate(.85) contrast(1.03);
+}
 .hero__media::after {
   content: ""; position: absolute; inset: 0;
   background:
