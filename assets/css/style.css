@@ -21,7 +21,7 @@
 
   --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans:    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono:    "Space Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --mono:    "DM Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
   --gut:   clamp(1.25rem, 4vw, 3.5rem);
   --maxw:  1320px;
@@ -468,7 +468,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
           mask-size: 240px 120px;
 }
 .pstamp__n {
-  font-weight: 700;
+  font-weight: 500;   /* DM Mono stops at medium; 700 would be a faked bold */
   max-width: 22ch;
   text-align: center;
   overflow-wrap: anywhere;
