@@ -724,6 +724,19 @@
   /* =======================================================================
      FORMS
      ===================================================================== */
+  /* What someone sees once a form has gone through. A form can name its own
+     message with data-thanks="volunteer.thanks", which is editable in the CMS
+     so the dates in it can be kept current without touching this file. */
+  function thanks(form) {
+    var m = form.dataset.thanks ? t(form.dataset.thanks) : null;
+    if (m && m.heading) {
+      return "<strong>" + esc(m.heading) + "</strong>" +
+             (m.body ? "<br>" + esc(m.body) : "");
+    }
+    return "<strong>Thank you, that has landed.</strong><br>" +
+           "We read everything and we will be in touch.";
+  }
+
   function initForms() {
     $$("form[data-pcform]").forEach(function (form) {
       var msg = $("[data-formmsg]", form);
@@ -797,7 +810,7 @@
           }).then(function (res) {
             if (res && res.ok === false) throw new Error(res.error || "rejected");
             form.reset();
-            done("ok", "<strong>Thank you, that has landed.</strong><br>We read everything and we will be in touch.");
+            done("ok", thanks(form));
           }).catch(function () {
             done("err", "<strong>Something went wrong.</strong><br>Please email us at " +
               '<a href="mailto:' + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + '">' +

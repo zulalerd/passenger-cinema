@@ -230,6 +230,13 @@ content:
           - { name: standfirst, label: Standfirst, type: text }
           - { name: offerIntro, label: "What we offer: intro", type: text, description: "The short paragraph in the left column, beside the numbered list." }
           - { name: offer,      label: What we offer, type: text, list: true }
+          - name: thanks
+            label: Message after applying
+            type: object
+            description: "What someone sees on the page once they have sent their application. Remember to move the reply-by date on when it passes."
+            fields:
+              - { name: heading, label: First line, type: text }
+              - { name: body,    label: Rest of the message, type: text }
 
       - name: subscribe
         label: "Stay in touch block"

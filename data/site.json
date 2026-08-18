@@ -90,7 +90,11 @@
                                     "<strong>Build your portfolio.</strong> Use the work you make with Passenger Cinema in your own professional or creative practice.",
                                     "<strong>Space for your own creative work.</strong> If you’re an artist or filmmaker, we want Passenger Cinema to be a platform for your creativity too: your illustrations or artwork in our posters and visual materials, your short films screened at our events, or another way of bringing your work into the room.",
                                     "<strong>An annual membership to The Prince Charles Cinema</strong>, so you have another space to keep watching and discovering all year."
-                                ]
+                                ],
+                      "thanks":  {
+                                     "heading":  "Thank you for your application to join the Passenger Cinema team! 💌",
+                                     "body":  "We really appreciate your interest and the time you’ve taken to apply. We’ll be reviewing all applications over the coming weeks, and you can expect to hear back from us by 30 September. We’re looking forward to learning more about you!"
+                                 }
                   },
     "about":  {
                   "heading":  "We go wherever the film belongs.",
