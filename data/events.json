@@ -1,49 +1,54 @@
 {
     "upcoming":  [
-                     {
-                         "film":  "Saz: The Key of Trust",
-                         "slug":  "saz-the-key-of-trust",
-                         "director":  "Stephan Talneau",
-                         "year":  2018,
-                         "date":  "2026-08-23",
-                         "venue":  "The Dot Theatre",
-                         "city":  "Dublin",
-                         "doors":  "16:00",
-                         "start":  "16:30",
-                         "ends":  "20:30",
-                         "ticketUrl":  "https://thedot.ie/events/a744a95f-a6c9-465f-8e4d-cd1719f89189",
-                         "ticketLabel":  "Get tickets",
-                         "destinationCountry":  "Road trip",
-                         "standfirst":  "Our first event in Dublin. A musician follows the saz, a long-necked lute that has crossed borders for centuries, from Berlin to the mountains of Khorasan. Followed by live music from Mavi Duo.",
-                         "body":  [
-                                      "Join us for a special afternoon celebrating music, culture and connection with <em>Saz: The Key of Trust</em>, a documentary that follows musician and ethnomusicologist Petra Nachtmanova on an extraordinary journey from Berlin to Khorasan in search of the saz. A long-necked stringed instrument played across Turkey, Iran and Central Asia, the saz has travelled across borders for centuries.",
-                                      "Travelling across countries and generations, Petra meets musicians, instrument makers and communities whose lives have been shaped by the instrument.",
-                                      "Following the screening we will continue the journey through live music with Dublin-based musicians Ceren and Mert of Mavi Duo. Drawing on rich musical traditions and contemporary influences, their performance will bring many of the sounds and stories explored in the film to life, creating a bridge between the screen and the stage.",
-                                      "This is our first event in Dublin and we look forward to travelling together."
-                                  ],
-                         "runningOrder":  [
-                                              {
-                                                  "time":  "16:00",
-                                                  "what":  "Doors open"
-                                              },
-                                              {
-                                                  "time":  "16:30",
-                                                  "what":  "Screening of Saz: The Key of Trust"
-                                              },
-                                              {
-                                                  "time":  "18:30",
-                                                  "what":  "Live performance by Mavi Duo"
-                                              }
-                                          ],
-                         "beyond":  "Live performance by Mavi Duo (Ceren and Mert)",
-                         "photos":  [
-                                        "saz-01.jpg"
-                                    ],
-                         "poster":  "saz-poster.jpg",
-                         "destination":  "Khorasan"
-                     }
+
                  ],
     "past":  [
+                 {
+                     "film":  "Saz: The Key of Trust",
+                     "slug":  "saz-the-key-of-trust",
+                     "director":  "Stephan Talneau",
+                     "year":  2018,
+                     "country":  "Road trip",
+                     "date":  "2026-08-23",
+                     "venue":  "The Dot Theatre",
+                     "city":  "Dublin",
+                     "start":  "16:30",
+                     "soldOut":  false,
+                     "first":  false,
+                     "standfirst":  "Our first event in Dublin. A musician follows the saz, a long-necked lute that has crossed borders for centuries, from Berlin to the mountains of Khorasan. Followed by live music from Mavi Duo.",
+                     "story":  [
+                                   "Join us for a special afternoon celebrating music, culture and connection with <em>Saz: The Key of Trust</em>, a documentary that follows musician and ethnomusicologist Petra Nachtmanova on an extraordinary journey from Berlin to Khorasan in search of the saz. A long-necked stringed instrument played across Turkey, Iran and Central Asia, the saz has travelled across borders for centuries.",
+                                   "Travelling across countries and generations, Petra meets musicians, instrument makers and communities whose lives have been shaped by the instrument.",
+                                   "Following the screening we will continue the journey through live music with Dublin-based musicians Ceren and Mert of Mavi Duo. Drawing on rich musical traditions and contemporary influences, their performance will bring many of the sounds and stories explored in the film to life, creating a bridge between the screen and the stage.",
+                                   "This is our first event in Dublin and we look forward to travelling together."
+                               ],
+                     "beyond":  "Live performance by Mavi Duo (Ceren and Mert)",
+                     "photos":  [
+                                    "saz-02.jpg",
+                                    "saz-03.jpg",
+                                    "saz-04.jpg",
+                                    "saz-05.jpg",
+                                    "saz-06.jpg",
+                                    "saz-07.jpg",
+                                    "saz-08.jpg",
+                                    "saz-09.jpg",
+                                    "saz-10.jpg",
+                                    "saz-11.jpg",
+                                    "saz-01.jpg"
+                                ],
+                     "credits":  [
+                                     {
+                                         "name":  "The Dot Theatre",
+                                         "role":  "Dublin, venue",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Mavi Duo",
+                                         "role":  "live performance (Ceren and Mert)",
+                                         "photo":  ""
+                                     }
+                                 ]
+                 },
                  {
                      "film":  "The Cook, the Thief, His Wife & Her Lover",
                      "slug":  "the-cook-the-thief",
