@@ -309,6 +309,7 @@
         '<div class="ticket__row"><dt>Boarding</dt><dd>' + esc(fmtStamp(ev)) + "</dd></div>" +
         /* where the film takes you, which is not always where the room is */
         '<div class="ticket__row"><dt>Destination</dt><dd>' + esc(ev.destination || ev.city) + "</dd></div>" +
+        (ev.price ? '<div class="ticket__row"><dt>Fare</dt><dd>' + esc(ev.price) + "</dd></div>" : "") +
         (ev.ticketUrl
           ? '<a class="btn" style="margin-top:.5rem" href="' + esc(ev.ticketUrl) + '" target="_blank" rel="noopener">' +
             esc(ev.ticketLabel || "Get tickets") + ' <span aria-hidden="true">&#8599;</span></a>'

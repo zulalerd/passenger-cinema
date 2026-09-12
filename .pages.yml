@@ -50,6 +50,7 @@ content:
           - { name: ends,     label: Ends,         type: string }
           - { name: ticketUrl,   label: Ticket link,  type: string }
           - { name: ticketLabel, label: Ticket button text, type: string }
+          - { name: price,       label: Ticket price, type: string, description: "Shown on the ticket stub as the fare, e.g. £15. Leave blank for free events." }
           - { name: destinationCountry, label: Ticket stamp, type: string, description: "The rotated stamp on the ticket stub. Usually the film's country, but it can be anything: Saz uses 'Road trip' because it crosses nine of them." }
           - { name: destination,        label: Destination, type: string, description: "Where the film takes you. Falls back to the city if left blank." }
           - { name: standfirst, label: Short summary, type: text, description: "One or two sentences. Used on cards and the ticket." }
