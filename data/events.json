@@ -1,6 +1,47 @@
 {
     "upcoming":  [
-
+                     {
+                         "film":  "Once Upon a Time in Venezuela",
+                         "slug":  "once-upon-a-time-in-venezuela",
+                         "director":  "Anabel Rodríguez Ríos",
+                         "year":  2020,
+                         "date":  "2026-10-04",
+                         "venue":  "Central Film School",
+                         "city":  "Clapham, London",
+                         "doors":  "15:30",
+                         "start":  "16:00",
+                         "ticketUrl":  "",
+                         "ticketLabel":  "Get tickets",
+                         "country":  "Venezuela",
+                         "destinationCountry":  "Venezuela",
+                         "destination":  "Congo Mirador",
+                         "standfirst":  "A village on stilts on Lake Maracaibo, filmed over seven years. Followed by a live Q&A with director Anabel Rodríguez Ríos and Venezuelan music. All ticket proceeds go to Venezuelan earthquake relief.",
+                         "body":  [
+                                      "<em>Once Upon a Time in Venezuela</em> takes us to Congo Mirador, a fishing village of houses on stilts on Lake Maracaibo, beneath the famous Catatumbo lightning. Filmed over seven years, Anabel Rodríguez Ríos’s documentary follows Tamara, a local businesswoman and representative of the ruling party, and Natalie, a teacher who supports the opposition, as their village confronts corruption, pollution and political decay. It is an intimate portrait of a community holding on, and of a country.",
+                                      "After the film, Anabel will join us live online for a Q&amp;A, and we will close the afternoon with Venezuelan music.",
+                                      "On 24 June, two powerful earthquakes of magnitude 7.2 and 7.5 struck the north of Venezuela, less than a minute apart. The coastal state of La Guaira and the capital, Caracas, were hit hardest. More than 6,500 people lost their lives, thousands are still missing, and thousands of families lost their homes. Aid agencies say the most urgent needs are safe shelter, clean water, health care and support for children.",
+                                      "All ticket proceeds will go to Venezuelan charities working on earthquake relief. Come and watch with us, and help us stand with Venezuela."
+                                  ],
+                         "runningOrder":  [
+                                              {
+                                                  "time":  "15:30",
+                                                  "what":  "Doors open"
+                                              },
+                                              {
+                                                  "time":  "16:00",
+                                                  "what":  "Screening of Once Upon a Time in Venezuela"
+                                              },
+                                              {
+                                                  "time":  "After",
+                                                  "what":  "Live Q&A with director Anabel Rodríguez Ríos, then Venezuelan music"
+                                              }
+                                          ],
+                         "beyond":  "Live Q&A with director Anabel Rodríguez Ríos and Venezuelan music, raising funds for earthquake relief",
+                         "photos":  [
+                                        "venezuela-01.jpg"
+                                    ],
+                         "poster":  "venezuela-poster.jpg"
+                     }
                  ],
     "past":  [
                  {
@@ -609,6 +650,11 @@
                                          "name":  "Tenmaru Ramen",
                                          "role":  "post-screening",
                                          "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Manisha Ramsaran",
+                                         "role":  "Photographer",
+                                         "photo":  ""
                                      }
                                  ]
                  },
@@ -649,6 +695,11 @@
                                      {
                                          "name":  "Kerem Advan",
                                          "role":  "live performance",
+                                         "photo":  ""
+                                     },
+                                     {
+                                         "name":  "Manisha Ramsaran",
+                                         "role":  "Photographer",
                                          "photo":  ""
                                      }
                                  ]

@@ -312,7 +312,8 @@
         (ev.ticketUrl
           ? '<a class="btn" style="margin-top:.5rem" href="' + esc(ev.ticketUrl) + '" target="_blank" rel="noopener">' +
             esc(ev.ticketLabel || "Get tickets") + ' <span aria-hidden="true">&#8599;</span></a>'
-          : "") +
+          /* no link yet: say so, rather than leaving the stub with no way forward */
+          : '<p class="label label--muted" style="margin-top:.5rem">Tickets on sale soon</p>') +
       "</aside>" +
     "</article>";
   }
