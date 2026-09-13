@@ -687,14 +687,22 @@
     var qslot  = $("[data-role-questions]");
     if (!picker || !qslot) return;
 
-    picker.innerHTML = PC.roles.map(function (r, n) {
-      return '<div class="role"><label>' +
+    /* A role marked closed in the CMS stays listed, so people can see what we
+       recruit for, but it sits after the open ones and cannot be chosen. */
+    var roles = PC.roles.filter(function (r) { return !r.closed; })
+      .concat(PC.roles.filter(function (r) { return r.closed; }));
+    var firstOpen = roles.filter(function (r) { return !r.closed; })[0];
+
+    picker.innerHTML = roles.map(function (r) {
+      var shut = !!r.closed;
+      return '<div class="role' + (shut ? " role--closed" : "") + '"><label>' +
         '<input type="radio" name="role" value="' + esc(r.title) + '" data-role="' + esc(r.id) + '"' +
-          (n === 0 ? " checked" : "") + ">" +
+          (r === firstOpen ? " checked" : "") + (shut ? " disabled" : "") + ">" +
         "<span>" +
           '<span class="role__t"><span class="role__dot" aria-hidden="true"></span>' +
             "<h3>" + esc(r.title) + "</h3></span>" +
           "<p>" + esc(r.blurb) + "</p>" +
+          (shut ? '<p class="role__closed">Applications closed</p>' : "") +
         "</span></label></div>";
     }).join("");
 
@@ -717,7 +725,7 @@
         }).join("");
     }
 
-    build(PC.roles[0] && PC.roles[0].id);
+    build(firstOpen && firstOpen.id);
     picker.addEventListener("change", function (e) {
       if (e.target.name === "role") build(e.target.dataset.role);
     });

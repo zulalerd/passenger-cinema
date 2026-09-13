@@ -35,6 +35,7 @@
                   },
                   {
                       "id":  "programmer",
+                      "closed":  true,
                       "title":  "Film Programmer",
                       "blurb":  "Help decide where we travel next, and what the event around the film should be.",
                       "questions":  [
@@ -102,6 +103,7 @@
                   },
                   {
                       "id":  "general",
+                      "closed":  true,
                       "title":  "General volunteer, or something else",
                       "blurb":  "Front of house, set-up and pack-down, photography, illustration, translation, workshop help, or an idea we have not thought of.",
                       "questions":  [

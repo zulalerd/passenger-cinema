@@ -767,6 +767,16 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .role h3 { font-family: var(--display); font-size: 1.15rem; line-height: 1.15; }
 .role p { margin: 0; font-size: .9rem; opacity: .75; }
 
+/* a role that is not recruiting: still listed, visibly out of reach */
+.role--closed label { cursor: default; }
+.role--closed label:hover { background: transparent; }
+.role--closed .role__t, .role--closed p { opacity: .45; }
+.role--closed .role__closed {
+  opacity: 1; margin-top: .8rem;
+  font-family: var(--sans); font-weight: 500; font-size: .625rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--stamp);
+}
+
 /* offer list */
 .offer { list-style: none; display: grid; gap: 0; }
 .offer li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .75rem; align-items: start;

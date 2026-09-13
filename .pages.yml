@@ -138,6 +138,7 @@ content:
           - { name: id,    label: ID, type: string, required: true, description: "Short lowercase key, e.g. programmer." }
           - { name: title, label: Role title, type: string, required: true }
           - { name: blurb, label: Short description, type: text }
+          - { name: closed, label: Applications closed, type: boolean, description: "Tick to stop taking applications for this role. It stays listed on the page, marked closed, and cannot be selected. Untick to reopen." }
           - name: questions
             label: Application questions
             type: object
