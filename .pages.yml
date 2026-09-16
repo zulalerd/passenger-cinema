@@ -63,6 +63,17 @@ content:
               - { name: time, label: Time, type: string }
               - { name: what, label: What happens, type: string }
           - { name: beyond, label: Beyond the screen, type: string, description: "The one-line summary of the workshop, meal or gig. Shown on cards." }
+          - name: partners
+            label: Partners & beneficiaries
+            type: object
+            list: true
+            description: "Sponsors, partners and the charities the event raises money for. Grouped on the page by role, in this order."
+            fields:
+              - { name: name,  label: Name, type: string, required: true }
+              - { name: role,  label: Role, type: string, description: "The group heading, e.g. Proceeds go to, Venue sponsor, Event partner. Partners with the same role are shown together." }
+              - { name: logo,  label: Logo, type: image, options: { media: event-photos, path: "" }, description: "A PNG with a transparent background works best." }
+              - { name: url,   label: Website, type: string }
+              - { name: about, label: One line about them, type: text, description: "Optional. Follows their name, so start lower case, e.g. 'is a registered charity that...'. Best kept for the charities." }
           - name: poster
             label: Poster
             type: image
@@ -99,6 +110,17 @@ content:
           - { name: beyondTitle, label: "Beyond the screen: heading", type: string }
           - { name: beyondBody,  label: "Beyond the screen: paragraphs", type: text, list: true }
           - { name: beyond,   label: Beyond the screen summary, type: string, description: "One line, shown on cards." }
+          - name: partners
+            label: Partners & beneficiaries
+            type: object
+            list: true
+            description: "Sponsors, partners and the charities the event raises money for. Grouped on the page by role, in this order."
+            fields:
+              - { name: name,  label: Name, type: string, required: true }
+              - { name: role,  label: Role, type: string, description: "The group heading, e.g. Proceeds go to, Venue sponsor, Event partner. Partners with the same role are shown together." }
+              - { name: logo,  label: Logo, type: image, options: { media: event-photos, path: "" }, description: "A PNG with a transparent background works best." }
+              - { name: url,   label: Website, type: string }
+              - { name: about, label: One line about them, type: text, description: "Optional. Follows their name, so start lower case, e.g. 'is a registered charity that...'. Best kept for the charities." }
           - name: credits
             label: Made with
             type: object

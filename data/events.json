@@ -21,7 +21,7 @@
                                       "<em>Once Upon a Time in Venezuela</em> takes us to Congo Mirador, a fishing village of houses on stilts on Lake Maracaibo, beneath the famous Catatumbo lightning. Filmed over seven years, Anabel Rodríguez Ríos’s documentary follows Tamara, a local businesswoman and representative of the ruling party, and Natalie, a teacher who supports the opposition, as their village confronts corruption, pollution and political decay. It is an intimate portrait of a community holding on, and of a country.",
                                       "After the film, Anabel will join us live online for a Q&amp;A, and we will close the afternoon with Venezuelan music.",
                                       "On 24 June, two powerful earthquakes of magnitude 7.2 and 7.5 struck the north of Venezuela, less than a minute apart. The coastal state of La Guaira and the capital, Caracas, were hit hardest. More than 6,500 people lost their lives, thousands are still missing, and thousands of families lost their homes. Aid agencies say the most urgent needs are safe shelter, clean water, health care and support for children.",
-                                      "All proceeds after Stripe fees will go to Venezuelan charities working on earthquake relief. Come and watch with us, and help us stand with Venezuela."
+                                      "All proceeds after Stripe fees will go to two organisations bringing relief to the communities hit hardest: Coromoto 2020 and Venezuelan Relief UK. Come and watch with us, and help us stand with Venezuela."
                                   ],
                          "runningOrder":  [
                                               {
@@ -41,6 +41,34 @@
                          "photos":  [
                                         "venezuela-01.jpg"
                                     ],
+                         "partners":  [
+                                          {
+                                              "name":  "Coromoto 2020",
+                                              "role":  "Proceeds go to",
+                                              "logo":  "logo-coromoto-2020.png",
+                                              "url":  "https://www.globalgiving.org/projects/earthquake-emergency-appeal-for-la-guaira-vzla/",
+                                              "about":  "delivers emergency food, safe drinking water, hygiene kits and medical supplies in La Guaira, where it has worked alongside local communities for years."
+                                          },
+                                          {
+                                              "name":  "Venezuelan Relief UK",
+                                              "role":  "Proceeds go to",
+                                              "logo":  "logo-venezuelan-relief-uk.png",
+                                              "url":  "https://www.venezuelanreliefuk.org/",
+                                              "about":  "is a registered charity (no. 1218988) that collects donated humanitarian aid across the UK and ships it to communities affected by the earthquakes."
+                                          },
+                                          {
+                                              "name":  "Central Film School",
+                                              "role":  "Venue sponsor",
+                                              "logo":  "logo-central-film-school.png",
+                                              "url":  "https://www.centralfilmschool.com/"
+                                          },
+                                          {
+                                              "name":  "Balkong Studios",
+                                              "role":  "Event partner",
+                                              "logo":  "logo-balkong-studios.png",
+                                              "url":  "https://www.instagram.com/balkongstudiosltd/"
+                                          }
+                                      ],
                          "poster":  "venezuela-poster.jpg"
                      }
                  ],

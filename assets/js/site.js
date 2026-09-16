@@ -391,6 +391,37 @@
   /* =======================================================================
      SCREENINGS
      ===================================================================== */
+  /* =======================================================================
+     PARTNERS
+     Venue sponsors, event partners and the charities an event raises money
+     for, grouped under their role in the order they are listed. Logos are
+     transparent PNGs, drawn at a common height so no one mark shouts.
+     ===================================================================== */
+  function partnersMarkup(ev) {
+    var list = (ev.partners || []).filter(function (p) { return p && p.name; });
+    if (!list.length) return "";
+    var groups = [], byRole = {};
+    list.forEach(function (p) {
+      var role = p.role || "With";
+      if (!byRole[role]) { byRole[role] = []; groups.push(role); }
+      byRole[role].push(p);
+    });
+    return '<div class="partners">' + groups.map(function (role) {
+      return '<section class="partners__group">' +
+        '<p class="label label--muted">' + esc(role) + "</p>" +
+        '<ul class="partners__list">' + byRole[role].map(function (p) {
+          var mark = p.logo
+            ? '<img src="' + imgPath(p.logo) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">'
+            : '<span class="partners__name">' + esc(p.name) + "</span>";
+          var open = p.url ? '<a class="partners__mark" href="' + esc(p.url) + '" target="_blank" rel="noopener">' : '<span class="partners__mark">';
+          var shut = p.url ? "</a>" : "</span>";
+          return '<li class="partner' + (p.about ? " partner--about" : "") + '">' + open + mark + shut +
+            (p.about ? '<p class="partner__about"><b>' + esc(p.name) + "</b> " + esc(p.about) + "</p>" : "") +
+          "</li>";
+        }).join("") + "</ul></section>";
+    }).join("") + "</div>";
+  }
+
   function renderScreenings() {
     var slot = $("[data-upcoming]");
     if (!slot) return;
@@ -417,6 +448,9 @@
           ? '<div style="margin-top:clamp(2.5rem,5vw,4rem)">' +
               '<div class="shead"><div class="shead__top"><p class="label">About the film</p></div></div>' +
               '<div class="filmgrid">' + poster + '<div class="prose">' + body + "</div></div>" +
+              (ev.partners && ev.partners.length
+                ? '<div class="shead" style="margin-top:clamp(2.5rem,5vw,3.5rem)"><div class="shead__top"><p class="label">Partners &amp; beneficiaries</p></div></div>' + partnersMarkup(ev)
+                : "") +
             "</div>"
           : "") +
       "</article>";
@@ -613,7 +647,13 @@
       '<p style="margin:2.5rem 0 0"><a class="link" href="archive.html">All past events <span class="arw" aria-hidden="true">&rarr;</span></a></p>' +
       "</div></nav>";
 
-    root.innerHTML = hero + meta + story + beyond + gallery + credits + nav;
+    var partners = partnersMarkup(ev)
+      ? '<section class="section"><div class="wrap"><div class="two-col">' +
+          '<div><p class="label">Partners &amp; beneficiaries</p></div><div>' + partnersMarkup(ev) + "</div>" +
+        "</div></div></section>"
+      : "";
+
+    root.innerHTML = hero + meta + story + beyond + gallery + partners + credits + nav;
 
     if (ev.photos && ev.photos.length > 1) initLightbox(ev);
   }
