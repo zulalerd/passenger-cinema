@@ -45,7 +45,7 @@
  */
 
 var TICKETS = {
-  paymentLinkUrl: "https://buy.stripe.com/6oU28rfeFfFz1Sw9ij3Ru02",
+  paymentLinkUrl: "https://buy.stripe.com/8x29ATc2t3WRfJmfGH3Ru03",
   ticketPrice: 1500,                    // in pence; used to thank people who pay more
   sheetName: "Tickets",
   fromName: "Passenger Cinema",
@@ -320,10 +320,12 @@ function stripe_(path) {
 }
 
 /* Stripe filters sales by the link's ID (plink_...), not its web address, so
-   look it up once from the address and remember it. */
+   look it up from the address and remember it. The address is remembered too,
+   so changing paymentLinkUrl above makes it look the new one up. */
 function paymentLinkId_() {
   var props = PropertiesService.getScriptProperties();
   var cached = props.getProperty("PAYMENT_LINK_ID");
+  if (props.getProperty("PAYMENT_LINK_URL") !== TICKETS.paymentLinkUrl) cached = null;
   if (cached) return cached;
   var after = null, page;
   do {
@@ -332,6 +334,7 @@ function paymentLinkId_() {
       after = page.data[i].id;
       if (page.data[i].url === TICKETS.paymentLinkUrl) {
         props.setProperty("PAYMENT_LINK_ID", page.data[i].id);
+        props.setProperty("PAYMENT_LINK_URL", TICKETS.paymentLinkUrl);
         return page.data[i].id;
       }
     }

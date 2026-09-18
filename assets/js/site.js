@@ -301,19 +301,7 @@
         "</dl>" +
         (ev.standfirst ? '<p class="lede" style="max-width:48ch;margin-bottom:1.75rem">' + esc(ev.standfirst) + "</p>" : "") +
         (order ? '<p class="label label--muted" style="margin-bottom:.9rem">Running order</p><ul class="runorder">' + order + "</ul>" : "") +
-        /* buying is the main action whenever tickets are on sale; the details
-           link steps back to a text link on the home page */
-        ((ev.ticketUrl || !full)
-          ? '<p class="ticket__actions">' +
-            (ev.ticketUrl
-              ? '<a class="btn" href="' + esc(ev.ticketUrl) + '" target="_blank" rel="noopener">' +
-                esc(ev.ticketLabel || "Get tickets") + (ev.price ? ' · ' + esc(ev.price) : "") + ' <span aria-hidden="true">&#8599;</span></a>'
-              : "") +
-            (full ? "" : ev.ticketUrl
-              ? '<a class="link" href="screenings.html">Full details <span class="arw" aria-hidden="true">&rarr;</span></a>'
-              : '<a class="btn" href="screenings.html">Full details <span aria-hidden="true">&rarr;</span></a>') +
-            "</p>"
-          : "") +
+        (full ? "" : '<a class="btn" href="screenings.html">Full details <span aria-hidden="true">&rarr;</span></a>') +
       "</div>" +
       '<aside class="ticket__stub">' +
         '<span class="stamp">' +

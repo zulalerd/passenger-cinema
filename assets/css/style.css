@@ -847,5 +847,3 @@ a.partners__mark:hover { opacity: .75; }
 .partner__about { margin: 0; font-size: .9rem; line-height: 1.5; opacity: .82; max-width: 40ch; }
 .partner__about b { font-weight: 600; opacity: 1; }
 
-/* the buy button and the details link sit side by side, wrapping on phones */
-.ticket__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; margin: 0; }
