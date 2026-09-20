@@ -147,7 +147,44 @@ window.__pcData = ["data/site.json", "data/events.json", "data/roles.json"].map(
         </article>
       </div>
     </div>
-  </section></main>
+  </section>
+
+  <!-- ==================================================== STAY IN TOUCH -->
+  <section class="section section--tight ivory">
+    <div class="wrap">
+      <div class="two-col stayintouch">
+        <div><p class="label">Stay in touch</p></div>
+        <div>
+          <p class="stayintouch__lede" data-t="subscribe.heading">Never miss a screening.</p>
+          <p class="stayintouch__p" data-t="subscribe.body">
+            Leave your email and we will tell you when the next event is announced.
+          </p>
+
+          <form class="form ph-no-capture" data-pcform data-subject="Newsletter" novalidate
+                style="margin-top:1.1rem;max-width:30rem;gap:.5rem">
+            <div class="hp" aria-hidden="true">
+              <label>Leave this empty<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <div class="signup">
+              <div class="field">
+                <label class="sr" for="nl-email-home">Your email</label>
+                <input id="nl-email-home" name="Your email" type="email" required
+                       placeholder="you@example.com" autocomplete="email">
+                <p class="err" hidden>Please enter a valid email</p>
+              </div>
+              <button class="btn btn--sm" type="submit">Sign up</button>
+            </div>
+            <div class="formMsg" data-formmsg role="status" aria-live="polite" style="margin-top:.75rem"></div>
+          </form>
+
+          <p class="stayintouch__row">
+            <a class="btn btn--sm btn--ghost" data-instagram href="#" target="_blank" rel="noopener">@passenger.cinema</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer class="foot">
   <div class="wrap">
