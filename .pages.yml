@@ -51,6 +51,7 @@ content:
           - { name: ticketUrl,   label: Ticket link,  type: string }
           - { name: ticketLabel, label: Ticket button text, type: string }
           - { name: price,       label: Ticket price, type: string, description: "Shown on the ticket stub as the fare, e.g. £15. Leave blank for free events." }
+          - { name: rating,  label: Age guidance, type: string, description: "Shown in the details list, e.g. 7+ or 15. Leave blank if the film has no rating." }
           - { name: destinationCountry, label: Ticket stamp, type: string, description: "The rotated stamp on the ticket stub. Usually the film's country, but it can be anything: Saz uses 'Road trip' because it crosses nine of them." }
           - { name: destination,        label: Destination, type: string, description: "Where the film takes you. Falls back to the city if left blank." }
           - { name: standfirst, label: Short summary, type: text, description: "One or two sentences. Used on cards and the ticket." }
@@ -102,6 +103,7 @@ content:
           - { name: dateNote, label: Date override, type: string, description: "Only if the exact day is unknown, e.g. 'April 2026'." }
           - { name: venue,    label: Venue,        type: string }
           - { name: city,     label: City / area,  type: string }
+          - { name: rating,     label: Age guidance, type: string, description: "Shown in the details list, e.g. 7+ or 15." }
           - { name: attendance, label: Attendance, type: number }
           - { name: soldOut,  label: Sold out?,    type: boolean }
           - { name: first,    label: Our first screening?, type: boolean }
