@@ -282,8 +282,9 @@
       /* country lives here rather than in the letterspaced label line, because
          a co-production can list a dozen countries and that would sprawl */
       ["Country", ev.country],
-      /* age guidance, when the film carries one */
-      ["Age", ev.rating]
+      /* "Age guidance" rather than "Age", because this is our own steer and
+         not a BBFC certificate */
+      ["Age guidance", ev.rating]
     ].filter(function (r) { return r[1]; });
 
     var order = (ev.runningOrder || []).map(function (r) {
@@ -568,7 +569,7 @@
       ["Venue", ev.venue],
       ["Where", ev.city],
       ["Director", ev.director],
-      ["Age", ev.rating],
+      ["Age guidance", ev.rating],
       ["Attendance", ev.attendance ? ev.attendance + " people" : null]
     ].filter(function (r) { return r[1]; });
 
