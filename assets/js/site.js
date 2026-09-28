@@ -282,6 +282,9 @@
       /* country lives here rather than in the letterspaced label line, because
          a co-production can list a dozen countries and that would sprawl */
       ["Country", ev.country],
+      /* we subtitle everything, but say so: it is the question we get asked
+         most often before a screening */
+      ["Language", ev.language],
       /* "Age guidance" rather than "Age", because this is our own steer and
          not a BBFC certificate */
       ["Age guidance", ev.rating]
@@ -569,6 +572,7 @@
       ["Venue", ev.venue],
       ["Where", ev.city],
       ["Director", ev.director],
+      ["Language", ev.language],
       ["Age guidance", ev.rating],
       ["Attendance", ev.attendance ? ev.attendance + " people" : null]
     ].filter(function (r) { return r[1]; });
