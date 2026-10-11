@@ -104,6 +104,7 @@ content:
           - { name: dateNote, label: Date override, type: string, description: "Only if the exact day is unknown, e.g. 'April 2026'." }
           - { name: venue,    label: Venue,        type: string }
           - { name: city,     label: City / area,  type: string }
+          - { name: start,    label: Film started, type: string, description: "e.g. 16:00" }
           - { name: language,   label: Language,     type: string, description: "As an audience needs to hear it, e.g. Spanish with English subtitles." }
           - { name: rating,     label: Age guidance, type: string, description: "Shown in the details list, e.g. 7+ or 15." }
           - { name: attendance, label: Attendance, type: number }
@@ -141,6 +142,11 @@ content:
             fields:
               - { name: label, label: Link text, type: string }
               - { name: url,   label: URL, type: string }
+          - name: poster
+            label: Poster
+            type: image
+            options: { media: event-photos, path: "" }
+            description: "Used as the card image in the archive. Portrait works best."
           - name: photos
             label: Photographs
             type: image
