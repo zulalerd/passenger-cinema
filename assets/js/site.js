@@ -421,8 +421,15 @@
             : '<span class="partners__name">' + esc(p.name) + "</span>";
           var open = p.url ? '<a class="partners__mark" href="' + esc(p.url) + '" target="_blank" rel="noopener">' : '<span class="partners__mark">';
           var shut = p.url ? "</a>" : "</span>";
-          return '<li class="partner' + (p.about ? " partner--about" : "") + '">' + open + mark + shut +
-            (p.about ? '<p class="partner__about"><b>' + esc(p.name) + "</b> " + esc(p.about) + "</p>" : "") +
+          /* a partner with no logo would print its name twice, once as the mark
+             and again at the head of its line, so the line carries it alone */
+          var twice = !p.logo && p.about;
+          var lead = p.url && twice
+            ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener"><b>' + esc(p.name) + "</b></a>"
+            : "<b>" + esc(p.name) + "</b>";
+          return '<li class="partner' + (p.about ? " partner--about" : "") + '">' +
+            (twice ? "" : open + mark + shut) +
+            (p.about ? '<p class="partner__about">' + lead + " " + esc(p.about) + "</p>" : "") +
           "</li>";
         }).join("") + "</ul></section>";
     }).join("") + "</div>";
